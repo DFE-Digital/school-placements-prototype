@@ -1,6 +1,23 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
+
+// Import local component styles
+@import "app/views/_components/primary-navigation/_primary-navigation.scss";
 
 // Add extra styles here
+
+/// GOV UK HEADER TO DFE STYLE ONE //
+
+.govuk-header__service-name { font-weight: normal; }
+.govuk-header__logo { width: auto; padding-right: 0; }
+.govuk-header__content { padding-left: 5px; }
+@media (min-width: 48.0625em) {
+.govuk-header__navigation { width:auto; float: right; position: absolute; right: 0; top: 10px;}
+}
+.govuk-header { border-bottom: 10px solid #1d70b8; }
+
+/// Phase banner ///
+
+.govuk-phase-banner--no-border-bottom { border-bottom: 0; }

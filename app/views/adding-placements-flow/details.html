@@ -1,0 +1,282 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Organisation details" %}
+
+{% set primaryNavId = "details" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation name"
+            },
+            value: {
+              text: "Whitburn Church of England Academy"
+            }
+          },
+          {
+            key: {
+              text: "UK provider reference number (UKPRN)"
+            },
+            value: {
+              text: "1003254"
+            }
+          },
+          {
+            key: {
+              text: "Unique reference number (URN)"
+            },
+            value: {
+              html: "136386"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Additional details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Group"
+            },
+            value: {
+              text: "Academies"
+            }
+          },
+          {
+            key: {
+              text: "Type"
+            },
+            value: {
+              text: "Academy converter"
+            }
+          },
+          {
+            key: {
+              text: "Phase"
+            },
+            value: {
+              text: "Secondary"
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Mixed"
+            }
+          },
+          {
+            key: {
+              text: "Minimum age"
+            },
+            value: {
+              text: "11"
+            }
+          },
+          {
+            key: {
+              text: "Maximum age"
+            },
+            value: {
+              text: "18"
+            }
+          },
+          {
+            key: {
+              text: "Sixth form"
+            },
+            value: {
+              text: "Has a sixth form"
+            }
+          },
+          {
+            key: {
+              text: "Religious character"
+            },
+            value: {
+              text: "Church of England"
+            }
+          },
+          {
+            key: {
+              text: "Admissions policy"
+            },
+            value: {
+              text: "Non-selective"
+            }
+          },
+          {
+            key: {
+              text: "Urban or rural"
+            },
+            value: {
+              text: "(England/Wales) Urban city and town"
+            }
+          },
+          {
+            key: {
+              text: "School capacity"
+            },
+            value: {
+              text: "1305"
+            }
+          },
+          {
+            key: {
+              text: "Total pupils"
+            },
+            value: {
+              text: "1240"
+            }
+          },
+          {
+            key: {
+              text: "Total boys"
+            },
+            value: {
+              text: "598"
+            }
+          },
+          {
+            key: {
+              text: "Total girls"
+            },
+            value: {
+              text: "642"
+            }
+          },
+          {
+            key: {
+              text: "Percentage free school meals"
+            },
+            value: {
+              text: "11%"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+        Special educational needs and disabilities (SEND)
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Special classes"
+            },
+            value: {
+              text: "Not entered"
+            }
+          },
+          {
+            key: {
+              html: '<abbr title="Special educational needs and disability">SEND</abbr> provision'
+            },
+            value: {
+              text: "Not entered"
+            }
+          },
+          {
+            key: {
+              text: "Training with disabilities"
+            },
+            value: {
+              text: "Not entered"
+            }
+          }
+        ]
+      }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Ofsted
+    </h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Rating"
+          },
+          value: {
+            text: "Good"
+          }
+        },
+        {
+          key: {
+            text: "Last inspection date"
+          },
+          value: {
+            text: "13 November 2019"
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Contact details
+    </h2>
+
+  {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            text: "Not entered",
+            classes: "govuk-hint"
+          }
+        },
+        {
+          key: {
+            text: "Telephone number"
+          },
+          value: {
+            text: "01915293712"
+          }
+        },
+        {
+          key: {
+            text: "Website"
+          },
+          value: {
+            html: "<a href='http://www.whitburncofeacademy.org'>www.whitburncofeacademy.org</a>"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
+          }
+        }
+      ]
+    }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

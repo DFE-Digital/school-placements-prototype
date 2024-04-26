@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="School user prototypes" %}
+{% set pageName="Multi-org user prototypes" %}
 
 {% set back = false %}
 
@@ -19,38 +19,44 @@
 
   <div class="govuk-grid-column-three-quarters">
 
-    <h1 class="govuk-heading-l">
-    {{ pageName }}
+<h1 class="govuk-heading-l">
+    {{ title }}
     </h1>
 
-   <h2 class="govuk-heading-m">Anne</h2>
+   <h2 class="govuk-heading-m">Mary</h2>
 
         {{ govukTag({
-          text: "School",
-          classes: "govuk-tag--purple govuk-!-margin-bottom-5"
+          text: "Multi-Org",
+          classes: "govuk-tag--yellow govuk-!-margin-bottom-5"
         }) }}
 
         <p class="govuk-body">
-          Anne is a lead mentor within a school.
+          Mary is a part-time teacher in a multi academy trust (MAT), but also leads a SCITT.
         </p>
 
         <p class="govuk-body">
-          Anne’s role includes:
+          Mary’s role includes:
         </p>
 
         <ul class="govuk-list govuk-list--bullet">
           <li>
+            recruiting and training mentors
+          </li>
+          <li>
             setting timetables for mentors within the school
           </li>
           <li>
-            being the main point of contact for providers
-          </li>
-          <li>
-            ensuring mentors’ training is up-to-date
+            organising placements for trainees
           </li>
         </ul>
 
-        <a href="adding-placements-flow/placements" class="govuk-button">Sign in as Anne</a>
+        <form action="{{ actions.save }}" method="post" accept-charset="utf-8" novalidate>
+          <input type="hidden" name="username" value="mary@example.com">
+          <input type="hidden" name="password" value="bat">
+          {{ govukButton({
+            text: "Sign in as Mary"
+          }) }}
+        </form>
   </div>
 
 </div>

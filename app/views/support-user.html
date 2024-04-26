@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="School user prototypes" %}
+{% set pageName="Support user prototypes" %}
 
 {% set back = false %}
 
@@ -19,38 +19,28 @@
 
   <div class="govuk-grid-column-three-quarters">
 
-    <h1 class="govuk-heading-l">
-    {{ pageName }}
+<h1 class="govuk-heading-l">
+    {{ title }}
     </h1>
 
-   <h2 class="govuk-heading-m">Anne</h2>
+   <h2 class="govuk-heading-m">Colin</h2>
 
         {{ govukTag({
-          text: "School",
-          classes: "govuk-tag--purple govuk-!-margin-bottom-5"
+          text: "Support",
+          classes: "govuk-tag--blue govuk-!-margin-bottom-5"
         }) }}
 
         <p class="govuk-body">
-          Anne is a lead mentor within a school.
+          Colin is a DfE support agent who has administrator access to all organisations.
         </p>
 
-        <p class="govuk-body">
-          Anne’s role includes:
-        </p>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            setting timetables for mentors within the school
-          </li>
-          <li>
-            being the main point of contact for providers
-          </li>
-          <li>
-            ensuring mentors’ training is up-to-date
-          </li>
-        </ul>
-
-        <a href="adding-placements-flow/placements" class="govuk-button">Sign in as Anne</a>
+        <form action="{{ actions.save }}" method="post" accept-charset="utf-8" novalidate>
+          <input type="hidden" name="username" value="colin.chapman@education.gov.uk">
+          <input type="hidden" name="password" value="bat">
+          {{ govukButton({
+            text: "Sign in as Colin"
+          }) }}
+        </form>
   </div>
 
 </div>

@@ -1,0 +1,161 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Subject" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-mentor" method="post">
+        <span class="govuk-caption-l">Add a placement</span>
+        {{ govukRadios({
+            name: "placementSubject",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Ancient Greek",
+                text: "Ancient Greek"
+              },
+              {
+                value: "Ancient Hebrew",
+                text: "Ancient Hebrew"
+              },
+              {
+                value: "Art and design",
+                text: "Art and design"
+              },
+              {
+                value: "Biology",
+                text: "Biology"
+              },
+              {
+                value: "Business studies",
+                text: "Business studies"
+              },
+              {
+                value: "Chemistry",
+                text: "Chemistry"
+              },
+              {
+                value: "Citizenship",
+                text: "Citizenship"
+              },
+              {
+                value: "Classics",
+                text: "Classics"
+              },
+              {
+                value: "Communication and media studies",
+                text: "Communication and media studies"
+              },
+              {
+                value: "Computing",
+                text: "Computing"
+              },
+              {
+                value: "Dance",
+                text: "Dance"
+              },
+              {
+                value: "Design and technology",
+                text: "Design and technology"
+              },
+              {
+                value: "Drama",
+                text: "Drama"
+              },
+              {
+                value: "Economics",
+                text: "Economics"
+              },
+              {
+                value: "English",
+                text: "English"
+              },
+              {
+                value: "English as a second or other language",
+                text: "English as a second or other language"
+              },
+              {
+                value: "Geography",
+                text: "Geography"
+              },
+              {
+                value: "Health and social care",
+                text: "Health and social care"
+              },
+              {
+                value: "History",
+                text: "History"
+              },
+              {
+                value: "Latin",
+                text: "Latin"
+              },
+              {
+                value: "Mathematics",
+                text: "Mathematics"
+              },
+              {
+                value: "Modern foreign languages~add-placement-subject-secondary-modern-foreign-languages",
+                text: "Modern foreign languages"
+              },
+              {
+                value: "Music",
+                text: "Music"
+              },
+              {
+                value: "Philosophy",
+                text: "Philosophy"
+              },
+              {
+                value: "Physical education",
+                text: "Physical education"
+              },
+              {
+                value: "Physics",
+                text: "Physics"
+              },
+              {
+                value: "Psychology",
+                text: "Psychology"
+              },
+              {
+                value: "Religious education",
+                text: "Religious education"
+              },
+              {
+                value: "Social sciences",
+                text: "Social sciences"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
