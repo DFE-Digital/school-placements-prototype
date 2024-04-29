@@ -1,0 +1,58 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Provider" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="placement-detail" method="post">
+        <span class="govuk-caption-l">Manage a placement</span>
+        {{ govukRadios({
+            name: "placementProvider",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Best Practice Network",
+                text: "Best Practice Network"
+              },
+              {
+                value: "NIoT: National Institute of Teaching, founded by the School-Led Development Trust",
+                text: "NIoT: National Institute of Teaching, founded by the School-Led Development Trust"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      {{ govukDetails({
+        summaryText: "My provider is not listed",
+        html: "You will first need to <a href='providers'>add a provider</a>"
+      }) }}
+
+      <p class="govuk-body"><a href="placement-detail">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -21,9 +21,16 @@
       {% endset %}
 
       <h1 class="govuk-heading-l">{{ placementTitle }}
-        {{ govukTag({
-          text: "Available"
-        }) }}
+        {% if data['placementProvider'] %}
+          {{ govukTag({
+            text: "Allocated"
+          }) }}
+        {% else %}
+          {{ govukTag({
+           text: "Available"
+          }) }}
+        {% endif %}
+
         </h1>
 
           {{ govukSummaryList({
@@ -118,7 +125,7 @@
                   text: "Mentor"
                 },
                 value: {
-                  html: "<a href='add-placement-provider'>Add a mentor</a>"
+                  html: "<a href='#'>Add a mentor</a>"
                 }
               } if not data ['placementMentor'],
               {
@@ -143,7 +150,7 @@
                   text: "Provider"
                 },
                 value: {
-                  html: "<a href='add-placement-provider'>Assign a provider</a>"
+                  html: "<a href='assign-a-provider'>Assign a provider</a>"
                 }
               } if not data ['placementProvider']
             ]
