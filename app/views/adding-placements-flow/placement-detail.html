@@ -41,15 +41,6 @@
                 },
                 value: {
                  text: data['placementSubjectLevel']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-placement-subject-level",
-                      text: "Change",
-                      visuallyHiddenText: "subject level"
-                    }
-                  ]
                 }
               },
               {
@@ -58,15 +49,6 @@
                 },
                 value: {
                   text: data['placementSubject']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-placement-subject-primary",
-                      text: "Change",
-                      visuallyHiddenText: "subject"
-                    }
-                  ]
                 }
               } if data['placementSubjectLevel'] == "Primary",
               {
@@ -75,15 +57,6 @@
                 },
                 value: {
                   text: data['placementSubject']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-placement-subject-secondary",
-                      text: "Change",
-                      visuallyHiddenText: "subject"
-                    }
-                  ]
                 }
               } if data['placementSubjectLevel'] == "Secondary",
               {
@@ -92,15 +65,6 @@
                 },
                 value: {
                   text: data['placementModernForeignLanguage']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-placement-subject-secondary",
-                      text: "Change",
-                      visuallyHiddenText: "additional subjects"
-                    }
-                  ]
                 }
               } if data['placementModernForeignLanguage'],
               {
