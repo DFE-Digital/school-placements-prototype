@@ -19,7 +19,53 @@
         Add placement
       </a>
 
-      <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>
+      {% set publishedTag %}
+        {{ govukTag({
+          text: "Published"
+        }) }}
+      {% endset %}
+
+      {% set placementTitle %}
+        {% if data['placementModernForeignLanguage'] %}
+          <a href="placement-detail">{{ data['placementModernForeignLanguage'] }}</a>
+        {% else %}
+          <a href="placement-detail">{{ data['placementSubject'] }}</a>
+        {% endif %}
+      {% endset %}
+
+        {% if data['placementSubject'] %}
+          {{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Mentor"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: placementTitle
+                },
+                {
+                  text: data['placementMentor']
+                },
+                {
+                  html: publishedTag
+                }
+              ]
+            ]
+          }) }}
+      {% else %}
+      <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p>
+      {% endif %}
   </div>
 
   <div class="govuk-grid-column-one-third">

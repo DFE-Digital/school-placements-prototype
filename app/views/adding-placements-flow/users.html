@@ -19,7 +19,29 @@
         Add user
       </a>
 
-      <p class="govuk-body">There are no users for Whitburn Church of England Academy.</p>
+      {{ govukTable({
+            caption: "Users",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Email"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='#'>Anne Wilson</a>"
+                },
+                {
+                  text: "anne@example.com"
+                }
+              ]
+            ]
+          }) }}
   </div>
 
   <div class="govuk-grid-column-one-third">

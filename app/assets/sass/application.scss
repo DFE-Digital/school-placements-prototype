@@ -21,3 +21,27 @@
 /// Phase banner ///
 
 .govuk-phase-banner--no-border-bottom { border-bottom: 0; }
+
+/// Destructive links ///
+
+.app-link--destructive {
+    color: #d4351c;
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+.app-link--destructive:link, .app-link--destructive:visited, .app-link--destructive:hover, .app-link--destructive:active { color: #d4351c; }
+
+@media (min-width: 40.0625em) {
+    .app-link--destructive {
+        font-size: 1.1875rem;
+        line-height: 1.3157894737;
+    }
+}
+
+/// Tag in heading ///
+
+h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}

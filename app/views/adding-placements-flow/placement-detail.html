@@ -1,6 +1,6 @@
 {% extends "layouts/user.html" %}
 
-{% set pageName="Check your answers" %}
+{% set pageName="Placement details" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,9 +12,20 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-check-your-answers" method="post">
-        <span class="govuk-caption-l">Add a placement</span>
-        <h1 class="govuk-heading-l">Check your answers</h1>
+      {% set placementTitle %}
+        {% if data['placementModernForeignLanguage'] %}
+          {{ data['placementModernForeignLanguage'] }}
+        {% else %}
+          {{ data['placementSubject'] }}
+        {% endif %}
+      {% endset %}
+
+      <h1 class="govuk-heading-l">{{ placementTitle }}
+        {{ govukTag({
+          text: "Published"
+        }) }}
+        </h1>
+
           {{ govukSummaryList({
             rows: [
               {
@@ -105,16 +116,8 @@
             ]
           }) }}
 
-          {{ govukInsetText({
-            text: "When a placement is published, it will be visible to accredited providers and lead partners."
-          }) }}
 
-          {{ govukButton({
-            text: "Publish placement"
-          }) }}
-      </form>
-
-      <p class="govuk-body"><a href="placements">Cancel</a></p>
+      <p class="govuk-body"><a href="placement-remove" class="govuk-link app-link--destructive">Remove placement</a></p>
 
   </div>
 
