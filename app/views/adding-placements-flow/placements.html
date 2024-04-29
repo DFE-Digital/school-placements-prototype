@@ -20,7 +20,6 @@
       </a>
 
       {% set statusTag %}
-        <h1 class="govuk-heading-l">{{ placementTitle }}
         {% if data['placementProvider'] %}
           {{ govukTag({
             text: "Allocated",
@@ -39,6 +38,14 @@
           <a href="placement-detail">{{ data['placementModernForeignLanguage'] }}</a>
         {% else %}
           <a href="placement-detail">{{ data['placementSubject'] }}</a>
+        {% endif %}
+      {% endset %}
+
+      {% set mentorName %}
+        {% if data['placementMentor'] %}
+          {{ data['placementMentor'] }}
+        {% else %}
+          Not known yet
         {% endif %}
       {% endset %}
 
@@ -64,7 +71,7 @@
                   html: placementTitle
                 },
                 {
-                  text: data['placementMentor']
+                  html: mentorName
                 },
                 {
                   html: statusTag

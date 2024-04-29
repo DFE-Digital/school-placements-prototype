@@ -33,6 +33,14 @@
           }) }}
         {% endif %}
 
+        {% set mentorName %}
+          {% if data['placementMentor'] %}
+            {{ data['placementMentor'] }}
+          {% else %}
+            Not known yet
+          {% endif %}
+        {% endset %}
+
         </h1>
 
           {{ govukSummaryList({
@@ -74,26 +82,26 @@
                   text: "Mentor"
                 },
                 value: {
-                  text: data['placementMentor']
+                  html: mentorName
                 },
                 actions: {
                   items: [
                     {
-                      href: "#",
+                      href: "change-placement-mentor",
                       text: "Change",
                       visuallyHiddenText: "mentor"
                     }
                   ]
                 }
-              },
+              } if data['mentorTRN'],
               {
                 key: {
                   text: "Mentor"
                 },
                 value: {
-                  html: "<a href='#'>Add a mentor</a>"
+                  html: "<a href='mentors'>Add a mentor</a>"
                 }
-              } if not data ['placementMentor'],
+              } if not data ['mentorTRN'],
               {
                 key: {
                   text: "Provider"
