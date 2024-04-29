@@ -15,14 +15,14 @@
       {{ pageName }}
       </h1>
 
-      <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      <a href="add-provider" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Add partner provider
       </a>
 
       <!-- <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p> -->
 
       {{ govukTable({
-        caption: "Mentors",
+        caption: "Providers",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: false,
         head: [
@@ -42,6 +42,14 @@
               text: "10019464"
             }
           ],
+          [
+            {
+              html: "<a href='provider-detail'>Growing Expert Teachers</a>"
+            },
+            {
+              text: "10005959"
+            }
+          ] if data ['input-autocomplete'],
           [
             {
               html: "<a href='provider-detail'>NIoT: National Institute of Teaching, founded by the School-Led Development Trust</a>"
