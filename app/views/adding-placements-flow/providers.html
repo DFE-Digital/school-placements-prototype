@@ -19,7 +19,39 @@
         Add partner provider
       </a>
 
-      <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p>
+      <!-- <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p> -->
+
+      {{ govukTable({
+        caption: "Mentors",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Unique reference number (URN)"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#'>Best Practice Network</a>"
+            },
+            {
+              text: "10019464"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>NIoT: National Institute of Teaching, founded by the School-Led Development Trust</a>"
+            },
+            {
+              text: "10090839"
+            }
+          ]
+        ]
+      }) }}
 
   </div>
 
