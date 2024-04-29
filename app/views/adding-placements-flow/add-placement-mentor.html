@@ -62,6 +62,11 @@
           {{ govukButton({
             text: "Continue"
           }) }}
+
+            {{ govukDetails({
+        summaryText: "My mentor is not listed",
+        html: "You will first need to <a href='providers'>add a mentor</a>"
+      }) }}
       </form>
 
       <p class="govuk-body"><a href="placements">Cancel</a></p>
