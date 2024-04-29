@@ -22,7 +22,7 @@
 
       <h1 class="govuk-heading-l">{{ placementTitle }}
         {{ govukTag({
-          text: "Published"
+          text: "Available"
         }) }}
         </h1>
 
@@ -112,7 +112,40 @@
                     }
                   ]
                 }
-              }
+              },
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  html: "<a href='add-placement-provider'>Add a mentor</a>"
+                }
+              } if not data ['placementMentor'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  text: data['placementProvider']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-provider",
+                      text: "Change",
+                      visuallyHiddenText: "placement provider"
+                    }
+                  ]
+                }
+              } if data['placementProvider'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  html: "<a href='add-placement-provider'>Assign a provider</a>"
+                }
+              } if not data ['placementProvider']
             ]
           }) }}
 
