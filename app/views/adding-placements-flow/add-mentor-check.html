@@ -2,7 +2,7 @@
 
 {% set pageName="Check your answers" %}
 
-{% set primaryNavId = "placements" %}
+{% set primaryNavId = "mentors" %}
 
 {% set back = true %}
 
@@ -12,41 +12,57 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="placements" method="post">
-        <span class="govuk-caption-l">Add a placement</span>
+      <form action="mentors" method="post">
+        <span class="govuk-caption-l">Add a mentor</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({
             rows: [
               {
                 key: {
-                  text: "Subject level"
+                  text: "First name"
                 },
                 value: {
-                 text: data['placementSubjectLevel']
+                 text: "Thea"
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                  text: "Weiss"
+                }
+              },
+              {
+                key: {
+                  text: "Teacher reference number (TRN)"
+                },
+                value: {
+                  text: data['mentorTRN']
                 },
                 actions: {
                   items: [
                     {
-                      href: "add-placement-subject-level",
+                      href: "add-mentor",
                       text: "Change",
-                      visuallyHiddenText: "subject level"
+                      visuallyHiddenText: "Teacher reference number (TRN)"
                     }
                   ]
                 }
               },
               {
                 key: {
-                  text: "Mentor"
+                  text: "Date of birth"
                 },
                 value: {
-                  text: data['placementMentor']
+                  text: "21/07/1978"
                 },
                 actions: {
                   items: [
                     {
-                      href: "#",
+                      href: "add-mentor",
                       text: "Change",
-                      visuallyHiddenText: "mentor"
+                      visuallyHiddenText: "date of birth"
                     }
                   ]
                 }
@@ -55,15 +71,15 @@
           }) }}
 
           {{ govukInsetText({
-            text: "When a placement is published, it will be visible to accredited providers and lead partners."
+            html: "I confirm that Thea Weiss has been informed that the Department for Education will store their information in line with the <a href=''>privacy notice</a> and have provided them with a copy of this notice for reference."
           }) }}
 
           {{ govukButton({
-            text: "Publish placement"
+            text: "Save mentor"
           }) }}
       </form>
 
-      <p class="govuk-body"><a href="placements">Cancel</a></p>
+      <p class="govuk-body"><a href="mentors">Cancel</a></p>
 
   </div>
 

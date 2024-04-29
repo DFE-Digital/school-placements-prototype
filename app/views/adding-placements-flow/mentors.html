@@ -19,9 +19,37 @@
         Add mentor
       </a>
 
-      <!-- <p class="govuk-body">There are no mentors for Whitburn Church of England Academy.</p>  -->
 
-      {{ govukTable({
+
+      {% if data['mentorTRN'] %}
+        {{ govukTable({
+          caption: "Mentors",
+          captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "Teacher reference number (TRN)"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#'>Thea Weiss</a>"
+              },
+              {
+                text: "6400299"
+              }
+            ]
+          ]
+        }) }}
+      {% else %}
+          <p class="govuk-body">There are no mentors for Whitburn Church of England Academy.</p>
+      {% endif %}
+
+      <!-- {{ govukTable({
         caption: "Mentors",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: false,
@@ -83,7 +111,7 @@
             }
           ]
         ]
-      }) }}
+      }) }} -->
 
   </div>
 
