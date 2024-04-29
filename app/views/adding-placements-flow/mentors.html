@@ -21,35 +21,7 @@
 
 
 
-      {% if data['mentorTRN'] %}
-        {{ govukTable({
-          caption: "Mentors",
-          captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Name"
-            },
-            {
-              text: "Teacher reference number (TRN)"
-            }
-          ],
-          rows: [
-            [
-              {
-                html: "<a href='#'>Thea Weiss</a>"
-              },
-              {
-                text: "6400299"
-              }
-            ]
-          ]
-        }) }}
-      {% else %}
-          <p class="govuk-body">There are no mentors for Whitburn Church of England Academy.</p>
-      {% endif %}
-
-      <!-- {{ govukTable({
+      {{ govukTable({
         caption: "Mentors",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: false,
@@ -80,14 +52,6 @@
           ],
           [
             {
-              html: "<a href='#'>Hannah Brady</a>"
-            },
-            {
-              text: "5755507"
-            }
-          ],
-          [
-            {
               html: "<a href='#'>Myra Carroll</a>"
             },
             {
@@ -101,7 +65,7 @@
             {
               text: "6400299"
             }
-          ],
+          ] if data['mentorTRN'],
           [
             {
               html: "<a href='#'>Walter Higgins</a>"
@@ -111,7 +75,7 @@
             }
           ]
         ]
-      }) }} -->
+      }) }}
 
   </div>
 
