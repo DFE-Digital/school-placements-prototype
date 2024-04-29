@@ -1,6 +1,6 @@
 {% extends "layouts/user.html" %}
 
-{% set pageName="Modern foreign languages" %}
+{% set pageName="Subject" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,11 +12,15 @@
 
   <div class="govuk-grid-column-two-thirds">
 
+        {% if data['mentorTRN'] %}
         <form action="add-placement-mentor"  method="post">
+        {% else %}
+        <form action="add-placement-check"  method="post">
+        {% endif %}
 
         <span class="govuk-caption-l">Add a placement</span>
-        {{ govukCheckboxes({
-            name: "placementModernForeignLanguage",
+        {{ govukRadios({
+            name: "placementSubject",
             fieldset: {
               legend: {
                 text: pageName,
@@ -26,32 +30,32 @@
             },
             items: [
               {
-                value: "French",
-                text: "French"
+                value: "Primary",
+                text: "Primary"
               },
               {
-                value: "German",
-                text: "German"
+                value: "Primary with English",
+                text: "Primary with English"
               },
               {
-                value: "Italian",
-                text: "Italian"
+                value: "Primary with geography",
+                text: "Primary with geography"
               },
               {
-                value: "Japanese",
-                text: "Japanese"
+                value: "Primary with mathematics",
+                text: "Primary with mathematics"
               },
               {
-                value: "Mandarin",
-                text: "Mandarin"
+                value: "Primary with modern languages",
+                text: "Primary with modern languages"
               },
               {
-                value: "Russian",
-                text: "Russian"
+                value: "Primary with physical education",
+                text: "Primary with physical education"
               },
               {
-                value: "Spanish",
-                text: "Spanish"
+                value: "Primary with science",
+                text: "Primary with science"
               }
             ]
           }) }}

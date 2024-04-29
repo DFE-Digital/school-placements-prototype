@@ -1,0 +1,144 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Placement details" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      {% set placementTitle %}
+        {% if data['placementModernForeignLanguage'] %}
+          {{ data['placementModernForeignLanguage'] }}
+        {% else %}
+          {{ data['placementSubject'] }}
+        {% endif %}
+      {% endset %}
+
+      <h1 class="govuk-heading-l">{{ placementTitle }}
+        {% if data['placementProvider'] %}
+          {{ govukTag({
+            text: "Unavailable",
+            classes: "govuk-tag--orange"
+          }) }}
+        {% else %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+        {% endif %}
+
+        {% set mentorName %}
+          {% if data['placementMentor'] %}
+            {{ data['placementMentor'] }}
+          {% else %}
+            Not known yet
+          {% endif %}
+        {% endset %}
+
+        </h1>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Subject level"
+                },
+                value: {
+                 text: data['placementSubjectLevel']
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                }
+              } if data['placementSubjectLevel'] == "Primary",
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                }
+              } if data['placementSubjectLevel'] == "Secondary",
+              {
+                key: {
+                  text: "Additional subjects"
+                },
+                value: {
+                  text: data['placementModernForeignLanguage']
+                }
+              } if data['placementModernForeignLanguage'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  html: mentorName
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['mentorTRN'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  html: "<a href='mentors'>Add a mentor</a>"
+                }
+              } if not data ['mentorTRN'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  text: data['placementProvider']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-provider",
+                      text: "Change",
+                      visuallyHiddenText: "placement provider"
+                    }
+                  ]
+                }
+              } if data['placementProvider'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  html: "<a href='assign-a-provider'>Assign a provider</a>"
+                }
+              } if not data ['placementProvider']
+            ]
+          }) }}
+
+
+      <p class="govuk-body"><a href="placement-remove" class="govuk-link app-link--destructive">Remove placement</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

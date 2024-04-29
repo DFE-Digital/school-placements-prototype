@@ -12,8 +12,11 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-
+      {% if data['mentorTRN'] %}
         <form action="add-placement-mentor"  method="post">
+        {% else %}
+        <form action="add-placement-check"  method="post">
+        {% endif %}
 
         <span class="govuk-caption-l">Add a placement</span>
         {{ govukRadios({

@@ -1,6 +1,6 @@
 {% extends "layouts/user.html" %}
 
-{% set pageName="Modern foreign languages" %}
+{% set pageName="Mentor" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,11 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-        <form action="add-placement-mentor"  method="post">
-
-        <span class="govuk-caption-l">Add a placement</span>
+      <form action="placement-detail" method="post">
+        <span class="govuk-caption-l">Manage a placement</span>
         {{ govukCheckboxes({
-            name: "placementModernForeignLanguage",
+            name: "placementMentor",
             fieldset: {
               legend: {
                 text: pageName,
@@ -26,38 +25,27 @@
             },
             items: [
               {
-                value: "French",
-                text: "French"
+                value: "Thea Weiss",
+                text: "Thea Weiss"
               },
               {
-                value: "German",
-                text: "German"
+                divider: "or"
               },
               {
-                value: "Italian",
-                text: "Italian"
-              },
-              {
-                value: "Japanese",
-                text: "Japanese"
-              },
-              {
-                value: "Mandarin",
-                text: "Mandarin"
-              },
-              {
-                value: "Russian",
-                text: "Russian"
-              },
-              {
-                value: "Spanish",
-                text: "Spanish"
+                value: "Not known yet",
+                text: "Not known yet",
+                behaviour: "exclusive"
               }
             ]
           }) }}
 
           {{ govukButton({
             text: "Continue"
+          }) }}
+
+            {{ govukDetails({
+            summaryText: "My mentor is not listed",
+            html: "You will first need to <a href='providers'>add a mentor</a>"
           }) }}
       </form>
 
