@@ -23,11 +23,13 @@
       <h1 class="govuk-heading-l">{{ placementTitle }}
         {% if data['placementProvider'] %}
           {{ govukTag({
-            text: "Allocated"
+            text: "Allocated",
+            classes: "govuk-tag--orange"
           }) }}
         {% else %}
           {{ govukTag({
-           text: "Available"
+           text: "Available",
+           classes: "govuk-tag--turquoise"
           }) }}
         {% endif %}
 
