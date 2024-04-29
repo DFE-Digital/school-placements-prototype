@@ -1,0 +1,76 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="placements" method="post">
+        <span class="govuk-caption-l">Add a placement</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Subject level"
+                },
+                value: {
+                 text: data['placementSubjectLevel']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-level",
+                      text: "Change",
+                      visuallyHiddenText: "subject level"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: data['placementMentor']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            text: "When a placement is published, it will be visible to accredited providers and lead partners."
+          }) }}
+
+          {{ govukButton({
+            text: "Publish placement"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
