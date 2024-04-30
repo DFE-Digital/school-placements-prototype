@@ -18,7 +18,7 @@ router.get("/school-user-001/mentor-added", (req, res) => {
 })
 
 router.get("/school-user-001/provider-added", (req, res) => {
-    req.flash('success', 'Provider added')
+    req.flash('success', 'Partner provider added')
     res.redirect(req.originalUrl.replace("provider-added","providers"))
 })
 

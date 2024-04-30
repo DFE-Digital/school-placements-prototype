@@ -18,9 +18,14 @@ router.get("/school-user-003/mentor-added", (req, res) => {
 })
 
 router.get("/school-user-003/provider-added", (req, res) => {
-    req.flash('success', 'Provider added')
+    req.flash('success', 'Partner provider added')
     res.redirect(req.originalUrl.replace("provider-added","providers"))
 })
 
+router.get("/school-user-003/provider-removed", (req, res) => {
+    req.flash('success', 'Partner provider removed')
+    req.session.data.providerRemoved = 1
+    res.redirect(req.originalUrl.replace("provider-removed","providers"))
+})
 
 }

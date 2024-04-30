@@ -21,3 +21,4 @@ router.all('*', (req, res, next) => {
 
 require('./views/school-user-001/router/routes')(router)
 require('./views/school-user-002/router/routes')(router)
+require('./views/school-user-003/router/routes')(router)
