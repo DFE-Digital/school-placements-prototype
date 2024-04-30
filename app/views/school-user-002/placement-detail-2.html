@@ -1,0 +1,129 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Placement details" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">English
+        {% if data['placementProvider'] %}
+          {{ govukTag({
+            text: "Unavailable",
+            classes: "govuk-tag--orange"
+          }) }}
+        {% else %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+        {% endif %}
+        </h1>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Subject level"
+                },
+                value: {
+                 text: "Secondary"
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: "English"
+                }
+              },
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: "Not known yet"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-mentor-2",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if not data['placementMentor2'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: data['placementMentor2']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-mentor-2",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['placementMentor2'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  text: data['placementProvider']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "assign-a-provider-2",
+                      text: "Change",
+                      visuallyHiddenText: "placement provider"
+                    }
+                  ]
+                }
+              } if data['placementProvider2'],
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  html: "<a href='assign-a-provider-2'>Assign a provider</a>"
+                }
+              } if not data ['placementProvider2']
+            ]
+          }) }}
+
+
+      <p class="govuk-body"><a href="placement-remove" class="govuk-link app-link--destructive">Remove placement</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
