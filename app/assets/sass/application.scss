@@ -45,3 +45,47 @@
 /// Tag in heading ///
 
 h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
+
+/// Organisation header ///
+
+.app-organisation-actions {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.app-organisation-actions__title {
+    float: left;
+    width: 60%;
+}
+
+.app-organisation-actions__title {
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+}
+
+.app-organisation-actions__title {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+.app-organisation-actions__actions {
+    display: table-cell;
+    width: 40%;
+    padding-right: 0;
+    text-align: right;
+    float: right;
+}
+
+.app-organisation-actions__actions {
+    margin: 0;
+}
+
+.app-organisation-actions::after {
+    content: "";
+    display: block;
+    clear: both;
+}
