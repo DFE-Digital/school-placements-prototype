@@ -12,4 +12,15 @@ router.get("/school-user-001/placement-updated", (req, res) => {
     res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
 })
 
+router.get("/school-user-001/mentor-added", (req, res) => {
+    req.flash('success', 'Mentor added')
+    res.redirect(req.originalUrl.replace("mentor-added","mentors"))
+})
+
+router.get("/school-user-001/provider-added", (req, res) => {
+    req.flash('success', 'Provider added')
+    res.redirect(req.originalUrl.replace("provider-added","providers"))
+})
+
+
 }
