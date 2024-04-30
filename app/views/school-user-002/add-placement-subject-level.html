@@ -1,0 +1,53 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Subject level" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <span class="govuk-caption-l">Add a placement</span>
+        {{ govukRadios({
+            name: "placementSubjectLevel",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary~add-placement-subject-primary",
+                text: "Primary"
+              },
+              {
+                value: "Secondary~add-placement-subject-secondary",
+                text: "Secondary"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

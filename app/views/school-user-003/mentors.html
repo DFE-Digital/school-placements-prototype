@@ -1,0 +1,97 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Mentors" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <a href="add-mentor" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add mentor
+      </a>
+
+
+
+      {{ govukTable({
+        caption: "Mentors",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Teacher reference number (TRN)"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#'>Anya Fuller</a>"
+            },
+            {
+              text: "8861163"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>Grace Bishop</a>"
+            },
+            {
+              text: "9544573"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>Myra Carroll</a>"
+            },
+            {
+              text: "9003618"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>Thea Weiss</a>"
+            },
+            {
+              text: "6400299"
+            }
+          ] if data['mentorTRN'],
+          [
+            {
+              html: "<a href='#'>Walter Higgins</a>"
+            },
+            {
+              text: "6417076"
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

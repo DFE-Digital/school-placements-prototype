@@ -20,4 +20,4 @@ router.all('*', (req, res, next) => {
 // Link to router files
 
 require('./views/school-user-001/router/routes')(router)
-
+require('./views/school-user-002/router/routes')(router)
