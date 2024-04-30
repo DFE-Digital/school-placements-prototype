@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Organisations" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li><a href="#">Bingham Church of England Academy</a></li>
+        <li><a href="#">Horsley Vale Academy</a></li>
+        <li><a href="#">Lemingside Secondary School</a></li>
+        <li><a href="placements">Whitburn Church of England Academy</a></li>
+      </ul>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
