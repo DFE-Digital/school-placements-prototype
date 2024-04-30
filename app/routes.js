@@ -9,4 +9,15 @@ const router = govukPrototypeKit.requests.setupRouter()
 const radioButtonRedirect = require('radio-button-redirect')
 router.use(radioButtonRedirect)
 
-// Add your routes here
+const flash = require('connect-flash')
+router.use(flash())
+
+router.all('*', (req, res, next) => {
+    res.locals.flash = req.flash('success')
+    next()
+})
+
+// Link to router files
+
+require('./views/school-user-001/router/routes')(router)
+
