@@ -14,6 +14,7 @@ router.get("/school-user-003/placement-updated", (req, res) => {
 
 router.get("/school-user-003/mentor-added", (req, res) => {
     req.flash('success', 'Mentor added')
+    req.session.data.mentorTRN = 1
     res.redirect(req.originalUrl.replace("mentor-added","mentors"))
 })
 
