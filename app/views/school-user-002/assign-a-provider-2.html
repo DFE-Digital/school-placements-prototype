@@ -35,6 +35,11 @@
             ]
           }) }}
 
+          {{ govukWarningText({
+            text: "Do not assign a provider unless you have an agreement with them.",
+            iconFallbackText: "Warning"
+          }) }}
+          
           {{ govukButton({
             text: "Continue"
           }) }}
