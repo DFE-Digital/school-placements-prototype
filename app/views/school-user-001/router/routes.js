@@ -23,5 +23,11 @@ router.get("/school-user-001/provider-added", (req, res) => {
     res.redirect(req.originalUrl.replace("provider-added","providers"))
 })
 
+router.get("/school-user-001/itt-added", (req, res) => {
+    req.flash('success', 'ITT placement contact added')
+    res.redirect(req.originalUrl.replace("itt-added","details"))
+})
+
+
 
 }

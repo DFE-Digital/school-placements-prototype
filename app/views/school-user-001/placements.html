@@ -24,10 +24,6 @@
       {{ pageName }}
       </h1>
 
-      <a href="add-placement-subject-level" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Add placement
-      </a>
-
       {% set statusTag %}
         {% if data['placementProvider'] %}
           {{ govukTag({
@@ -58,7 +54,17 @@
         {% endif %}
       {% endset %}
 
-        {% if data['placementSubject'] %}
+        {% if not data['ittContactEmail'] %}
+
+        {{ govukInsetText({
+            html: "<p>You must add the <a href='add-itt-contact'>ITT placement contact</a> email before adding a placement</p>"
+          }) }}
+
+        {% elseif data['placementSubject'] %}
+       <a href="add-placement-subject-level" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+
           {{ govukTable({
             caption: "Placements",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
@@ -89,6 +95,10 @@
             ]
           }) }}
       {% else %}
+      <a href="add-placement-subject-level" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+
       <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>
       {% endif %}
   </div>

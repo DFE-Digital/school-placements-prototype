@@ -1,6 +1,6 @@
 {% extends "layouts/user.html" %}
 
-{% set pageName="Organisation details" %}
+{% set pageName="Whitburn Church of England School" %}
 
 {% set primaryNavId = "details" %}
 
@@ -9,11 +9,78 @@
 {% block content %}
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
       {{ pageName }}
       </h1>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      ITT placement contact
+    </h2>
+
+      {% if not data['ittContactName'] %}
+       <a href="add-itt-contact" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add ITT placement contact
+      </a>
+      {% endif %}
+
+
+    {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Full name"
+                },
+                value: {
+                 text: data['ittContactName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  text: data['ittContactEmail']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact email"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) if data['ittContactName'] }}
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      School details
+    </h2>
+
+    <p class="govuk-body">These details will be displayed to ITT providers. If any details are incorrect, go to the <a href="https://www.get-information-schools.service.gov.uk/Guidance/Governance">Get Information for Schools (GIAS)</a> service to update them.</p>
 
       {{ govukSummaryList({
         rows: [
@@ -43,6 +110,23 @@
           }
         ]
       }) }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Location
+    </h2>
+
+  {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
+          }
+        }
+      ]
+    }) }}
 
       <h2 class="govuk-heading-m govuk-!-margin-top-9">Additional details</h2>
 
@@ -229,39 +313,7 @@
       ]
     }) }}
 
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Contact details
-    </h2>
 
-  {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Email address"
-          },
-          value: {
-            text: "Not entered",
-            classes: "govuk-hint"
-          }
-        },
-        {
-          key: {
-            text: "Website"
-          },
-          value: {
-            html: "<a href='http://www.whitburncofeacademy.org'>www.whitburncofeacademy.org</a>"
-          }
-        },
-        {
-          key: {
-            text: "Address"
-          },
-          value: {
-            html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
-          }
-        }
-      ]
-    }) }}
 
   </div>
 
