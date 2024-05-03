@@ -72,6 +72,14 @@
         {% endif %}
       {% endset %}
 
+      {% set mentorAdded %}
+        {% if data['placementMentor2'] %}
+          {{ data['placementMentor2'] }}
+        {% else %}
+          Not known yet
+        {% endif %}
+      {% endset %}
+
           {{ govukTable({
             caption: "Placements",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
@@ -104,7 +112,7 @@
                   html: "<a href='placement-detail-2'>English</a>"
                 },
                 {
-                  text: "Not known yet"
+                  text: mentorAdded
                 },
                 {
                   html: availableTag
