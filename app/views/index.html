@@ -23,14 +23,12 @@
     {{ pageName }}
     </h1>
 
-   <h2 class="govuk-heading-m">User research round 3</h2>
-
         {{ govukTag({
           text: "School",
           classes: "govuk-tag--purple govuk-!-margin-bottom-5"
         }) }}
 
-        <!-- <p class="govuk-body">
+        <p class="govuk-body">
           Anne is a lead mentor within a school.
         </p>
 
@@ -50,21 +48,33 @@
           </li>
         </ul>
 
-        <h3 class="govuk-heading-s">
-          Journeys for Anne:
-        </h3> -->
+        <h2 class="govuk-heading-m">Version 1.0 (Post UR round 3)</h2>
+        <p>Consolidated from the scenarios tested in round three, iterations added.</p>
 
+        {{ govukButton({
+          text: "Start now",
+          href: "school-users/v1/",
+          isStartButton: true
+        }) }}
+
+        <h2 class="govuk-heading-m">Features</h2>
+
+        <p><a href="school-users/onboarding/">Onboarding journey</a></p>
+
+        <h2 class="govuk-heading-m">UR round 3 scenarios</h2>
         <ul class="govuk-list govuk-list--bullet">
           <li>
-            <a href="school-user-001/">Scenario 1: Add a placement</a>
+            <a href="ur-archive/school-user-001/">Scenario 1: Add a placement</a>
           </li>
           <li>
-            <a href="school-user-002/">Scenario 2: Managing a placement, add a mentor</a>
+            <a href="ur-archive/school-user-002/">Scenario 2: Managing a placement, add a mentor</a>
           </li>
           <li>
-            <a href="school-user-003/">Scenario 3: Partner providers</a>
+            <a href="ur-archive/school-user-003/">Scenario 3: Partner providers</a>
           </li>
         </ul>
+
+
 
 
   </div>

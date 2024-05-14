@@ -1,0 +1,77 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      {% if data['onboarding'] === "true" %}
+            <form action="onboarding-add-users-question" method="post">
+      {% else %}
+            <form action="itt-added" method="post">
+      {% endif %}
+
+        <span class="govuk-caption-l">Add the ITT placement contact</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Full name"
+                },
+                value: {
+                 text: data['ittContactName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  text: data['ittContactEmail']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact email"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Add email"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="details">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

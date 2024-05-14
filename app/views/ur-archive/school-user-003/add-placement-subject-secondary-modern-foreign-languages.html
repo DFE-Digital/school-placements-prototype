@@ -1,0 +1,74 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Modern foreign languages" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="add-placement-mentor"  method="post">
+
+        <span class="govuk-caption-l">Add a placement</span>
+        {{ govukCheckboxes({
+            name: "placementModernForeignLanguage",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "French",
+                text: "French"
+              },
+              {
+                value: "German",
+                text: "German"
+              },
+              {
+                value: "Italian",
+                text: "Italian"
+              },
+              {
+                value: "Japanese",
+                text: "Japanese"
+              },
+              {
+                value: "Mandarin",
+                text: "Mandarin"
+              },
+              {
+                value: "Russian",
+                text: "Russian"
+              },
+              {
+                value: "Spanish",
+                text: "Spanish"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

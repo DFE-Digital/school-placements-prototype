@@ -1,0 +1,75 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Subject" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="add-placement-mentor"  method="post">
+
+        <span class="govuk-caption-l">Add a placement</span>
+        {{ govukRadios({
+            name: "placementSubject",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary",
+                text: "Primary"
+              },
+              {
+                value: "Primary with English",
+                text: "Primary with English"
+              },
+              {
+                value: "Primary with geography",
+                text: "Primary with geography"
+              },
+              {
+                value: "Primary with mathematics",
+                text: "Primary with mathematics"
+              },
+              {
+                value: "Primary with modern languages",
+                text: "Primary with modern languages"
+              },
+              {
+                value: "Primary with physical education",
+                text: "Primary with physical education"
+              },
+              {
+                value: "Primary with science",
+                text: "Primary with science"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

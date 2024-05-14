@@ -1,0 +1,100 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      {% set statusTag %}
+        {% if data['placementProvider'] %}
+          {{ govukTag({
+            text: "Unavailable",
+            classes: "govuk-tag--orange"
+          }) }}
+        {% else %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+        {% endif %}
+      {% endset %}
+
+      {% set placementTitle %}
+        {% if data['placementModernForeignLanguage'] %}
+          <a href="placement-detail">{{ data['placementModernForeignLanguage'] }}</a>
+        {% else %}
+          <a href="placement-detail">{{ data['placementSubject'] }}</a>
+        {% endif %}
+      {% endset %}
+
+      {% set mentorName %}
+        {% if data['placementMentor'] %}
+          {{ data['placementMentor'] }}
+        {% else %}
+          Not known yet
+        {% endif %}
+      {% endset %}
+
+
+       <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+
+          {{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Mentor"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: placementTitle
+                },
+                {
+                  html: mentorName
+                },
+                {
+                  html: statusTag
+                }
+              ]
+            ]
+          }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

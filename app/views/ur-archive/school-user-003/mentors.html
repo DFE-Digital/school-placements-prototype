@@ -9,6 +9,15 @@
 {% block content %}
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
@@ -20,31 +29,8 @@
       </a>
 
 
-        {{ govukTable({
-          caption: "Mentors",
-          captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-          firstCellIsHeader: false,
-          head: [
-            {
-              text: "Name"
-            },
-            {
-              text: "Teacher reference number (TRN)"
-            }
-          ],
-          rows: [
-            [
-              {
-                html: "<a href='#'>Thea Weiss</a>"
-              },
-              {
-                text: "6400299"
-              }
-            ]
-          ]
-        }) }}
 
-      <!-- {{ govukTable({
+      {{ govukTable({
         caption: "Mentors",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: false,
@@ -75,14 +61,6 @@
           ],
           [
             {
-              html: "<a href='#'>Hannah Brady</a>"
-            },
-            {
-              text: "5755507"
-            }
-          ],
-          [
-            {
               html: "<a href='#'>Myra Carroll</a>"
             },
             {
@@ -96,7 +74,7 @@
             {
               text: "6400299"
             }
-          ],
+          ] if data['mentorTRN'],
           [
             {
               html: "<a href='#'>Walter Higgins</a>"
@@ -106,7 +84,7 @@
             }
           ]
         ]
-      }) }} -->
+      }) }}
 
   </div>
 

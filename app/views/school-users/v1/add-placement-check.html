@@ -1,0 +1,127 @@
+{% extends "layouts/user.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="placement-added" method="post">
+        <span class="govuk-caption-l">Add a placement</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Phase"
+                },
+                value: {
+                 text: data['placementPhase']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-phase",
+                      text: "Change",
+                      visuallyHiddenText: "phase"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-primary",
+                      text: "Change",
+                      visuallyHiddenText: "subject"
+                    }
+                  ]
+                }
+              } if data['placementSubjectLevel'] == "Primary",
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-secondary",
+                      text: "Change",
+                      visuallyHiddenText: "subject"
+                    }
+                  ]
+                }
+              } if data['placementSubjectLevel'] == "Secondary",
+              {
+                key: {
+                  text: "Additional subjects"
+                },
+                value: {
+                  text: data['placementModernForeignLanguage']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-secondary",
+                      text: "Change",
+                      visuallyHiddenText: "additional subjects"
+                    }
+                  ]
+                }
+              } if data['placementModernForeignLanguage'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: data['placementMentor']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['placementMentor']
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            text: "When a placement is published, it will be visible to accredited providers and lead partners."
+          }) }}
+
+          {{ govukButton({
+            text: "Publish placement"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
