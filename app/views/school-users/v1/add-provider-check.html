@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Check your answers" %}
 
@@ -13,11 +13,9 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-
-            <form action="provider-added" method="post">
-
       <form action="provider-added" method="post">
-        <span class="govuk-caption-l">Add a mentor</span>
+
+        <span class="govuk-caption-l">Add a partner provider</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({
             rows: [
@@ -31,9 +29,9 @@
                 actions: {
                   items: [
                     {
-                      href: "add-mentor",
+                      href: "add-provider",
                       text: "Change",
-                      visuallyHiddenText: "name"
+                      visuallyHiddenText: " provider"
                     }
                   ]
                 }
@@ -95,7 +93,11 @@
           }) }}
       </form>
 
-      <p class="govuk-body"><a href="mentors">Cancel</a></p>
+       {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="providers">Cancel</a></p>
+      {% endif %}
 
   </div>
 

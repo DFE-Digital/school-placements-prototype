@@ -1,6 +1,6 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
-{% set pageName="Add the ITT placement contact" %}
+{% set pageName="Enter the lead ITT provider contact" %}
 
 {% set primaryNavId = "details" %}
 
@@ -12,11 +12,16 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-itt-contact-check" method="post">
-        <span class="govuk-caption-l">Organisation details</span>
+     <form action="add-itt-contact-check" method="post">
+
+      {% if data['onboarding'] === "true" %}
+            <span class="govuk-caption-l">Getting started</span>
+      {% else %}
+            <span class="govuk-caption-l">Organisation details</span>
+      {% endif %}
         <h1 class="govuk-heading-l">{{ pageName }}</h1>
 
-        <p class="govuk-body">Add an email for the main contact for school placements. This can also be a shared inbox.</p>
+        <p class="govuk-body">This will be the person that receives all ITT enquiries and notifications</p>
 
         {{ govukInput({
           label: {
@@ -46,7 +51,12 @@
 
       </form>
 
-      <p class="govuk-body"><a href="mentors">Cancel</a></p>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="details">Cancel</a></p>
+      {% endif %}
 
   </div>
 

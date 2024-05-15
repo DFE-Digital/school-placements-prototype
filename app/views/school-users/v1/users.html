@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Users" %}
 
@@ -7,6 +7,19 @@
 {% set back = false %}
 
 {% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
 
 <div class="govuk-grid-row">
 
@@ -39,7 +52,15 @@
                 {
                   text: "anne@example.com"
                 }
-              ]
+              ],
+              [
+                {
+                  html: userName
+                },
+                {
+                  text: data['useremail']
+                }
+              ] if data ['username']
             ]
           }) }}
   </div>

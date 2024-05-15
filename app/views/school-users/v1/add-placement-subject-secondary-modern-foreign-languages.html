@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Modern foreign languages" %}
 
@@ -61,7 +61,11 @@
           }) }}
       </form>
 
-      <p class="govuk-body"><a href="placements">Cancel</a></p>
+             {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
 
   </div>
 

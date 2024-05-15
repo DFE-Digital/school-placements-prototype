@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Mentors" %}
 
@@ -28,63 +28,29 @@
         Add mentor
       </a>
 
-
-
-      {{ govukTable({
-        caption: "Mentors",
-        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-        firstCellIsHeader: false,
-        head: [
-          {
-            text: "Name"
-          },
-          {
-            text: "Teacher reference number (TRN)"
-          }
-        ],
-        rows: [
-          [
+        {{ govukTable({
+          caption: "Mentors",
+          captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+          firstCellIsHeader: false,
+          head: [
             {
-              html: "<a href='#'>Anya Fuller</a>"
+              text: "Name"
             },
             {
-              text: "8861163"
+              text: "Teacher reference number (TRN)"
             }
           ],
-          [
-            {
-              html: "<a href='#'>Grace Bishop</a>"
-            },
-            {
-              text: "9544573"
-            }
-          ],
-          [
-            {
-              html: "<a href='#'>Myra Carroll</a>"
-            },
-            {
-              text: "9003618"
-            }
-          ],
-          [
-            {
-              html: "<a href='#'>Thea Weiss</a>"
-            },
-            {
-              text: "6400299"
-            }
-          ] if data['mentorTRN'],
-          [
-            {
-              html: "<a href='#'>Walter Higgins</a>"
-            },
-            {
-              text: "6417076"
-            }
+          rows: [
+            [
+              {
+                html: "<a href='#'>Thea Weiss</a>"
+              },
+              {
+                text: "6400299"
+              }
+            ]
           ]
-        ]
-      }) }}
+        }) }}
 
   </div>
 

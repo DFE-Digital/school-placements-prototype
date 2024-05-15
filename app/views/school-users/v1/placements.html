@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Placements" %}
 
@@ -54,13 +54,7 @@
         {% endif %}
       {% endset %}
 
-        {% if not data['ittContactEmail'] %}
 
-        {{ govukInsetText({
-            html: "<p>You must add the <a href='add-itt-contact'>ITT placement contact</a> email before adding a placement</p>"
-          }) }}
-
-        {% elseif data['placementSubject'] %}
        <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Add placement
       </a>
@@ -94,13 +88,7 @@
               ]
             ]
           }) }}
-      {% else %}
-      <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Add placement
-      </a>
 
-      <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>
-      {% endif %}
   </div>
 
   <div class="govuk-grid-column-one-third">

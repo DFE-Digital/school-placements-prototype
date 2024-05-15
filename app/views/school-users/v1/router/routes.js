@@ -3,8 +3,14 @@ module.exports = router => {
 // Notifications
 
 router.get("/school-users/v1/placement-added", (req, res) => {
-    req.flash('success', 'Placement added')
-    res.redirect(req.originalUrl.replace("placement-added","placements"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingPlacement = "true"
+        res.redirect(req.originalUrl.replace("placement-added","onboarding"))
+    }
+    else {
+        req.flash('success', 'Placement added')
+        res.redirect(req.originalUrl.replace("placement-added","placements"))
+    }
 })
 
 router.get("/school-users/v1/placement-updated", (req, res) => {
@@ -13,21 +19,93 @@ router.get("/school-users/v1/placement-updated", (req, res) => {
 })
 
 router.get("/school-users/v1/mentor-added", (req, res) => {
-    req.flash('success', 'Mentor added')
-    req.session.data.mentorTRN = 1
-    res.redirect(req.originalUrl.replace("mentor-added","mentors"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.mentorTRN = 1
+        req.session.data.onboardingMentor = "true"
+        res.redirect(req.originalUrl.replace("mentor-added","add-placement-phase"))
+    }
+    else {
+        req.flash('success', 'Mentor added')
+        req.session.data.mentorTRN = 1
+        res.redirect(req.originalUrl.replace("mentor-added","mentors"))
+    }
 })
 
 router.get("/school-users/v1/provider-added", (req, res) => {
-    req.flash('success', 'Partner provider added')
-    res.redirect(req.originalUrl.replace("provider-added","providers"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingProvider = "true"
+        res.redirect(req.originalUrl.replace("provider-added","add-mentor"))
+    }
+    else {
+        req.flash('success', 'Partner provider added')
+        res.redirect(req.originalUrl.replace("provider-added","providers"))
+    }
 })
 
 router.get("/school-users/v1/itt-added", (req, res) => {
-    req.flash('success', 'ITT placement contact added')
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingITTcontact = "true"
+        res.redirect(req.originalUrl.replace("itt-added","onboarding-add-users-question"))
+    }
+    else {
+        req.flash('success', 'ITT placement contact added')
+        res.redirect(req.originalUrl.replace("itt-added","details"))
+    }
+})
+
+router.get("/school-users/v1/user-added", (req, res) => {
+    req.flash('success', 'User added')
     res.redirect(req.originalUrl.replace("itt-added","details"))
 })
 
+// Onboarding routes
 
+router.get("/school-users/v1/skip-onboarding", (req, res) => {
+    req.session.data.onboarding == "false"
+    req.session.data.mentorTRN == 1
+    req.session.data.ittContactName == "James Richardson"
+    req.session.data.ittContactEmail == "james.richardson@whitburn.ac.uk"
+    req.session.data.placementPhase == "Secondary"
+    req.session.data.placementSubject == "Computing"
+    req.session.data.placementMentor == "Not known yet"
+    res.redirect(req.originalUrl.replace("skip-onboarding","index"))
+})
+
+router.get("/school-users/v1/signin-redirect", (req, res) => {
+    if (req.session.data.onboarding == "false") {
+        res.redirect(req.originalUrl.replace("signin-redirect","placements"))
+    }
+    else {
+        req.session.data.onboarding = "true"
+        res.redirect(req.originalUrl.replace("signin-redirect","onboarding"))
+    }
+})
+
+router.get("/school-users/v1/onboarding-add-itt-contact-answer", (req, res) => {
+    if (req.session.data.ittContactQuestion == "Yes") {
+        req.session.data.ittContactName = "Ann Smith"
+        req.session.data.ittContactEmail = "ann@example.com"
+        req.session.data.onboardingITTcontact = "true"
+		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","onboarding-add-users-question"))
+	}
+	else {
+		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","add-itt-contact"))
+	}
+})
+
+router.get("/school-users/v1/onboarding-add-users-answer", (req, res) => {
+    req.session.data.onboardingAdminUsers = "true"
+    if (req.session.data.addUsersQuestion == "Yes") {
+		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-user"))
+	}
+	else {
+		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-provider"))
+	}
+})
+
+router.get("/school-users/v1/onboarding-complete", (req, res) => {
+    req.session.data.onboarding = "false"
+	res.redirect(req.originalUrl.replace("onboarding-complete","placements"))
+})
 
 }

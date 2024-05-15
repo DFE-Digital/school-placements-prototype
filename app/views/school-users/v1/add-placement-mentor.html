@@ -1,4 +1,4 @@
-{% extends "layouts/user.html" %}
+{% extends "layouts/user-school.html" %}
 
 {% set pageName="Mentor" %}
 
@@ -25,25 +25,9 @@
             },
             items: [
               {
-                value: "Anya Fuller",
-                text: "Anya Fuller"
-              },
-              {
-                value: "Grace Bishop",
-                text: "Grace Bishop"
-              },
-              {
-                value: "Myra Carroll",
-                text: "Myra Carroll"
-              },
-              {
                 value: "Thea Weiss",
                 text: "Thea Weiss"
               } if data['mentorTRN'],
-              {
-                value: "Walter Higgins",
-                text: "Walter Higgins"
-              },
               {
                 divider: "or"
               },
@@ -65,7 +49,11 @@
       }) }}
       </form>
 
-      <p class="govuk-body"><a href="mentors">Cancel</a></p>
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
 
   </div>
 
