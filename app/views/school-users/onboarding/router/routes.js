@@ -4,7 +4,7 @@ module.exports = router => {
 
 router.get("/school-users/onboarding/placement-added", (req, res) => {
     if (req.session.data.onboarding == "true") {
-        req.session.data.onboardingMentor = "true"
+        req.session.data.onboardingPlacement = "true"
         res.redirect(req.originalUrl.replace("placement-added","onboarding"))
     }
     else {
@@ -61,8 +61,13 @@ router.get("/school-users/onboarding/user-added", (req, res) => {
 // Onboarding routes
 
 router.get("/school-users/onboarding/signin-redirect", (req, res) => {
-    req.session.data.onboarding = "true"
-    res.redirect(req.originalUrl.replace("signin-redirect","onboarding"))
+    if (req.session.data.onboarding == "false") {
+        res.redirect(req.originalUrl.replace("signin-redirect","placements"))
+    }
+    else {
+        req.session.data.onboarding = "true"
+        res.redirect(req.originalUrl.replace("signin-redirect","onboarding"))
+    }
 })
 
 router.get("/school-users/onboarding/onboarding-add-itt-contact-answer", (req, res) => {
@@ -87,5 +92,9 @@ router.get("/school-users/onboarding/onboarding-add-users-answer", (req, res) =>
 	}
 })
 
+router.get("/school-users/onboarding/onboarding-complete", (req, res) => {
+    req.session.data.onboarding = "false"
+	res.redirect(req.originalUrl.replace("onboarding-add-users-answer","placements"))
+})
 
 }
