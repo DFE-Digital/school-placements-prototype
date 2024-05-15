@@ -12,8 +12,15 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="provider-added" method="post">
-        <span class="govuk-caption-l">Add a mentor</span>
+
+     {% if data['onboarding'] === "true" %}
+            <form action="provider-added" method="post">
+      {% else %}
+            <form action="add-mentor" method="post">
+      {% endif %}
+
+
+        <span class="govuk-caption-l">Add a partner provider</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({
             rows: [
@@ -27,9 +34,9 @@
                 actions: {
                   items: [
                     {
-                      href: "add-mentor",
+                      href: "add-provider",
                       text: "Change",
-                      visuallyHiddenText: "name"
+                      visuallyHiddenText: " provider"
                     }
                   ]
                 }

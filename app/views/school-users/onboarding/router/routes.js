@@ -24,8 +24,14 @@ router.get("/school-users/onboarding/provider-added", (req, res) => {
 })
 
 router.get("/school-users/onboarding/itt-added", (req, res) => {
-    req.flash('success', 'ITT placement contact added')
-    res.redirect(req.originalUrl.replace("itt-added","details"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingITTcontact = "true"
+        res.redirect(req.originalUrl.replace("itt-added","onboarding-add-users-question"))
+    }
+    else {
+        req.flash('success', 'ITT placement contact added')
+        res.redirect(req.originalUrl.replace("itt-added","details"))
+    }
 })
 
 router.get("/school-users/onboarding/user-added", (req, res) => {
@@ -44,6 +50,7 @@ router.get("/school-users/onboarding/onboarding-add-itt-contact-answer", (req, r
     if (req.session.data.ittContactQuestion == "Yes") {
         req.session.data.ittContactName = "Ann Smith"
         req.session.data.ittContactEmail = "ann@example.com"
+        req.session.data.onboardingITTcontact = "true"
 		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","onboarding-add-users-question"))
 	}
 	else {

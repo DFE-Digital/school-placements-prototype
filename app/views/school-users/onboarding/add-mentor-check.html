@@ -12,7 +12,11 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="mentor-added" method="post">
+      {% if data['onboarding'] === "true" %}
+            <form action="mentor-added" method="post">
+      {% else %}
+            <form action="add-placement-phase" method="post">
+      {% endif %}
         <span class="govuk-caption-l">Add a mentor</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({

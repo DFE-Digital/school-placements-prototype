@@ -12,12 +12,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      {% if data['onboarding'] === "true" %}
-            <form action="onboarding-add-users-question" method="post">
-      {% else %}
             <form action="itt-added" method="post">
-      {% endif %}
-
         <span class="govuk-caption-l">Add the ITT placement contact</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({
