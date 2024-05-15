@@ -27,6 +27,10 @@
           text: "Complete",
           classes: "govuk-tag--green"
         } if data ['onboardingITTcontact'] == "true"
+        tag: {
+          text: "Not started",
+          classes: "govuk-tag--blue"
+        } if not data ['onboardingITTcontact']
       }
     },
     {
