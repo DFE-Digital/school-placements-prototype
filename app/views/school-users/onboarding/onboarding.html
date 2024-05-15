@@ -26,13 +26,21 @@
         tag: {
           text: "Complete",
           classes: "govuk-tag--green"
-        } if data ['onboardingITTcontact'] == "true",
+        }
+      }
+    } if data ['onboardingITTcontact'] == "true",
+    {
+      title: {
+        text: "1. Set a lead contact for ITT providers"
+      },
+      href: "onboarding-add-itt-contact-question",
+      status: {
         tag: {
           text: "Not started",
           classes: "govuk-tag--blue"
-        } if not data ['onboardingITTcontact']
+        }
       }
-    },
+    } if not data ['onboardingITTcontact'],
     {
       title: {
         text: "2. Add admin users"
