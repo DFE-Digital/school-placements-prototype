@@ -3,8 +3,14 @@ module.exports = router => {
 // Notifications
 
 router.get("/school-users/onboarding/placement-added", (req, res) => {
-    req.flash('success', 'Placement added')
-    res.redirect(req.originalUrl.replace("placement-added","placements"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingMentor = "true"
+        res.redirect(req.originalUrl.replace("placement-added","onboarding"))
+    }
+    else {
+        req.flash('success', 'Placement added')
+        res.redirect(req.originalUrl.replace("placement-added","placements"))
+    }
 })
 
 router.get("/school-users/onboarding/placement-updated", (req, res) => {
@@ -13,14 +19,27 @@ router.get("/school-users/onboarding/placement-updated", (req, res) => {
 })
 
 router.get("/school-users/onboarding/mentor-added", (req, res) => {
-    req.flash('success', 'Mentor added')
-    req.session.data.mentorTRN = 1
-    res.redirect(req.originalUrl.replace("mentor-added","mentors"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.mentorTRN = 1
+        req.session.data.onboardingMentor = "true"
+        res.redirect(req.originalUrl.replace("mentor-added","add-placement-phase"))
+    }
+    else {
+        req.flash('success', 'Mentor added')
+        req.session.data.mentorTRN = 1
+        res.redirect(req.originalUrl.replace("mentor-added","mentors"))
+    }
 })
 
 router.get("/school-users/onboarding/provider-added", (req, res) => {
-    req.flash('success', 'Partner provider added')
-    res.redirect(req.originalUrl.replace("provider-added","providers"))
+    if (req.session.data.onboarding == "true") {
+        req.session.data.onboardingProvider = "true"
+        res.redirect(req.originalUrl.replace("provider-added","add-mentor"))
+    }
+    else {
+        req.flash('success', 'Partner provider added')
+        res.redirect(req.originalUrl.replace("provider-added","providers"))
+    }
 })
 
 router.get("/school-users/onboarding/itt-added", (req, res) => {
@@ -59,6 +78,7 @@ router.get("/school-users/onboarding/onboarding-add-itt-contact-answer", (req, r
 })
 
 router.get("/school-users/onboarding/onboarding-add-users-answer", (req, res) => {
+    req.session.data.onboardingAdminUsers = "true"
     if (req.session.data.addUsersQuestion == "Yes") {
 		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-user"))
 	}

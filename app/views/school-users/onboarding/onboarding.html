@@ -43,9 +43,15 @@
       </a>
     </div>
     <div class="govuk-task-list__status" id="getting-started-3-status">
-      <strong class="govuk-tag govuk-tag--blue">
-        Not started
-      </strong>
+      {% if data ['onboardingAdminUsers'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
     </div>
   </li>
 
@@ -56,9 +62,15 @@
       </a>
     </div>
     <div class="govuk-task-list__status" id="getting-started-4-status">
-      <strong class="govuk-tag govuk-tag--blue">
-        Not started
-      </strong>
+      {% if data ['onboardingProvider'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
     </div>
   </li>
 
@@ -69,25 +81,45 @@
       </a>
     </div>
     <div class="govuk-task-list__status" id="getting-started-5-status">
-      <strong class="govuk-tag govuk-tag--blue">
-        Not started
-      </strong>
+      {% if data ['onboardingMentor'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
     </div>
   </li>
 
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="getting-started-6-hint getting-started-6-status">
+      {% if data ['onboardingITTcontact'] == "true" %}
+        <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="getting-started-6-hint getting-started-6-status">
+          5. Add the first placement
+        </a>
+      {% else %}
         5. Add the first placement
-      </a>
-      <div id="getting-started-6-hint" class="govuk-task-list__hint">
-        You will need to set a lead contact first
-      </div>
+        <div id="getting-started-6-hint" class="govuk-task-list__hint">
+          You will need to set a lead contact first
+        </div>
+      {% endif %}
     </div>
     <div class="govuk-task-list__status" id="getting-started-6-status">
-      <strong class="govuk-tag govuk-tag--grey">
+      {% if data ['onboardingPlacement'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% elseif data ['onboardingITTcontact'] == "true" %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--grey">
         Cannot start yet
-      </strong>
+        </strong>
+      {% endif %}
     </div>
   </li>
 

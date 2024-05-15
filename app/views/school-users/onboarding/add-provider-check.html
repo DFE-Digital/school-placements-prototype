@@ -13,12 +13,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-     {% if data['onboarding'] === "true" %}
-            <form action="provider-added" method="post">
-      {% else %}
-            <form action="add-mentor" method="post">
-      {% endif %}
-
+      <form action="provider-added" method="post">
 
         <span class="govuk-caption-l">Add a partner provider</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
