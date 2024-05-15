@@ -51,7 +51,12 @@
 
       </form>
 
-      <p class="govuk-body"><a href="mentors">Cancel</a></p>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="details">Cancel</a></p>
+      {% endif %}
 
   </div>
 
