@@ -128,8 +128,7 @@
 {% if data ['onboardingITTcontact'] == "true" and data ['onboardingAdminUsers'] == "true" and data ['onboardingProvider'] == "true" and data ['onboardingMentor'] == "true" and data ['onboardingPlacement'] == "true" %}
       {{ govukButton({
           text: "Continue",
-          href: "onboarding-complete",
-          classes: "govuk-button--secondary"
+          href: "onboarding-complete"
         }) }}
  {% endif %}
   </div>
