@@ -24,26 +24,16 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     ]
   }) }}
 
-  {# Add phase banner #}
+    {# Add phase banner #}
 	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
   <div class="govuk-width-container">
   {{ govukPhaseBanner({
     tag: {
       text: "Prototype"
     },
-    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.',
+    classes: "govuk-phase-banner--no-border-bottom"
   }) }}
-  </div>
-
-  {% if data['onboarding'] === "true" %}
-
-  {% else %}
-
-  {# Add MAT Header #}
-	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
-  <div class="app-organisation-actions govuk-width-container">
-     <div class="app-organisation-actions__title">Whitburn Church of England Academy</div>
-     <div class="app-organisation-actions__actions"><a href="organisations">Change organisation</a></div>
   </div>
 
   {# Add primary nav #}
@@ -56,14 +46,9 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
           active: primaryNavId == "placements"
         },
         {
-          href: "mentors",
-          text: "Mentors",
-          active: primaryNavId == "mentors"
-        },
-        {
           href: "providers",
-          text: "Partner providers",
-          active: primaryNavId == "providers"
+          text: "Partner schools",
+          active: primaryNavId == "partners"
         },
         {
           href: "users",
@@ -77,8 +62,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         }
       ]
     }) }}
-
-    {% endif %}
 
     {% endblock %}
 

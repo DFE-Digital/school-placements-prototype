@@ -24,7 +24,22 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     ]
   }) }}
 
+{% if data['onboarding'] === "true" %}
+
   {# Add phase banner #}
+	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
+  <div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  </div>
+
+  {% else %}
+
+    {# Add phase banner #}
 	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
   <div class="govuk-width-container">
   {{ govukPhaseBanner({
@@ -67,6 +82,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         }
       ]
     }) }}
+
+    {% endif %}
 
     {% endblock %}
 

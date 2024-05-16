@@ -1,0 +1,145 @@
+{% extends "layouts/user-provider.html" %}
+
+{% set pageName="Placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+       <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Find a new placement
+      </a>
+
+      <h2 class="govuk-heading-m">9 placements</h2>
+
+          {{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "School"
+              },
+              {
+                text: "Mentor"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='placement-detail'>Ancient Greek</a>"
+                },
+                {
+                  text: "Buxton Community School"
+                },
+                {
+                  text: "Jan Harrison"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Biology</a>"
+                },
+                {
+                  text: "Hallam Sixth Form"
+                },
+                {
+                  text: "Richard Evans"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Design and Technology</a>"
+                },
+                {
+                  text: "Buxton Community School"
+                },
+                {
+                  text: "Kim Stobbart"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>English</a>"
+                },
+                {
+                  text: "Hallam Sixth Form"
+                },
+                {
+                  text: "Leslie Carnegie"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Maths</a>"
+                },
+                {
+                  text: "Hallam Sixth Form"
+                },
+                {
+                  text: "Santham Singh"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Maths</a>"
+                },
+                {
+                  text: "Buxton Community School"
+                },
+                {
+                  text: "Jamie Dixon"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Primary with English</a>"
+                },
+                {
+                  text: "Edale Rise Primary & Nursery School"
+                },
+                {
+                  text: "Anya Fuller"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Primary with Physical Education</a>"
+                },
+                {
+                  text: "Edale Rise Primary & Nursery School"
+                },
+                {
+                  text: "Thea Weiss"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Spanish</a>"
+                },
+                {
+                  text: "Buxton Community School"
+                },
+                {
+                  text: "Julian Costa"
+                }
+              ]
+            ]
+          }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

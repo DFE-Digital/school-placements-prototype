@@ -14,11 +14,9 @@
 
      <form action="add-user-check" method="post">
 
-      {% if data['onboarding'] === "true" %}
-            <span class="govuk-caption-l">Getting started</span>
-      {% else %}
+
             <span class="govuk-caption-l">Add user</span>
-      {% endif %}
+
         <h1 class="govuk-heading-l">{{ pageName }}</h1>
 
         {{ govukInput({

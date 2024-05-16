@@ -17,10 +17,14 @@ router.all('*', (req, res, next) => {
     next()
 })
 
-// Link to router files
+// Link to school router files
 
 require('./views/school-users/v1/router/routes')(router)
 
 require('./views/ur-archive/school-user-001/router/routes')(router)
 require('./views/ur-archive/school-user-002/router/routes')(router)
 require('./views/ur-archive/school-user-003/router/routes')(router)
+
+// Link to provider router files
+
+require('./views/provider-users/v1/router/routes')(router)

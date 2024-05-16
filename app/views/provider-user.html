@@ -11,9 +11,9 @@
   <div class="govuk-grid-column-one-quarter">
       <ul class="govuk-list">
           <li><a href="index" class="govuk-link--no-underline govuk-link--no-visited-state">School user</a></li>
-          <li><a href="university-user" class="govuk-link--no-underline govuk-link--no-visited-state">University user</a></li>
-          <li><a href="multi-org-user" class="govuk-link--no-underline govuk-link--no-visited-state">Multi-org user</a></li>
-          <li><a href="support-user" class="govuk-link--no-underline govuk-link--no-visited-state">Support user</a></li>
+          <li><a href="provider-user" class="govuk-link--no-underline govuk-link--no-visited-state">Provider user</a></li>
+          <!-- <li><a href="multi-org-user" class="govuk-link--no-underline govuk-link--no-visited-state">Multi-org user</a></li>
+          <li><a href="support-user" class="govuk-link--no-underline govuk-link--no-visited-state">Support user</a></li> -->
         </ul>
   </div>
 
@@ -50,13 +50,11 @@
           </li>
         </ul>
 
-        <form action="{{ actions.save }}" method="post" accept-charset="utf-8" novalidate>
-          <input type="hidden" name="username" value="patricia@example.com">
-          <input type="hidden" name="password" value="bat">
-          {{ govukButton({
-            text: "Sign in as Patricia"
-          }) }}
-        </form>
+        {{ govukButton({
+          text: "Start now",
+          href: "provider-users/v1/",
+          isStartButton: true
+        }) }}
   </div>
 
 </div>
