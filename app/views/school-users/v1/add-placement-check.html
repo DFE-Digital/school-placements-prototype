@@ -53,6 +53,23 @@
               } if data['placementPhase'] == "Primary",
               {
                 key: {
+                  text: "Year group"
+                },
+                value: {
+                  text: data['placementYearGroup']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-year-group",
+                      text: "Change",
+                      visuallyHiddenText: "year group"
+                    }
+                  ]
+                }
+              } if data['placementYearGroup'],
+              {
+                key: {
                   text: "Subject"
                 },
                 value: {

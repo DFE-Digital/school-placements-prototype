@@ -88,6 +88,23 @@
               } if data['placementModernForeignLanguage'],
               {
                 key: {
+                  text: "Year group"
+                },
+                value: {
+                  text: data['placementYearGroup']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-year-group",
+                      text: "Change",
+                      visuallyHiddenText: "year group"
+                    }
+                  ]
+                }
+              } if data['placementYearGroup'],
+              {
+                key: {
                   text: "Mentor"
                 },
                 value: {

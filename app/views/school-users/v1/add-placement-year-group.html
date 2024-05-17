@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Subject" %}
+{% set pageName="Year group" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,12 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-
-        <form action="add-placement-year-group"  method="post">
-
+      <form action="add-placement-mentor" method="post">
         <span class="govuk-caption-l">Add a placement</span>
         {{ govukRadios({
-            name: "placementSubject",
+            name: "placementYearGroup",
             fieldset: {
               legend: {
                 text: pageName,
@@ -27,32 +25,46 @@
             },
             items: [
               {
-                value: "Primary",
-                text: "Primary"
+                value: "Year 1",
+                text: "Year 1",
+                hint: {
+                  text: "5 to 6 years"
+                  }
               },
               {
-                value: "Primary with English",
-                text: "Primary with English"
+                value: "Year 2",
+                text: "Year 2",
+                hint: {
+                  text: "6 to 7 years"
+                  }
               },
               {
-                value: "Primary with geography",
-                text: "Primary with geography"
+                value: "Year 3",
+                text: "Year 3",
+                hint: {
+                  text: "7 to 8 years"
+                  }
               },
               {
-                value: "Primary with mathematics",
-                text: "Primary with mathematics"
+                value: "Year 4",
+                text: "Year 4",
+                hint: {
+                  text: "8 to 9 years"
+                  }
               },
               {
-                value: "Primary with modern languages",
-                text: "Primary with modern languages"
+                value: "Year 5",
+                text: "Year 5",
+                hint: {
+                  text: "9 to 10 years"
+                  }
               },
               {
-                value: "Primary with physical education",
-                text: "Primary with physical education"
-              },
-              {
-                value: "Primary with science",
-                text: "Primary with science"
+                value: "Year 6",
+                text: "Year 6",
+                hint: {
+                  text: "10 to 11 years"
+                  }
               }
             ]
           }) }}
@@ -62,7 +74,7 @@
           }) }}
       </form>
 
-       {% if data['onboarding'] === "true" %}
+        {% if data['onboarding'] === "true" %}
             <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
       {% else %}
             <p class="govuk-body"><a href="placements">Cancel</a></p>
