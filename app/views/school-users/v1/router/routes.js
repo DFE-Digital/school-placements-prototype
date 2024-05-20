@@ -3,12 +3,12 @@ module.exports = router => {
 // Notifications
 
 router.get("/school-users/v1/placement-added", (req, res) => {
+    req.flash('success', 'Placement added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingPlacement = "true"
         res.redirect(req.originalUrl.replace("placement-added","onboarding"))
     }
     else {
-        req.flash('success', 'Placement added')
         res.redirect(req.originalUrl.replace("placement-added","placements"))
     }
 })
@@ -19,43 +19,43 @@ router.get("/school-users/v1/placement-updated", (req, res) => {
 })
 
 router.get("/school-users/v1/mentor-added", (req, res) => {
+    req.flash('success', 'Mentor added')
     if (req.session.data.onboarding == "true") {
         req.session.data.mentorTRN = 1
         req.session.data.onboardingMentor = "true"
-        res.redirect(req.originalUrl.replace("mentor-added","add-placement-phase"))
+        res.redirect(req.originalUrl.replace("mentor-added","onboarding"))
     }
     else {
-        req.flash('success', 'Mentor added')
         req.session.data.mentorTRN = 1
         res.redirect(req.originalUrl.replace("mentor-added","mentors"))
     }
 })
 
 router.get("/school-users/v1/provider-added", (req, res) => {
+    req.flash('success', 'Partner provider added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingProvider = "true"
-        res.redirect(req.originalUrl.replace("provider-added","add-mentor"))
+        res.redirect(req.originalUrl.replace("provider-added","onboarding"))
     }
     else {
-        req.flash('success', 'Partner provider added')
         res.redirect(req.originalUrl.replace("provider-added","providers"))
     }
 })
 
 router.get("/school-users/v1/itt-added", (req, res) => {
+    req.flash('success', 'ITT placement contact added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingITTcontact = "true"
-        res.redirect(req.originalUrl.replace("itt-added","onboarding-add-users-question"))
+        res.redirect(req.originalUrl.replace("itt-added","onboarding"))
     }
     else {
-        req.flash('success', 'ITT placement contact added')
         res.redirect(req.originalUrl.replace("itt-added","details"))
     }
 })
 
 router.get("/school-users/v1/user-added", (req, res) => {
     req.flash('success', 'User added')
-    res.redirect(req.originalUrl.replace("itt-added","details"))
+    res.redirect(req.originalUrl.replace("user-added","users"))
 })
 
 // Onboarding routes
@@ -83,10 +83,11 @@ router.get("/school-users/v1/signin-redirect", (req, res) => {
 
 router.get("/school-users/v1/onboarding-add-itt-contact-answer", (req, res) => {
     if (req.session.data.ittContactQuestion == "Yes") {
+        req.flash('success', 'ITT placement contact added')
         req.session.data.ittContactName = "Ann Smith"
         req.session.data.ittContactEmail = "ann@example.com"
         req.session.data.onboardingITTcontact = "true"
-		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","onboarding-add-users-question"))
+		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","onboarding"))
 	}
 	else {
 		res.redirect(req.originalUrl.replace("onboarding-add-itt-contact-answer","add-itt-contact"))
@@ -99,7 +100,7 @@ router.get("/school-users/v1/onboarding-add-users-answer", (req, res) => {
 		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-user"))
 	}
 	else {
-		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-provider"))
+		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","onboarding"))
 	}
 })
 
