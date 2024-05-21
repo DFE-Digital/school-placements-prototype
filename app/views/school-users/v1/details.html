@@ -112,7 +112,7 @@
       }) }}
 
         <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Location
+      Location details
     </h2>
 
   {{ govukSummaryList({
@@ -134,18 +134,10 @@
         rows: [
           {
             key: {
-              text: "Group"
+              text: "Establishment group"
             },
             value: {
               text: "Academies"
-            }
-          },
-          {
-            key: {
-              text: "Type"
-            },
-            value: {
-              text: "Academy converter"
             }
           },
           {
@@ -166,18 +158,10 @@
           },
           {
             key: {
-              text: "Minimum age"
+              text: "Age range"
             },
             value: {
-              text: "11"
-            }
-          },
-          {
-            key: {
-              text: "Maximum age"
-            },
-            value: {
-              text: "18"
+              text: "11 to 18"
             }
           },
           {
@@ -217,7 +201,7 @@
               text: "School capacity"
             },
             value: {
-              text: "1305"
+              text: "1,305"
             }
           },
           {
@@ -225,7 +209,7 @@
               text: "Total pupils"
             },
             value: {
-              text: "1240"
+              text: "1,240"
             }
           },
           {
@@ -276,20 +260,12 @@
             value: {
               text: "Not entered"
             }
-          },
-          {
-            key: {
-              text: "Training with disabilities"
-            },
-            value: {
-              text: "Not entered"
-            }
           }
         ]
       }) }}
 
     <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Ofsted
+      Ofsted details
     </h2>
 
     {{ govukSummaryList({

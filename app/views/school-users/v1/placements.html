@@ -54,10 +54,18 @@
         {% endif %}
       {% endset %}
 
+    <!--   {{ govukInsetText({
+            html: "<p>You must add the <a href='add-itt-contact'>ITT placement contact</a> email before adding a placement</p>"
+          }) }} -->
+
 
        <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Add placement
       </a>
+
+    <!-- <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>  -->
+
+
 
           {{ govukTable({
             caption: "Placements",
@@ -88,6 +96,7 @@
               ]
             ]
           }) }}
+
 
   </div>
 
