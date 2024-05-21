@@ -40,10 +40,27 @@
             rows: [
               {
                 key: {
-                  text: "Full name"
+                  text: "First name"
                 },
                 value: {
-                 text: data['ittContactName']
+                 text: data['ittContactFirstName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['ittContactLastName']
                 },
                 actions: {
                   items: [

@@ -12,24 +12,41 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-            <form action="itt-added" method="post">
-        <span class="govuk-caption-l">Add the ITT placement contact</span>
+        <form action="itt-added" method="post">
+        <span class="govuk-caption-l">Enter the main placement contact details</span>
         <h1 class="govuk-heading-l">Check your answers</h1>
           {{ govukSummaryList({
             rows: [
               {
                 key: {
-                  text: "Full name"
+                  text: "First name"
                 },
                 value: {
-                 text: data['ittContactName']
+                 text: data['ittContactFirstName']
                 },
                 actions: {
                   items: [
                     {
                       href: "add-itt-contact",
                       text: "Change",
-                      visuallyHiddenText: "ITT contact name"
+                      visuallyHiddenText: "ITT contact first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['ittContactLastName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact last name"
                     }
                   ]
                 }
