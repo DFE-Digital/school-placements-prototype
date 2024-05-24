@@ -29,7 +29,7 @@
         {% endif %}
       {% endset %}
 
-      <h1 class="govuk-heading-l">{{ placementTitle }}
+      <h1 class="govuk-heading-l">{{ placementTitle }}</h1>
         {% if data['placementProvider'] %}
           {{ govukTag({
             text: "Unavailable",
@@ -38,7 +38,7 @@
         {% else %}
           {{ govukTag({
            text: "Available",
-           classes: "govuk-tag--turquoise"
+           classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
           }) }}
         {% endif %}
 
@@ -50,7 +50,7 @@
           {% endif %}
         {% endset %}
 
-        </h1>
+
 
           {{ govukSummaryList({
             rows: [
