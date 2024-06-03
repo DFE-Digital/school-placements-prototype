@@ -1,0 +1,51 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Add a partner provider" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          Manage school placements privacy notice
+        </h1>
+        <p>Read the <a href="https://www.gov.uk/government/publications/privacy-information-education-providers-workforce-including-teachers/privacy-information-education-providers-workforce-including-teachers" target="_blank">Privacy information: education providers’ workforce, including teachers (opens in new tab)</a>.</p>
+        <p><a href="https://www.gov.uk/government/publications/privacy-information-education-providers-workforce-including-teachers/privacy-information-education-providers-workforce-including-teachers#using-your-data-to-maintain-a-list-of-teachers" target="_blank">Section 8.4 (opens in new tab)</a> tells you what we do with you and your mentor’s data when you make contact with us or use this service.</p>
+        <p><a href="https://www.gov.uk/government/publications/privacy-information-education-providers-workforce-including-teachers/privacy-information-education-providers-workforce-including-teachers#using-your-datato-contact-you-for-feedback" target="_blank">Section 4.1 (opens in new tab)</a> tells you how we use your data to contact you for feedback.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Growing Expert Teachers',
+    'West Herts College Group',
+    'Educate Group Initial Teacher Training',
+    'Chiltern Training Group',
+    'Bishop Grosseteste University',
+    'NITE: National Institute of Teaching & Education, part of Coventry University Group'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

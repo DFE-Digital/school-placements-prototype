@@ -105,3 +105,33 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% endblock %}
 
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "#",
+        text: "Accessibility"
+      },
+      {
+        href: "#",
+        text: "Cookies"
+      },
+      {
+        href: "/static/privacy",
+        text: "Privacy notice"
+      },
+      {
+        href: "/static/tandc",
+        text: "#"
+      },
+      {
+        href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      }
+    ]
+  }
+}) }}
+
+{% endblock %}
+
