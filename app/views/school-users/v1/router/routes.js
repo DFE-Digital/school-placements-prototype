@@ -53,7 +53,7 @@ router.get("/school-users/v1/provider-added", (req, res) => {
 })
 
 router.get("/school-users/v1/itt-added", (req, res) => {
-    req.flash('success', 'Training placement contact added')
+    req.flash('success', 'Placement contact added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingITTcontact = "true"
         res.redirect(req.originalUrl.replace("itt-added","onboarding"))
@@ -73,7 +73,8 @@ router.get("/school-users/v1/user-added", (req, res) => {
 router.get("/school-users/v1/skip-onboarding", (req, res) => {
     req.session.data.onboarding = "false"
     req.session.data.mentorTRN = 1
-    req.session.data.ittContactName = "James Richardson"
+    req.session.data.ittContactFirstName = "James"
+    req.session.data.ittContactLastName = "Richardson"
     req.session.data.ittContactEmail = "james.richardson@whitburn.ac.uk"
     req.session.data.placementPhase = "Secondary"
     req.session.data.placementSubject = "Computing"

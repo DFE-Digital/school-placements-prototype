@@ -26,12 +26,12 @@
       </h1>
 
       <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      ITT placement contact
+      Placement contact
     </h2>
 
-      {% if not data['ittContactName'] %}
+      {% if not data['ittContactEmail'] %}
        <a href="add-itt-contact" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Add ITT placement contact
+        Add placement contact
       </a>
       {% endif %}
 
@@ -74,7 +74,7 @@
               },
               {
                 key: {
-                  text: "Email"
+                  text: "Email address"
                 },
                 value: {
                   text: data['ittContactEmail']
@@ -90,14 +90,14 @@
                 }
               }
             ]
-          }) if data['ittContactName'] }}
+          }) if data['ittContactEmail'] }}
 
 
       <h2 class="govuk-heading-m govuk-!-margin-top-9">
       School details
     </h2>
 
-    <p class="govuk-body">These details will be displayed to ITT providers. If any details are incorrect, go to the <a href="https://www.get-information-schools.service.gov.uk/Guidance/Governance">Get Information for Schools (GIAS)</a> service to update them.</p>
+    <p class="govuk-body">These details will be displayed to teacher training providers. If any details are incorrect, go to the <a href="https://www.get-information-schools.service.gov.uk/Guidance/Governance">Get Information for Schools (GIAS)</a> service to update them.</p>
 
       {{ govukSummaryList({
         rows: [

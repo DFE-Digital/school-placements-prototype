@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Enter the main placement contact details" %}
+{% set pageName="Placement contact details" %}
 
 {% set primaryNavId = "details" %}
 
@@ -18,11 +18,11 @@
 
         <h1 class="govuk-heading-l">{{ pageName }}</h1>
 
-        <p class="govuk-body">This will be the person that teacher training providers contact for placement enquiries.</p>
+        <p class="govuk-body">Enter an email address for the main contact for school placements. This can be a shared inbox, you can leave the name blank if this is the case.</p>
 
         {{ govukInput({
           label: {
-            text: "First name",
+            text: "First name (optional)",
             classes: "govuk-label--s",
             isPageHeading: false
           },
@@ -33,7 +33,7 @@
 
         {{ govukInput({
           label: {
-            text: "Last name",
+            text: "Last name (optional)",
             classes: "govuk-label--s",
             isPageHeading: false
           },
@@ -44,7 +44,7 @@
 
       {{ govukInput({
           label: {
-            text: "Email",
+            text: "Email address",
             classes: "govuk-label--s",
             isPageHeading: false
           },
