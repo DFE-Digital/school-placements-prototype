@@ -15,17 +15,17 @@ router.get("/school-users/v1/placement-added", (req, res) => {
 
 router.get("/school-users/v1/placement-mentor-updated", (req, res) => {
     req.flash('success', 'Mentor updated')
-    res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
+    res.redirect(req.originalUrl.replace("placement-mentor-updated","placement-detail"))
 })
 
 router.get("/school-users/v1/placement-year-group-updated", (req, res) => {
     req.flash('success', 'Year group updated')
-    res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
+    res.redirect(req.originalUrl.replace("placement-year-group-updated","placement-detail"))
 })
 
 router.get("/school-users/v1/placement-assigned", (req, res) => {
     req.flash('success', 'Placement assigned')
-    res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
+    res.redirect(req.originalUrl.replace("placement-assigned","placement-detail"))
 })
 
 router.get("/school-users/v1/mentor-added", (req, res) => {
