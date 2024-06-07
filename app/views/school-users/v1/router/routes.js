@@ -24,7 +24,7 @@ router.get("/school-users/v1/placement-year-group-updated", (req, res) => {
 })
 
 router.get("/school-users/v1/placement-assigned", (req, res) => {
-    req.flash('success', 'Placement assigned')
+    req.flash('success', 'Provider assigned')
     res.redirect(req.originalUrl.replace("placement-assigned","placement-detail"))
 })
 
