@@ -13,8 +13,18 @@ router.get("/school-users/v1/placement-added", (req, res) => {
     }
 })
 
-router.get("/school-users/v1/placement-updated", (req, res) => {
-    req.flash('success', 'Placement updated')
+router.get("/school-users/v1/placement-mentor-updated", (req, res) => {
+    req.flash('success', 'Mentor updated')
+    res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
+})
+
+router.get("/school-users/v1/placement-year-group-updated", (req, res) => {
+    req.flash('success', 'Year group updated')
+    res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
+})
+
+router.get("/school-users/v1/placement-assigned", (req, res) => {
+    req.flash('success', 'Placement assigned')
     res.redirect(req.originalUrl.replace("placement-updated","placement-detail"))
 })
 
@@ -43,7 +53,7 @@ router.get("/school-users/v1/provider-added", (req, res) => {
 })
 
 router.get("/school-users/v1/itt-added", (req, res) => {
-    req.flash('success', 'ITT placement contact added')
+    req.flash('success', 'Training placement contact added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingITTcontact = "true"
         res.redirect(req.originalUrl.replace("itt-added","onboarding"))
