@@ -1,0 +1,79 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Subject" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="add-placement-year-group"  method="post">
+
+        <span class="govuk-caption-l">Add placement</span>
+        {{ govukRadios({
+            name: "placementSubject",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary",
+                text: "Primary"
+              },
+              {
+                value: "Primary with English",
+                text: "Primary with English"
+              },
+              {
+                value: "Primary with geography and history",
+                text: "Primary with geography and history"
+              },
+              {
+                value: "Primary with mathematics",
+                text: "Primary with mathematics"
+              },
+              {
+                value: "Primary with modern languages",
+                text: "Primary with modern languages"
+              },
+              {
+                value: "Primary with physical education",
+                text: "Primary with physical education"
+              },
+              {
+                value: "Primary with science",
+                text: "Primary with science"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+       {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
