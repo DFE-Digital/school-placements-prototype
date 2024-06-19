@@ -1,0 +1,82 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Modern languages" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="add-placement-mentor"  method="post">
+
+        <span class="govuk-caption-l">Add placement</span>
+        {{ govukCheckboxes({
+            name: "placementModernForeignLanguage",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "French",
+                text: "French"
+              },
+              {
+                value: "German",
+                text: "German"
+              },
+              {
+                value: "Italian",
+                text: "Italian"
+              },
+              {
+                value: "Japanese",
+                text: "Japanese"
+              },
+              {
+                value: "Mandarin",
+                text: "Mandarin"
+              },
+              {
+                value: "Russian",
+                text: "Russian"
+              },
+              {
+                value: "Spanish",
+                text: "Spanish"
+              },
+              {
+                value: "Modern languages (other)",
+                text: "Modern languages (other)"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+             {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

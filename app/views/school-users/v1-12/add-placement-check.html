@@ -121,23 +121,6 @@
               } if data['placementMentor'],
               {
                 key: {
-                  text: "Window"
-                },
-                value: {
-                  text: data['placementMonths']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "add-placement-window",
-                      text: "Change",
-                      visuallyHiddenText: "mentor"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
                   text: "Academic year"
                 },
                 value: {
@@ -149,6 +132,23 @@
                       href: "add-placement-year",
                       text: "Change",
                       visuallyHiddenText: "academic year"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Window"
+                },
+                value: {
+                  text: data['placementMonths']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-window",
+                      text: "Change",
+                      visuallyHiddenText: "placement window"
                     }
                   ]
                 }

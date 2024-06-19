@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Academic year" %}
+{% set pageName="Placement timing" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,35 +12,35 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-check" method="post">
+<form method="post">
         <span class="govuk-caption-l">Add placement</span>
         {{ govukRadios({
-            name: "placementYear",
+            name: "placementTiming",
             fieldset: {
               legend: {
-                text: pageName,
+                text: "When can you offer this placement?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
             },
+            hint : {
+              text: "Training providers will discuss specific dates"
+            },
             items: [
               {
-                value: "2023 - 2024",
-                text: "2023 - 2024"
+                value: "Any time in the academic year~add-placement-check",
+                text: "Any time in the academic year"
               },
               {
-                value: "2024 - 2025",
-                text: "2024 - 2025"
+                value: "Specific months~add-placement-window",
+                text: "Specific months"
               }
             ]
           }) }}
 
-
-
           {{ govukButton({
             text: "Continue"
           }) }}
-
       </form>
 
       {% if data['onboarding'] === "true" %}

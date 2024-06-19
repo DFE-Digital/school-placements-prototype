@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Mentor" %}
+{% set pageName="Phase" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,10 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-window" method="post">
+      <form method="post">
         <span class="govuk-caption-l">Add placement</span>
-        {{ govukCheckboxes({
-            name: "placementMentor",
+        {{ govukRadios({
+            name: "placementPhase",
             fieldset: {
               legend: {
                 text: pageName,
@@ -25,16 +25,12 @@
             },
             items: [
               {
-                value: "Thea Weiss",
-                text: "Thea Weiss"
-              } if data['mentorTRN'],
-              {
-                divider: "or"
+                value: "Primary~add-placement-subject-primary",
+                text: "Primary"
               },
               {
-                value: "Not yet known",
-                text: "Not yet known",
-                behaviour: "exclusive"
+                value: "Secondary~add-placement-subject-secondary",
+                text: "Secondary"
               }
             ]
           }) }}
@@ -42,14 +38,9 @@
           {{ govukButton({
             text: "Continue"
           }) }}
-
-            {{ govukDetails({
-        summaryText: "My mentor is not listed",
-        html: "You need to <a href='providers'>add a mentor</a> first"
-      }) }}
       </form>
 
-      {% if data['onboarding'] === "true" %}
+        {% if data['onboarding'] === "true" %}
             <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
       {% else %}
             <p class="govuk-body"><a href="placements">Cancel</a></p>

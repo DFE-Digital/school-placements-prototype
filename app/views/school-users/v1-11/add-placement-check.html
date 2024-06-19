@@ -1,0 +1,199 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="placement-added" method="post">
+        <span class="govuk-caption-l">Add placement</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Phase"
+                },
+                value: {
+                 text: data['placementPhase']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-phase",
+                      text: "Change",
+                      visuallyHiddenText: "phase"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-primary",
+                      text: "Change",
+                      visuallyHiddenText: "subject"
+                    }
+                  ]
+                }
+              } if data['placementPhase'] == "Primary",
+              {
+                key: {
+                  text: "Year group"
+                },
+                value: {
+                  text: data['placementYearGroup']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-year-group",
+                      text: "Change",
+                      visuallyHiddenText: "year group"
+                    }
+                  ]
+                }
+              } if data['placementYearGroup'],
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: data['placementSubject']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-secondary",
+                      text: "Change",
+                      visuallyHiddenText: "subject"
+                    }
+                  ]
+                }
+              } if data['placementPhase'] == "Secondary",
+              {
+                key: {
+                  text: "Additional subjects"
+                },
+                value: {
+                  text: data['placementModernForeignLanguage']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-subject-secondary",
+                      text: "Change",
+                      visuallyHiddenText: "additional subjects"
+                    }
+                  ]
+                }
+              } if data['placementModernForeignLanguage'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: data['placementMentor']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['placementMentor'],
+              {
+                key: {
+                  text: "Academic year"
+                },
+                value: {
+                  text: data['placementYear']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-year",
+                      text: "Change",
+                      visuallyHiddenText: "academic year"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Window"
+                },
+                value: {
+                  text: data['placementMonths']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-window",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['placementMonths'],
+                            {
+                key: {
+                  text: "Window"
+                },
+                value: {
+                  text: data['placementTiming']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-window",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if not data['placementMonths']
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            text: "When a placement is published, it will be visible to teacher training providers."
+          }) }}
+
+          {{ govukButton({
+            text: "Publish placement"
+          }) }}
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

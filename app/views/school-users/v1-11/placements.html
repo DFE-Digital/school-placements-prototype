@@ -24,6 +24,14 @@
       {{ pageName }}
       </h1>
 
+      {% set availableTag %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+      {% endset %}
+
+
       {% set statusTag %}
         {% if data['placementProvider'] %}
           {{ govukTag({
@@ -40,9 +48,9 @@
 
       {% set placementTitle %}
         {% if data['placementModernForeignLanguage'] %}
-          <a href="placement-detail">{{ data['placementModernForeignLanguage'] }}</a>
+          <a href="placement-detail-dynamic">{{ data['placementModernForeignLanguage'] }}</a>
         {% else %}
-          <a href="placement-detail">{{ data['placementSubject'] }}</a>
+          <a href="placement-detail-dynamic">{{ data['placementSubject'] }}</a>
         {% endif %}
       {% endset %}
 
@@ -50,7 +58,7 @@
         {% if data['placementMentor'] %}
           {{ data['placementMentor'] }}
         {% else %}
-          Not known yet
+          Not yet known
         {% endif %}
       {% endset %}
 
@@ -92,6 +100,17 @@
                 },
                 {
                   html: statusTag
+                }
+              ] if data['placementSubject'],
+              [
+                {
+                  html: "<a href='placement-detail-fixed'>Business studies</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  html: availableTag
                 }
               ]
             ]

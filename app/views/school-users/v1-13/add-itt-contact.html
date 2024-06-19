@@ -1,0 +1,77 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Placement contact details" %}
+
+{% set primaryNavId = "details" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+     <form action="add-itt-contact-check" method="post">
+
+            <span class="govuk-caption-l">Organisation details</span>
+
+        <h1 class="govuk-heading-l">{{ pageName }}</h1>
+
+        <p class="govuk-body">Enter an email address for the main contact for school placements. This can be a shared inbox, you can leave the name blank if this is the case.</p>
+
+        {{ govukInput({
+          label: {
+            text: "First name (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "ittContactFirstName",
+          name: "ittContactFirstName"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Last name (optional)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "ittContactLastName",
+          name: "ittContactLastName"
+        }) }}
+
+      {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          id: "ittContactEmail",
+          name: "ittContactEmail"
+        }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+
+      </form>
+
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="details">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

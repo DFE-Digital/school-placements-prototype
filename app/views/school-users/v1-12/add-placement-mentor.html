@@ -1,0 +1,66 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Mentor" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-year" method="post">
+        <span class="govuk-caption-l">Add placement</span>
+        {{ govukCheckboxes({
+            name: "placementMentor",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Thea Weiss",
+                text: "Thea Weiss"
+              } if data['mentorTRN'],
+              {
+                divider: "or"
+              },
+              {
+                value: "Not yet known",
+                text: "Not yet known",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+            {{ govukDetails({
+        summaryText: "My mentor is not listed",
+        html: "You need to <a href='providers'>add a mentor</a> first"
+      }) }}
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

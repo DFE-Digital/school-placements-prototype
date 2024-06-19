@@ -1,0 +1,60 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Academic year" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-timing " method="post">
+        <span class="govuk-caption-l">Add placement</span>
+        {{ govukRadios({
+            name: "placementYear",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "2023 - 2024",
+                text: "2023 - 2024"
+              },
+              {
+                value: "2024 - 2025",
+                text: "2024 - 2025"
+              }
+            ]
+          }) }}
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Getting started" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <p class="govuk-body govuk-!-margin-bottom-7">You’ll need to complete all steps to start using the service. If you need help, contact <a href="mailto:manage.schoolplacements@education.gov.uk">manage.schoolplacements@education.gov.uk</a></p>
+
+
+<ul class="govuk-task-list">
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="onboarding-add-itt-contact-question" aria-describedby="getting-started-1-status">
+        1. Set a lead contact for teacher training providers
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="getting-started-1-status">
+      {% if data ['onboardingITTcontact'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="onboarding-add-users-question" aria-describedby="getting-started-3-status">
+        2. Add admin users
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="getting-started-3-status">
+      {% if data ['onboardingAdminUsers'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="add-provider" aria-describedby="getting-started-4-status">
+        3. Add partner providers
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="getting-started-4-status">
+      {% if data ['onboardingProvider'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="add-mentor" aria-describedby="getting-started-5-status">
+        4. Add mentors
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="getting-started-5-status">
+      {% if data ['onboardingMentor'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      {% if data ['onboardingITTcontact'] == "true" %}
+        <a class="govuk-link govuk-task-list__link" href="add-placement-phase" aria-describedby="getting-started-6-hint getting-started-6-status">
+          5. Add the first placement
+        </a>
+      {% else %}
+        5. Add the first placement
+        <div id="getting-started-6-hint" class="govuk-task-list__hint">
+          You will need to set a lead contact first
+        </div>
+      {% endif %}
+    </div>
+    <div class="govuk-task-list__status" id="getting-started-6-status">
+      {% if data ['onboardingPlacement'] == "true" %}
+        <strong class="govuk-tag govuk-tag--green">
+          Complete
+        </strong>
+      {% elseif data ['onboardingITTcontact'] == "true" %}
+        <strong class="govuk-tag govuk-tag--blue">
+          Not started
+        </strong>
+      {% else %}
+        <strong class="govuk-tag govuk-tag--grey">
+        Cannot start yet
+        </strong>
+      {% endif %}
+    </div>
+  </li>
+
+</ul>
+
+{% if data ['onboardingITTcontact'] == "true" and data ['onboardingAdminUsers'] == "true" and data ['onboardingProvider'] == "true" and data ['onboardingMentor'] == "true" and data ['onboardingPlacement'] == "true" %}
+      {{ govukButton({
+          text: "Continue",
+          href: "onboarding-complete"
+        }) }}
+ {% endif %}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Placement window" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-check" method="post">
+        <span class="govuk-caption-l">Add placement</span>
+        <h1 class="govuk-heading-l">{{ pageName }}</h1>
+
+       {{ govukDateInput({
+        id: "windowStart",
+        namePrefix: "windowStart",
+        fieldset: {
+          legend: {
+            text: "Start of placement window",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 31 9 2024"
+        }
+      }) }}
+
+       {{ govukDateInput({
+        id: "windowEnd",
+        namePrefix: "windowEnd",
+        fieldset: {
+          legend: {
+            text: "End of placement window",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 31 7 2025"
+        }
+      }) }}
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

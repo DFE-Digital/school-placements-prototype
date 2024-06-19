@@ -2,7 +2,7 @@ module.exports = router => {
 
 // Notifications
 
-router.get("/school-users/v1-1/placement-added", (req, res) => {
+router.get("/school-users/v1-11/placement-added", (req, res) => {
     req.flash('success', 'Placement added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingPlacement = "true"
@@ -13,22 +13,22 @@ router.get("/school-users/v1-1/placement-added", (req, res) => {
     }
 })
 
-router.get("/school-users/v1-1/placement-mentor-updated", (req, res) => {
+router.get("/school-users/v1-11/placement-mentor-updated", (req, res) => {
     req.flash('success', 'Mentor updated')
     res.redirect(req.originalUrl.replace("placement-mentor-updated","placement-detail"))
 })
 
-router.get("/school-users/v1-1/placement-year-group-updated", (req, res) => {
+router.get("/school-users/v1-11/placement-year-group-updated", (req, res) => {
     req.flash('success', 'Year group updated')
     res.redirect(req.originalUrl.replace("placement-year-group-updated","placement-detail"))
 })
 
-router.get("/school-users/v1-1/placement-assigned", (req, res) => {
+router.get("/school-users/v1-11/placement-assigned", (req, res) => {
     req.flash('success', 'Provider assigned')
     res.redirect(req.originalUrl.replace("placement-assigned","placement-detail"))
 })
 
-router.get("/school-users/v1-1/mentor-added", (req, res) => {
+router.get("/school-users/v1-11/mentor-added", (req, res) => {
     req.flash('success', 'Mentor added')
     if (req.session.data.onboarding == "true") {
         req.session.data.mentorTRN = 1
@@ -41,7 +41,7 @@ router.get("/school-users/v1-1/mentor-added", (req, res) => {
     }
 })
 
-router.get("/school-users/v1-1/provider-added", (req, res) => {
+router.get("/school-users/v1-11/provider-added", (req, res) => {
     req.flash('success', 'Partner provider added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingProvider = "true"
@@ -52,7 +52,7 @@ router.get("/school-users/v1-1/provider-added", (req, res) => {
     }
 })
 
-router.get("/school-users/v1-1/itt-added", (req, res) => {
+router.get("/school-users/v1-11/itt-added", (req, res) => {
     req.flash('success', 'Placement contact added')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingITTcontact = "true"
@@ -63,28 +63,28 @@ router.get("/school-users/v1-1/itt-added", (req, res) => {
     }
 })
 
-router.get("/school-users/v1-1/user-added", (req, res) => {
+router.get("/school-users/v1-11/user-added", (req, res) => {
     req.flash('success', 'User added')
     res.redirect(req.originalUrl.replace("user-added","users"))
 })
 
 // Onboarding routes
 
-router.get("/school-users/v1-1/skip-onboarding", (req, res) => {
+router.get("/school-users/v1-11/skip-onboarding", (req, res) => {
     req.session.data.onboarding = "false"
     req.session.data.mentorTRN = 1
     req.session.data.ittContactFirstName = "James"
     req.session.data.ittContactLastName = "Richardson"
     req.session.data.ittContactEmail = "james.richardson@whitburn.ac.uk"
-    req.session.data.placementPhase = "Secondary"
-    req.session.data.placementSubject = "Computing"
-    req.session.data.placementMentor = "Not known yet"
-    req.session.data.placementMonths = "All months"
-    req.session.data.placementYear = "2024-2025"
+    // req.session.data.placementPhase = "Secondary"
+    // req.session.data.placementSubject = "Computing"
+    // req.session.data.placementMentor = "Not yet known"
+    // req.session.data.placementMonths = "Any months"
+    // req.session.data.placementYear = "2024-2025"
     res.redirect(req.originalUrl.replace("skip-onboarding","index"))
 })
 
-router.get("/school-users/v1-1/signin-redirect", (req, res) => {
+router.get("/school-users/v1-11/signin-redirect", (req, res) => {
     if (req.session.data.onboarding == "false") {
         res.redirect(req.originalUrl.replace("signin-redirect","placements"))
     }
@@ -94,7 +94,7 @@ router.get("/school-users/v1-1/signin-redirect", (req, res) => {
     }
 })
 
-router.get("/school-users/v1-1/onboarding-add-itt-contact-answer", (req, res) => {
+router.get("/school-users/v1-11/onboarding-add-itt-contact-answer", (req, res) => {
     if (req.session.data.ittContactQuestion == "Yes") {
         req.flash('success', 'ITT placement contact added')
         req.session.data.ittContactName = "Ann Smith"
@@ -107,7 +107,7 @@ router.get("/school-users/v1-1/onboarding-add-itt-contact-answer", (req, res) =>
 	}
 })
 
-router.get("/school-users/v1-1/onboarding-add-users-answer", (req, res) => {
+router.get("/school-users/v1-11/onboarding-add-users-answer", (req, res) => {
     req.session.data.onboardingAdminUsers = "true"
     if (req.session.data.addUsersQuestion == "Yes") {
 		res.redirect(req.originalUrl.replace("onboarding-add-users-answer","add-user"))
@@ -117,7 +117,7 @@ router.get("/school-users/v1-1/onboarding-add-users-answer", (req, res) => {
 	}
 })
 
-router.get("/school-users/v1-1/onboarding-complete", (req, res) => {
+router.get("/school-users/v1-11/onboarding-complete", (req, res) => {
     req.session.data.onboarding = "false"
 	res.redirect(req.originalUrl.replace("onboarding-complete","placements"))
 })

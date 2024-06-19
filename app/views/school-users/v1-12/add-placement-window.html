@@ -12,7 +12,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-year" method="post">
+      <form action="add-placement-check" method="post">
         <span class="govuk-caption-l">Add placement</span>
         {{ govukCheckboxes({
             name: "placementMonths",
@@ -28,55 +28,23 @@
               },
             items: [
               {
-                value: "September",
-                text: "September"
+                value: "Autumn term",
+                text: "Autumn term"
               },
               {
-                value: "October",
-                text: "October"
+                value: "Spring term",
+                text: "Spring term"
               },
               {
-                value: "November",
-                text: "November"
-              },
-              {
-                value: "December",
-                text: "December"
-              },
-              {
-                value: "January",
-                text: "January"
-              },
-              {
-                value: "February",
-                text: "February"
-              },
-              {
-                value: "March",
-                text: "March"
-              },
-              {
-                value: "April",
-                text: "April"
-              },
-              {
-                value: "May",
-                text: "May"
-              },
-              {
-                value: "June",
-                text: "June"
-              },
-              {
-                value: "July",
-                text: "July"
+                value: "Summer term",
+                text: "Summer term"
               },
               {
                 divider: "or"
               },
               {
-                value: "Any months",
-                text: "Any months",
+                value: "Any time in the academic year",
+                text: "Any time in the academic year",
                 behaviour: "exclusive"
               }
             ]
