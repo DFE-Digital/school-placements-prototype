@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Placement window" %}
+{% set pageName="Mentor" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -15,7 +15,7 @@
       <form action="add-placement-check" method="post">
         <span class="govuk-caption-l">Add placement</span>
         {{ govukCheckboxes({
-            name: "placementMonths",
+            name: "placementMentor",
             fieldset: {
               legend: {
                 text: pageName,
@@ -23,39 +23,30 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-                text: "You can discuss specific start and end dates with training providers through email once you’ve assigned them to a placement."
-              },
             items: [
               {
-                value: "Autumn term",
-                text: "Autumn term"
-              },
-              {
-                value: "Spring term",
-                text: "Spring term"
-              },
-              {
-                value: "Summer term",
-                text: "Summer term"
-              },
+                value: "Thea Weiss",
+                text: "Thea Weiss"
+              } if data['mentorTRN'],
               {
                 divider: "or"
               },
               {
-                value: "Any time in the academic year",
-                text: "Any time in the academic year",
+                value: "Not yet known",
+                text: "Not yet known",
                 behaviour: "exclusive"
               }
             ]
           }) }}
 
-
-
           {{ govukButton({
             text: "Continue"
           }) }}
 
+            {{ govukDetails({
+        summaryText: "My mentor is not listed",
+        html: "You need to <a href='providers'>add a mentor</a> first"
+      }) }}
       </form>
 
       {% if data['onboarding'] === "true" %}

@@ -20,6 +20,7 @@ router.all('*', (req, res, next) => {
 // Link to school router files
 
 require('./views/school-users/v1/router/routes')(router)
+require('./views/school-users/v1-10/router/routes')(router)
 require('./views/school-users/v1-11/router/routes')(router)
 require('./views/school-users/v1-12/router/routes')(router)
 require('./views/school-users/v1-13/router/routes')(router)

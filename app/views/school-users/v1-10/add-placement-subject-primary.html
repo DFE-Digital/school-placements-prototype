@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Placement window" %}
+{% set pageName="Subject" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,10 +12,12 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-check" method="post">
+
+        <form action="add-placement-year-group"  method="post">
+
         <span class="govuk-caption-l">Add placement</span>
-        {{ govukCheckboxes({
-            name: "placementMonths",
+        {{ govukRadios({
+            name: "placementSubject",
             fieldset: {
               legend: {
                 text: pageName,
@@ -23,42 +25,44 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-                text: "You can discuss specific start and end dates with training providers through email once you’ve assigned them to a placement."
-              },
             items: [
               {
-                value: "Autumn term",
-                text: "Autumn term"
+                value: "Primary",
+                text: "Primary"
               },
               {
-                value: "Spring term",
-                text: "Spring term"
+                value: "Primary with English",
+                text: "Primary with English"
               },
               {
-                value: "Summer term",
-                text: "Summer term"
+                value: "Primary with geography and history",
+                text: "Primary with geography and history"
               },
               {
-                divider: "or"
+                value: "Primary with mathematics",
+                text: "Primary with mathematics"
               },
               {
-                value: "Any time in the academic year",
-                text: "Any time in the academic year",
-                behaviour: "exclusive"
+                value: "Primary with modern languages",
+                text: "Primary with modern languages"
+              },
+              {
+                value: "Primary with physical education",
+                text: "Primary with physical education"
+              },
+              {
+                value: "Primary with science",
+                text: "Primary with science"
               }
             ]
           }) }}
 
-
-
           {{ govukButton({
             text: "Continue"
           }) }}
-
       </form>
 
-      {% if data['onboarding'] === "true" %}
+       {% if data['onboarding'] === "true" %}
             <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
       {% else %}
             <p class="govuk-body"><a href="placements">Cancel</a></p>

@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Placement window" %}
+{% set pageName="Phase" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,10 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-check" method="post">
+      <form method="post">
         <span class="govuk-caption-l">Add placement</span>
-        {{ govukCheckboxes({
-            name: "placementMonths",
+        {{ govukRadios({
+            name: "placementPhase",
             fieldset: {
               legend: {
                 text: pageName,
@@ -23,42 +23,24 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-                text: "You can discuss specific start and end dates with training providers through email once you’ve assigned them to a placement."
-              },
             items: [
               {
-                value: "Autumn term",
-                text: "Autumn term"
+                value: "Primary~add-placement-subject-primary",
+                text: "Primary"
               },
               {
-                value: "Spring term",
-                text: "Spring term"
-              },
-              {
-                value: "Summer term",
-                text: "Summer term"
-              },
-              {
-                divider: "or"
-              },
-              {
-                value: "Any time in the academic year",
-                text: "Any time in the academic year",
-                behaviour: "exclusive"
+                value: "Secondary~add-placement-subject-secondary",
+                text: "Secondary"
               }
             ]
           }) }}
 
-
-
           {{ govukButton({
             text: "Continue"
           }) }}
-
       </form>
 
-      {% if data['onboarding'] === "true" %}
+        {% if data['onboarding'] === "true" %}
             <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
       {% else %}
             <p class="govuk-body"><a href="placements">Cancel</a></p>

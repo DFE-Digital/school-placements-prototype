@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Are you the lead teacher training provider contact?" %}
+{% set pageName="Do you want to add more users?" %}
 
 {% set back = true %}
 
@@ -10,16 +10,19 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="onboarding-add-itt-contact-answer">
+      <form method="post" action="onboarding-add-users-answer">
         <span class="govuk-caption-l">Getting started</span>
         {{ govukRadios({
-            name: "ittContactQuestion",
+            name: "addUsersQuestion",
             fieldset: {
               legend: {
                 text: pageName,
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
+            },
+            hint: {
+              text: "Users are members of your school who you would like to have access to the Manage school placements service."
             },
             items: [
               {
@@ -29,6 +32,10 @@
               {
                 value: "No",
                 text: "No"
+              },
+              {
+                value: "I'll do this later",
+                text: "I'll do this later"
               }
             ]
           }) }}
