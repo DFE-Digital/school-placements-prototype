@@ -21,11 +21,13 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      {% set placementTitle %}
+{% set placementTitle %}
         {% if data['placementModernForeignLanguage'] %}
-          {{ data['placementModernForeignLanguage'] }}
+          <a href="placement-detail-dynamic">{{ data['placementModernForeignLanguage'] }}</a>
+        {% elseif data['placementYearGroup'] %}
+          <a href="placement-detail-dynamic">{{ data['placementSubject'] }} ({{ data['placementYearGroup'] }})</a>
         {% else %}
-          {{ data['placementSubject'] }}
+          <a href="placement-detail-dynamic">{{ data['placementSubject'] }}</a>
         {% endif %}
       {% endset %}
 

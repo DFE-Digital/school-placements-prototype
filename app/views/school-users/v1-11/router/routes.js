@@ -3,7 +3,7 @@ module.exports = router => {
 // Notifications
 
 router.get("/school-users/v1-11/placement-added", (req, res) => {
-    req.flash('success', 'Placement added')
+    req.flash('success', 'Placement published')
     if (req.session.data.onboarding == "true") {
         req.session.data.onboardingPlacement = "true"
         res.redirect(req.originalUrl.replace("placement-added","onboarding"))
