@@ -1,0 +1,200 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Placement preview" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  {% set html %}
+  <p class="govuk-notification-banner__heading">
+    This is a preview of how your course will appear to teacher training providers looking for available courses.
+  </p>
+{% endset %}
+
+<div class="govuk-grid-column-full">
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Placement - Whitburn Church of England Academy</span>
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+            {% if data['placementPhase'] === "Primary" %}
+              {{ data['placementSubject'] }} - {{ data['placementYearGroup'] }}
+            {% elseif data['placementModernForeignLanguage'] %}
+              {{ data['placementModernForeignLanguage'] }}
+            {% else %}
+              {{ data['placementSubject'] }}
+            {% endif %}
+        </h1>
+        <div class="govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+        </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-0">
+        Placement contact
+      </h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: "Anne"
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                  text: "Wilson"
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: "anne_wilson@example.org"
+                }
+              }
+            ]
+          }) }}
+
+  <h2 class="govuk-heading-m govuk-!-margin-top-0">
+        Location
+      </h2>
+
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                 html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
+                }
+              }
+            ]
+          }) }}
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-0">
+        Additional details
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Establishment group"
+            },
+            value: {
+              text: "Academies"
+            }
+          },
+          {
+            key: {
+              text: "Phase"
+            },
+            value: {
+              text: "Secondary"
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Mixed"
+            }
+          },
+          {
+            key: {
+              text: "Age range"
+            },
+            value: {
+              text: "11 to 18"
+            }
+          },
+          {
+            key: {
+              text: "Religious character"
+            },
+            value: {
+              text: "Church of England"
+            }
+          },
+          {
+            key: {
+              text: "Urban or rural"
+            },
+            value: {
+              text: "(England/Wales) Urban city and town"
+            }
+          },
+          {
+            key: {
+              text: "Admissions policy"
+            },
+            value: {
+              text: "Non-selective"
+            }
+          },
+          {
+            key: {
+              text: "School capacity"
+            },
+            value: {
+              text: "1,305"
+            }
+          },
+          {
+            key: {
+              text: "Percentage free school meals"
+            },
+            value: {
+              text: "11%"
+            }
+          },
+          {
+            key: {
+              text: "Ofsted rating"
+            },
+            value: {
+              text: "Good"
+            }
+          }
+        ]
+      }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

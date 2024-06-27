@@ -1,0 +1,91 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Year group" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-mentor" method="post">
+        <span class="govuk-caption-l">Add placement</span>
+        {{ govukRadios({
+            name: "placementYearGroup",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Year 1",
+                text: "Year 1",
+                hint: {
+                  text: "5 to 6 years"
+                  }
+              },
+              {
+                value: "Year 2",
+                text: "Year 2",
+                hint: {
+                  text: "6 to 7 years"
+                  }
+              },
+              {
+                value: "Year 3",
+                text: "Year 3",
+                hint: {
+                  text: "7 to 8 years"
+                  }
+              },
+              {
+                value: "Year 4",
+                text: "Year 4",
+                hint: {
+                  text: "8 to 9 years"
+                  }
+              },
+              {
+                value: "Year 5",
+                text: "Year 5",
+                hint: {
+                  text: "9 to 10 years"
+                  }
+              },
+              {
+                value: "Year 6",
+                text: "Year 6",
+                hint: {
+                  text: "10 to 11 years"
+                  }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+        {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
