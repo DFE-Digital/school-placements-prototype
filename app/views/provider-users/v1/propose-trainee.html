@@ -1,0 +1,85 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Trainee" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="propose-trainee-check" method="post">
+        {{ govukRadios({
+            name: "placementTrainee",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Jennifer Banner",
+                text: "Jennifer Banner",
+                hint: {
+                        text: "History (HIS1)"
+                      }
+              },
+              {
+                value: "Malika Boutella",
+                text: "Malika Boutella",
+                hint: {
+                        text: "Modern languages (French) (MD9Q)"
+                      }
+              },
+              {
+                value: "Peter Essien",
+                text: "Peter Essien",
+                hint: {
+                        text: "History (H152)"
+                      }
+              },
+              {
+                value: "Freida Jackson",
+                text: "Freida Jackson",
+                hint: {
+                        text: "Primary (2S8T)"
+                      }
+              },
+              {
+                value: "Kara Lynn Tivan",
+                text: "Kara Lynn Tivan",
+                hint: {
+                        text: "English (E15P)"
+                      }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+            {{ govukDetails({
+        summaryText: "My trainee is not listed",
+        html: "You need to accept their application on <a href='providers'>Manage teacher training applications</a> first"
+      }) }}
+      </form>
+
+            <p class="govuk-body"><a href="placement-details">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

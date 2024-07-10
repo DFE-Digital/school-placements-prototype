@@ -1,61 +1,22 @@
 {% extends "layouts/user-provider-with-trainees.html" %}
 
-{% set pageName="Placement details" %}
+{% set pageName="Jennifer Banner" %}
 
-{% set primaryNavId = "placements" %}
+{% set primaryNavId = "trainees" %}
 
 {% set back = true %}
 
 {% block content %}
 
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-  {{ govukNotificationBanner({
-    type: "success",
-    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
-  }) if flash.length }}
-  </div>
-</div>
-
-
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
 
-
-      <span class="govuk-caption-l">Placement - Buxton Community School</span>
-      <h1 class="govuk-heading-l  govuk-!-margin-bottom-2">History
+      <h1 class="govuk-heading-l">{{ pageName }}
         </h1>
-          {{ govukTag({
-           text: "Available",
-           classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-          }) }}
 
-        {% if data['placementTrainee'] %}
 
-            {% set proposedTrainee %}
-              <p class="govuk-body">{{ data['placementTrainee'] }} has been proposed for this placement.</p>
-              <div class="govuk-button-group">
-                {{ govukButton({
-                  text: "Confirm trainee"
-                }) }}
-
-                {{ govukButton({
-                  text: "Withdraw trainee",
-                  classes: "govuk-button--secondary"
-                }) }}
-              </div>
-            {% endset %}
-
-              {{ govukInsetText({
-                html: proposedTrainee,
-                classes: "govuk-!-margin-top-0"
-              }) }}
-
-        {% endif %}
-
-        <h2 class="govuk-heading-m">Placement contact</h2>
+        <h2 class="govuk-heading-m">ITT placement contact</h2>
 
           {{ govukSummaryList({
             rows: [
@@ -172,9 +133,9 @@
             ]
           }) }}
 
-          <form class="button_to" method="get" action="propose-trainee">
+          <form class="button_to" method="get" action="#">
           {{ govukButton({
-            text: "Propose trainee"
+            text: "Propose a trainee for this placement"
           }) }}
           </form>
 

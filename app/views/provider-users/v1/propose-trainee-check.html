@@ -1,0 +1,76 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="trainee-proposed" method="post">
+        <span class="govuk-caption-l">Propose trainee</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Trainee"
+                },
+                value: {
+                 text: data['placementTrainee']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "propose-trainee",
+                      text: "Change",
+                      visuallyHiddenText: "trainee"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Course"
+                },
+                value: {
+                  text: "History (HIS1)"
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            text: "When a trainee is proposed, their information will be visible to the school."
+          }) }}
+
+
+<div class="govuk-button-group">
+
+       {{ govukButton({
+            text: "Propose trainee"
+          }) }}
+
+      <a class="govuk-link" href="propose-trainee-preview">Preview proposal</a>
+
+      </div>
+
+      </form>
+
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

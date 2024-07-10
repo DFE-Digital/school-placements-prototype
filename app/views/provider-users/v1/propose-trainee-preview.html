@@ -1,0 +1,369 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Trainee preview" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  {% set html %}
+  <p class="govuk-notification-banner__heading">
+    This is a preview of how your proposed trainee will appear to schools.
+  </p>
+{% endset %}
+
+<div class="govuk-grid-column-full">
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">Placement - History</span>
+        <h1 class="govuk-heading-l">
+            {{ data['placementTrainee'] }}
+        </h1>
+
+
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Course"
+                },
+                value: {
+                 text: "History (HIS1)"
+                }
+              },
+              {
+                key: {
+                  text: "Education phase"
+                },
+                value: {
+                  text: "Secondary"
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: "History"
+                }
+              }
+            ]
+          }) }}
+
+       <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Criminal record and professional misconduct
+      </h2>
+
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Do you want to declare any safeguarding issues such as a criminal record or professional misconduct?"
+                },
+                value: {
+                 text: "Yes, I want to declare something"
+                }
+              },
+              {
+                key: {
+                  text: "Give any relevant information"
+                },
+                value: {
+                 text: "I have an offence from a job I held in 2002."
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Work history and unpaid experience
+      </h2>
+
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Do you have any work history?"
+                },
+                value: {
+                 text: "No, I have always been in full time education"
+                }
+              },
+              {
+                key: {
+                  text: "Do you have any unpaid experience?"
+                },
+                value: {
+                 text: "No"
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Qualifications
+      </h2>
+
+      <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        First degree
+      </h3>
+
+    <dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Degree type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              BAcc - Bachelor of Accountancy (Hons)
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subject
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Fabrication
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Institution
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Courtauld Institute of Art
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+              First-class honours
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start year
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2019
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Graduation year
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2023
+            </dd>
+          </div>
+
+        </dl>
+
+
+        <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        English GCSE or equivalent
+      </h2>
+
+<dl class="govuk-summary-list">
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Qualification type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GCSE
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+        <ul class="govuk-list">
+
+          <li>9</li>
+
+        </ul>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Year awarded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2017
+            </dd>
+          </div>
+      </dl>
+
+      <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        Maths GCSE or equivalent
+      </h3>
+
+<dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Qualification type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GCSE
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+        <ul class="govuk-list">
+
+          <li>9</li>
+
+        </ul>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Year awarded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2017
+            </dd>
+          </div>
+
+      </dl>
+
+      <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        Science GCSE or equivalent
+      </h3>
+
+<dl class="govuk-summary-list">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Qualification type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              GCSE
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Grade
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+        <ul class="govuk-list">
+
+          <li>9-9</li>
+
+        </ul>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Year awarded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              2017
+            </dd>
+          </div>
+
+      </dl>
+
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Disability support
+      </h2>
+
+<dl class="govuk-summary-list">
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you want to ask for help to become a teacher?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes, I want to share information about myself so my provider can take steps to support me
+          </dd>
+
+        </div>
+
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Give any relevant information
+          </dt>
+          <dd class="govuk-summary-list__value">
+            I need wheelchair access.
+          </dd>
+
+        </div>
+
+
+  </dl>
+
+  <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Personal statement
+      </h2>
+
+            <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        Why do you want to be a teacher?
+      </h3>
+
+    <p>I have wanted to become a primary school teacher since the age of fourteen, because I always enjoyed going to school and felt privileged to receive the quality of education and guidance I did. My secondary school teachers inspired my passion for learning and enabled me to pursue and achieve my goals through their dedicated teaching and support. I would hope to use the role of a teacher to help young people achieve their potential, which will help them in their future career and for their own personal development. My experiences of working with children and young people in the past have been very positive and have enabled me to develop my teaching skills, as well as confirming that I would be suited to this profession. I have been encouraged to see that my tutees make rapid progress at school after a few weeks of tuition, both in terms of their confidence and academic performance. My strongest qualities that would make me a good teacher are patience, dedication and resilience, as well as the ability to recognise and work on my weaknesses; I have also built very positive relationships with my former colleagues in the past, and work well in a team. While I have a good sense of humour, I am also a firm disciplinarian, and I place a high value on professional practice.</p>
+
+            <h3 class="govuk-heading-s govuk-!-margin-top-5">
+        Why are you suited to teach your subjects or age group?
+      </h3>
+
+      <p>I am involved within coaching and have completed a Level One World Rugby Coaching Badge. Alongside this, I represented my district over 3 successive years in both High and Long jump. Following my participation, I was invited to assist the organising and officiating of Gloucestershire school events, these including indoor athletics, touch rugby and netball. Helping run these developed my knowledge of planning sporting events and the efficiency needed to run these, this valuable work experience sparked my interest in following a career in teaching PE at secondary level.</p>
+      <p>I have completed a number of work experience placements and internships throughout my academic career. Whilst at college, I regularly returned to my secondary school and aided in the teaching of Physical Education lessons, these have helped in the development of coaching skills that I have transferred into a job role as a PE Cover Supervisor within the South Wales region. This role has given me the opportunity to work with different age groups, sporting abilities and individuals from varying socioeconomic backgrounds and has given me the chance to build my leadership skills, specifically important within the safety aspects of the PE lessons. My job here has not been limited to PE and I have covered lessons in other departments such as Humanities, Maths and Art. This has allowed me to link PE with other subject areas across the curriculum, for example, presenting athlete data in graphs, tables and spreadsheets using skills found in Maths and ICT. My chosen degree has allowed me to complete two further placements within secondary schools. All my undertaken work experience has given me insights into a variety of teaching and coaching styles, including ways in which to encourage and maintain healthy lifestyle choices and adhere to these</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
