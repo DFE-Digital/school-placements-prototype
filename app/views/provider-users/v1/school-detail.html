@@ -16,7 +16,22 @@
       {{ pageName }}
       </h1>
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'School details',
+          href: 'school-detail',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        }, {
+          text: 'Placements',
+          href: 'school-placements',
+          classes: 'govuk-!-font-weight-bold'
+        } ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
       School details
     </h2>
 
