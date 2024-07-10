@@ -172,11 +172,15 @@
             ]
           }) }}
 
+          {% if data['placementTrainee'] %}
+
+          {% else %}
           <form class="button_to" method="get" action="propose-trainee">
           {{ govukButton({
             text: "Propose trainee"
           }) }}
           </form>
+        {% endif %}
 
   </div>
 
