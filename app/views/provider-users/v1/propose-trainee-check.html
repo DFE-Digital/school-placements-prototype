@@ -15,7 +15,9 @@
       <form action="trainee-proposed" method="post">
         <span class="govuk-caption-l">Propose trainee</span>
         <h1 class="govuk-heading-l">Check you want to send this Trainee profile to Whitburn Church of England school</h1>
-          <p>Once sent, the school will be able to see the trainee's profile and decide whether they are suitable for the placement.</p>
+         {{ govukInsetText({
+          text: "Once sent, the school will be able to see the trainee's profile and decide whether they are suitable for the placement.</p>" })
+           }}
 
           {{ govukSummaryList({
             rows: [
