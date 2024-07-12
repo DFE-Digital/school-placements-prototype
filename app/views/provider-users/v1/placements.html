@@ -10,129 +10,974 @@
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">
       {{ pageName }}
       </h1>
 
-       <a href="https://manage-school-placements-622.test.teacherservices.cloud/providers/00522817-23b0-4bbd-9bff-932fb29b342d/placements" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Find a new placement
-      </a>
+      <h2 class="govuk-heading-m">10 placements</h2>
 
-      <h2 class="govuk-heading-m">9 placements</h2>
+</div>
+</div>
 
-          {{ govukTable({
-            caption: "Placements",
-            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-            firstCellIsHeader: false,
-            attributes: {
-              'data-module': 'moj-sortable-table'
-            },
-            head: [
-              {
-                text: "Subject"
-              },
-              {
-                text: "School"
-              },
-              {
-                text: "Mentor"
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="filters">
+      <h2 class="govuk-heading-m">Filter</h2>
+      {{ govukButton({
+            text: "Apply filters"
+          }) }}
+
+      <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "placementsToShow",
+        fieldset: {
+          legend: {
+            text: "Placements to show",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Available placements",
+            text: "Available placements",
+            checked: true
+          },
+          {
+            value: "Assigned to me",
+            text: "Assigned to me"
+          },
+          {
+            value: "All placements",
+            text: "All placements"
+          }
+        ]
+      }) }}
+      </div>
+
+      <div class="individualFilter">
+          <h3 class="govuk-heading-s">Subject</h3>
+          <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "subjects",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Subjects",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
               }
-            ],
-            rows: [
-              [
-                {
-                  html: "<a href='placement-detail'>Ancient Greek</a>"
-                },
-                {
-                  text: "Buxton Community School"
-                },
-                {
-                  text: "Jan Harrison"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Biology</a>"
-                },
-                {
-                  text: "Hallam Sixth Form"
-                },
-                {
-                  text: "Richard Evans"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Design and Technology</a>"
-                },
-                {
-                  text: "Buxton Community School"
-                },
-                {
-                  text: "Kim Stobbart"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>English</a>"
-                },
-                {
-                  text: "Hallam Sixth Form"
-                },
-                {
-                  text: "Leslie Carnegie"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Maths</a>"
-                },
-                {
-                  text: "Hallam Sixth Form"
-                },
-                {
-                  text: "Santham Singh"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Maths</a>"
-                },
-                {
-                  text: "Buxton Community School"
-                },
-                {
-                  text: "Jamie Dixon"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Primary with English</a>"
-                },
-                {
-                  text: "Edale Rise Primary & Nursery School"
-                },
-                {
-                  text: "Anya Fuller"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Primary with Physical Education</a>"
-                },
-                {
-                  text: "Edale Rise Primary & Nursery School"
-                },
-                {
-                  text: "Thea Weiss"
-                }
-              ],[
-                {
-                  html: "<a href='placement-detail'>Spanish</a>"
-                },
-                {
-                  text: "Buxton Community School"
-                },
-                {
-                  text: "Julian Costa"
-                }
-              ]
+            },
+            items: [
+              {
+                value: "Ancient Greek",
+                text: "Ancient Greek"
+              },
+              {
+                value: "Ancient Hebrew",
+                text: "Ancient Hebrew"
+              },
+              {
+                value: "Art and design",
+                text: "Art and design"
+              },
+              {
+                value: "Biology",
+                text: "Biology"
+              },
+              {
+                value: "Business studies",
+                text: "Business studies"
+              },
+              {
+                value: "Chemistry",
+                text: "Chemistry"
+              },
+              {
+                value: "Citizenship",
+                text: "Citizenship"
+              },
+              {
+                value: "Classics",
+                text: "Classics"
+              },
+              {
+                value: "Communication and media studies",
+                text: "Communication and media studies"
+              },
+              {
+                value: "Computing",
+                text: "Computing"
+              },
+              {
+                value: "Dance",
+                text: "Dance"
+              },
+              {
+                value: "Design and technology",
+                text: "Design and technology"
+              },
+              {
+                value: "Drama",
+                text: "Drama"
+              },
+              {
+                value: "Economics",
+                text: "Economics"
+              },
+              {
+                value: "English",
+                text: "English"
+              },
+              {
+                value: "English as a second or other language",
+                text: "English as a second or other language"
+              },
+              {
+                value: "Geography",
+                text: "Geography"
+              },
+              {
+                value: "Health and social care",
+                text: "Health and social care"
+              },
+              {
+                value: "History",
+                text: "History"
+              },
+              {
+                value: "Latin",
+                text: "Latin"
+              },
+              {
+                value: "Mathematics",
+                text: "Mathematics"
+              },
+              {
+                value: "Modern languages~add-placement-subject-secondary-modern-foreign-languages",
+                text: "Modern languages"
+              },
+              {
+                value: "Music",
+                text: "Music"
+              },
+              {
+                value: "Philosophy",
+                text: "Philosophy"
+              },
+              {
+                value: "Physical education",
+                text: "Physical education"
+              },
+              {
+                value: "Physics",
+                text: "Physics"
+              },
+              {
+                value: "Psychology",
+                text: "Psychology"
+              },
+              {
+                value: "Religious education",
+                text: "Religious education"
+              },
+              {
+                value: "Science",
+                text: "Science"
+              },
+              {
+                value: "Social sciences",
+                text: "Social sciences"
+              }
             ]
           }) }}
+      </div>
+
+      <div class="individualFilter">
+          {{ govukCheckboxes({
+            name: "primaryYearGroup",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Primary year group",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Year 1",
+                text: "Year 1"
+              },
+              {
+                value: "Year 2",
+                text: "Year 2"
+              },
+              {
+                value: "Year 3",
+                text: "Year 3"
+              },
+              {
+                value: "Year 4",
+                text: "Year 4"
+              },
+              {
+                value: "Year 5",
+                text: "Year 5"
+              },
+              {
+                value: "Year 6",
+                text: "Year 6"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+          {{ govukCheckboxes({
+            name: "partnerSchools",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Partner schools",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "partners",
+                text: "Only show placements offered by my partner schools"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+        <h3 class="govuk-heading-s">School</h3>
+        <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "school",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "School",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Bath Spa University",
+                text: "Bath Spa University"
+              },
+              {
+                value: "Chingford CofE Primary School",
+                text: "Chingford CofE Primary School"
+              },
+              {
+                value: "Collegiate School",
+                text: "Collegiate School"
+              },
+              {
+                value: "Temple Learning Academy",
+                text: "Temple Learning Academy"
+              },
+              {
+                value: "University Technical College Leeds",
+                text: "University Technical College Leeds"
+              },
+              {
+                value: "Whitburn Church of England School",
+                text: "Whitburn Church of England School"
+              }
+            ]
+          }) }}
+      </div>
+
+  </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+ <div class="govuk-form-group govuk-!-margin-bottom-3">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="locationSearch">
+                Enter a location
+              </label>
+            </h1>
+            <div id="locationSearch-hint" class="govuk-hint">
+              For example, Sunderland or SR2
+            </div>
+            <input class="govuk-input locationSearchInput" id="locationSearch" name="locationSearch" type="text" aria-describedby="locationSearch-hint">
+            {{ govukButton({
+              text: "Search",
+              classes: "locationSearchButton govuk-!-margin-bottom-0"
+            }) }}
+          </div>
+          <hr class="govuk-section-break govuk-section-break--visible">
+
+<div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Collegiate School<br>Art and Design</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Christian
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Buxton school<br>English</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        None
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Requires improvement
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Mortimer Academy<br>Maths</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Christian
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Royal Grammar School<br>English</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        None
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Requires improvement
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Christian
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        None
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Requires improvement
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Christian
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        None
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Requires improvement
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Christian
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Gender
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Mixed
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Religious character
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        None
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Urban or rural
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        (England/Wales) Urban city and town
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Requires improvement
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
 
   </div>
 

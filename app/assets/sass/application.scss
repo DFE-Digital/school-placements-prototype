@@ -89,3 +89,133 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
     display: block;
     clear: both;
 }
+
+/// FILTERS
+
+.filters { background-color: #f3f2f1; padding: 15px; }
+.individualFilter { border-bottom: 1px solid #b1b4b6; margin-bottom: 20px; }
+
+.filters .individualFilter input[type=search] {
+    background: url(https://manage-school-placements-qa.test.teacherservices.cloud/assets/icon-magnifying-glass-8daca47c.svg) no-repeat;
+    background-color: #ffffff;
+    padding-left: 30px;
+}
+
+.filters .individualFilter .govuk-checkboxes {
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left: 10px;
+}
+
+.app-filter-layout__selected ul:last-of-type {
+    margin-bottom: 0;
+}
+.app-filter-tags {
+    font-size: 0;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.app-filter-tags li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.app-filter__tag {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+    background-color: #ffffff;
+    border: 1px solid #0b0c0c;
+    color: #0b0c0c;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.app-filter__tag:link, .app-filter__tag:visited {
+    color: #0b0c0c;
+}
+
+.app-filter__tag:after {
+    background-image: url(https://manage-school-placements-qa.test.teacherservices.cloud/assets/icon-tag-remove-cross-d919a551.svg);
+    content: "";
+    display: inline-block;
+    font-weight: bold;
+    height: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+    width: 10px;
+}
+
+/// Location Search
+
+.locationSearchInput { width: calc(100% - 115px); float:left; }
+
+.locationSearchButton { width: 100px; margin-left:15px; float:right; }
+
+.searchResult { padding-top:20px; padding-bottom:20px; }
+
+.app-result-detail {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+    color: #0b0c0c;
+    margin-bottom: 15px;
+    margin: 0;
+}
+
+@media (min-width: 40.0625em) {
+    .app-result-detail {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+}
+
+
+@media (min-width: 40.0625em) {
+    .app-result-detail__row {
+        display: table-row;
+    }
+}
+
+@media (min-width: 40.0625em) {
+    .app-result-detail__key {
+        color: #505a5f;
+        font-weight: normal;
+        width: 200px;
+    }
+}
+
+@media (min-width: 40.0625em) {
+    .app-result-detail__key, .app-result-detail__value {
+        display: table-cell;
+        padding-top: 0;
+        padding-right: 20px;
+    }
+}
+.app-result-detail__key, .app-result-detail__value {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+@media (min-width: 40.0625em) {
+    .app-result-detail__key, .app-result-detail__value {
+        display: table-cell;
+        padding-top: 0;
+        padding-right: 20px;
+    }
+}
+.app-result-detail__key, .app-result-detail__value {
+    margin: 0;
+    padding-bottom: 5px;
+}

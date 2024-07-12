@@ -85,8 +85,6 @@
         Placements
       </h2>
 
-        {% if data['placementTrainee'] %}
-
 {{ govukTable({
             caption: "Placements",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
@@ -111,7 +109,7 @@
                   html: "<a href='placement-detail'>History</a>"
                 },
                 {
-                  text: "Whitburn Church of England School"
+                  text: "Whitburn Church of England Academy"
                 },
                 {
                   text: "Santham Singh"
@@ -120,21 +118,12 @@
             ]
           }) }}
 
-          <form class="button_to" method="get" action="placements-jennifer">
+          <form class="button_to" method="get" action="propose-trainee">
           {{ govukButton({
-            text: "Find second placement"
+            text: "Find contrasting placements"
           }) }}
           </form>
 
-        {% else %}
-
-
-          <form class="button_to" method="get" action="placements-jennifer">
-          {{ govukButton({
-            text: "Find placements"
-          }) }}
-          </form>
-{% endif %}
 
 
   </div>
