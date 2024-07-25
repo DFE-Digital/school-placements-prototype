@@ -38,8 +38,10 @@
               {{ data['placementSubject'] }} - {{ data['placementYearGroup'] }}
             {% elseif data['placementModernForeignLanguage'] %}
               {{ data['placementModernForeignLanguage'] }}
-            {% else %}
+            {% elseif data['placementSubject'] %}
               {{ data['placementSubject'] }}
+            {% else %}
+              Business studies
             {% endif %}
         </h1>
         <div class="govuk-!-margin-top-0 govuk-!-margin-bottom-6">

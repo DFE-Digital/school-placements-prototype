@@ -73,12 +73,6 @@ router.get("/school-users/v1/user-added", (req, res) => {
 router.get("/school-users/v1/skip-onboarding", (req, res) => {
     req.session.data.onboarding = "false"
     req.session.data.mentorTRN = 1
-    req.session.data.ittContactFirstName = "James"
-    req.session.data.ittContactLastName = "Richardson"
-    req.session.data.ittContactEmail = "james.richardson@whitburn.ac.uk"
-    req.session.data.placementPhase = "Secondary"
-    req.session.data.placementSubject = "Computing"
-    req.session.data.placementMentor = "Not known yet"
     res.redirect(req.originalUrl.replace("skip-onboarding","index"))
 })
 
