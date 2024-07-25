@@ -68,15 +68,10 @@
         {% endif %}
       {% endset %}
 
-        {% if data['placementTitle'] %}
+
       <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Add placement
       </a>
-{% else %}
-        {{ govukInsetText({
-            html: "<p>Before you add a placement, you must <a href='add-itt-contact'>add a placement contact</a> so that the teacher training providers can contact you.</p>"
-          }) }}
-{% endif %}
 
 
 
