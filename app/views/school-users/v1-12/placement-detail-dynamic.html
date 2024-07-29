@@ -23,11 +23,11 @@
 
 {% set placementTitle %}
         {% if data['placementModernForeignLanguage'] %}
-          <a href="placement-detail-dynamic">{{ data['placementModernForeignLanguage'] }}</a>
+          {{ data['placementModernForeignLanguage'] }}
         {% elseif data['placementYearGroup'] %}
-          <a href="placement-detail-dynamic">{{ data['placementSubject'] }} ({{ data['placementYearGroup'] }})</a>
+          {{ data['placementSubject'] }} ({{ data['placementYearGroup'] }})
         {% else %}
-          <a href="placement-detail-dynamic">{{ data['placementSubject'] }}</a>
+          {{ data['placementSubject'] }}
         {% endif %}
       {% endset %}
 
@@ -147,13 +147,7 @@
                   text: data['placementYear']
                 },
                 actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "academic year"
-                    }
-                  ]
+
                 }
               } if data['placementYear'],
               {
