@@ -1,0 +1,35 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Are you sure you want to remove this placement?" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Thea Weiss</span>
+
+      <h1 class="govuk-heading-l">You cannot delete this mentor</h1>
+
+      <p class="govuk-body">Thea must be removed from current placements before you can delete them.</p><p>They are currently assigned to:<p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="placement-detail-fixed" target="_blank">Business studies (opens in new tab)</a></li>
+        </ul>
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
