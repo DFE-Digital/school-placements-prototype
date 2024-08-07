@@ -68,3 +68,4 @@ router.get("/school-users/v1/user-added", (req, res) => {
     res.redirect(req.originalUrl.replace("user-added","users"))
 })
 
+}
