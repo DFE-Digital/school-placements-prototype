@@ -1,6 +1,8 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="University user prototypes" %}
+{% set pageName="Provider user prototypes" %}
+
+{% set title="Provider user prototypes" %}
 
 {% set back = false %}
 
@@ -26,7 +28,7 @@
    <h2 class="govuk-heading-m">Patricia</h2>
 
         {{ govukTag({
-          text: "University",
+          text: "Provider",
           classes: "govuk-tag--orange govuk-!-margin-bottom-5"
         }) }}
 
@@ -50,11 +52,19 @@
           </li>
         </ul>
 
-        {{ govukButton({
-          text: "Start now",
-          href: "provider-users/v1/",
-          isStartButton: true
-        }) }}
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+        <h2 class="govuk-heading-m">Provider user research versions (1)</h2>
+        <p class="govuk-body">
+          Includes trainee data.
+        </p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            <a href="provider-users/v1/index">Provider user journey</a>
+          </li>
+        </ul>
   </div>
 
 </div>
