@@ -1,0 +1,71 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Provider" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="placement-assigned" method="post">
+        <span class="govuk-caption-l">Manage placement</span>
+        {{ govukRadios({
+            name: "placementProvider",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "GORSE SCITT",
+                text: "GORSE SCITT"
+              },
+              {
+                value: "Leeds Beckett University",
+                text: "Leeds Beckett University"
+              },
+              {
+                value: "Leeds SCITT",
+                text: "Leeds SCITT"
+              },
+              {
+                value: "Leeds Trinity",
+                text: "Leeds Trinity"
+              }
+            ]
+          }) }}
+
+          {{ govukWarningText({
+            html: "You are assigning the placement to an ITT provider and have agreed this with them. It will appear as unavailable to other ITT providers.",
+            iconFallbackText: "Warning"
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+      {{ govukDetails({
+        summaryText: "My provider is not listed",
+        html: "You need to <a href='providers'>add a provider</a> first"
+      }) }}
+
+      <p class="govuk-body"><a href="placement-detail">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

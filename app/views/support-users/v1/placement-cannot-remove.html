@@ -1,0 +1,30 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Are you sure you want to remove this placement?" %}
+
+{% set primaryNavId = "placementss" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Biology</span>
+
+      <h1 class="govuk-heading-l">You cannot delete this placement</h1>
+
+      <p class="govuk-body">This Biology placement cannot be deleted because it is assigned to a provider.</p>
+      <p class="govuk-body">You must remove Leeds Trinity from the placement before you can delete it.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

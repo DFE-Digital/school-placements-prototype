@@ -1,0 +1,75 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Find teacher" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-mentor-check" method="post">
+        <span class="govuk-caption-l">Add mentor</span>
+        <h1 class="govuk-heading-l">{{ pageName }}</h1>
+
+        {{ govukInput({
+          label: {
+            text: "Teacher reference number (TRN)",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "mentorTRN",
+          name: "mentorTRN",
+        hint: {
+          text: "For example, 0023678"
+        }
+        }) }}
+
+      {{ govukDetails({
+        summaryText: "Help with the TRN",
+        html: "A TRN is a 7 digit number that uniquely identifies people in the education sector in England. If you do not know a teacher’s TRN, you can ask them for it. They can find a lost TRN, or apply for a new one by following the instructions in the <a href='https://www.gov.uk/guidance/teacher-reference-number-trn'>TRN guidance (opens in new tab)</a>."
+      }) }}
+
+
+      {{ govukDateInput({
+        id: "mentorDob",
+        namePrefix: "mentorDob",
+        fieldset: {
+          legend: {
+            text: "Date of birth",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        }
+      }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+
+      </form>
+
+       {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="mentors">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

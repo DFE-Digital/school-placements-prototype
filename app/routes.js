@@ -25,6 +25,7 @@ require('./views/school-users/v1-11/router/routes')(router) // Placement window 
 require('./views/school-users/v1-12/router/routes')(router) // Placement window (terms)
 require('./views/school-users/v1-13/router/routes')(router) // Placement window (dates)
 require('./views/school-users/v1-14/router/routes')(router) // Placement preview
+require('./views/school-users/v2/router/routes')(router) // Content sweep
 
 //// UR Round 3
 require('./views/ur-archive/school-user-001/router/routes')(router)
@@ -34,3 +35,7 @@ require('./views/ur-archive/school-user-003/router/routes')(router)
 // Link to provider router files
 
 require('./views/provider-users/v1/router/routes')(router)
+
+// Link to support user router files
+
+require('./views/support-users/v1/router/routes')(router)
