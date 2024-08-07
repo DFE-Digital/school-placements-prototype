@@ -1,8 +1,8 @@
 {% extends "layouts/user.html" %}
 
-{% set pageName="Are you sure you want to delete this placement?" %}
+{% set pageName="Are you sure you want to delete this user?" %}
 
-{% set primaryNavId = "placementss" %}
+{% set primaryNavId = "users" %}
 
 {% set back = true %}
 
@@ -15,7 +15,12 @@
       <span class="govuk-caption-l">{{ data['placementSubject'] }}</span>
 
       <h1 class="govuk-heading-l">{{ pageName }}</h1>
-      <p>It is your responsibility to make sure that anyone relevant to organising this placement is aware it is being deleted.</p>
+      <p>Anne will no longer be able to view, create or manage placements at your school.</p>
+
+      {{ govukWarningText({
+          text: "The user will be sent an email to tell them you removed from from Whitburn Church of England School",
+          iconFallbackText: "Warning"
+        }) }}
 
       {{ govukButton({
         text: "Delete placement",
