@@ -126,16 +126,20 @@
             text: "When a placement is published, it will be visible to teacher training providers."
           }) }}
 
-          {{ govukButton({
+          <div class="govuk-button-group">
+
+       {{ govukButton({
             text: "Publish placement"
           }) }}
+
+      <a class="govuk-link" href="add-placement-preview">Preview placement</a>
+
+      </div>
       </form>
 
-      {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
+
             <p class="govuk-body"><a href="placements">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 

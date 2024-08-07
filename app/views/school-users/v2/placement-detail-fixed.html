@@ -21,15 +21,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      {% set placementTitle %}
-        {% if data['placementModernForeignLanguage'] %}
-          {{ data['placementModernForeignLanguage'] }}
-        {% else %}
-          {{ data['placementSubject'] }}
-        {% endif %}
-      {% endset %}
-
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ placementTitle }}</h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Business studies</h1>
         {% if data['placementProvider'] %}
           {{ govukTag({
             text: "Unavailable",
@@ -59,7 +51,7 @@
                   text: "Phase"
                 },
                 value: {
-                 text: data['placementPhase']
+                 text: "Secondary"
                 }
               },
               {
@@ -67,48 +59,15 @@
                   text: "Subject"
                 },
                 value: {
-                  text: data['placementSubject']
+                  text: "Business studies"
                 }
-              } if data['placementPhase'] == "Primary",
-              {
-                key: {
-                  text: "Subject"
-                },
-                value: {
-                  text: data['placementSubject']
-                }
-              } if data['placementPhase'] == "Secondary",
-              {
-                key: {
-                  text: "Additional subjects"
-                },
-                value: {
-                  text: data['placementModernForeignLanguage']
-                }
-              } if data['placementModernForeignLanguage'],
-              {
-                key: {
-                  text: "Year group"
-                },
-                value: {
-                  text: data['placementYearGroup']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "change-placement-year-group",
-                      text: "Change",
-                      visuallyHiddenText: "year group"
-                    }
-                  ]
-                }
-              } if data['placementYearGroup'],
+              },
               {
                 key: {
                   text: "Mentor"
                 },
                 value: {
-                  html: mentorName
+                  text: "Not yet known"
                 },
                 actions: {
                   items: [
@@ -120,23 +79,7 @@
                   ]
                 }
               },
-              {
-                key: {
-                  text: "Provider"
-                },
-                value: {
-                  text: data['placementProvider']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "assign-a-provider",
-                      text: "Change",
-                      visuallyHiddenText: "placement provider"
-                    }
-                  ]
-                }
-              } if data['placementProvider'],
+
               {
                 key: {
                   text: "Provider"
@@ -148,11 +91,16 @@
             ]
           }) }}
 
+
 <div class="govuk-inset-text">
   You can <a href="placement-preview" class="govuk-link">preview this placement</a> as it appears to providers.
 </div>
 
-      <p class="govuk-body"><a href="placement-remove" class="govuk-link app-link--destructive">Delete placement</a></p>
+  <div class="govuk-button-group">
+
+
+     <a href="placement-remove" class="govuk-link app-link--destructive">Delete placement</a>
+  </div>
 
   </div>
 

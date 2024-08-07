@@ -24,6 +24,20 @@
       {{ pageName }}
       </h1>
 
+                  {% set availableTag %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+      {% endset %}
+
+      {% set unavailableTag %}
+          {{ govukTag({
+           text: "Unavailable",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
       {% set statusTag %}
         {% if data['placementProvider'] %}
           {{ govukTag({
@@ -55,12 +69,11 @@
       {% endset %}
 
 
-    {% if data['ittContactEmail'] %}
       <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
           Add placement
         </a>
-        {% if data['placementSubject'] %}
-          {{ govukTable({
+
+   {{ govukTable({
             caption: "Placements",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
             firstCellIsHeader: false,
@@ -86,19 +99,33 @@
                 {
                   html: statusTag
                 }
+              ] if data['placementSubject'],
+              [
+                {
+                  html: "<a href='placement-detail-fixed'>Business studies</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  html: availableTag
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Chemistry</a>"
+                },
+                {
+                  text: "Thea Weiss"
+                },
+                {
+                  html: unavailableTag
+                }
               ]
             ]
           }) }}
-        {% else %}
 
-        <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>
 
-        {% endif %}
-    {% else %}
-    {{ govukInsetText({
-            html: "<p>Before you add a placement, you must <a href='add-itt-contact'>add a placement contact</a> so that the teacher training providers can contact you.</p>"
-          }) }}
-      {% endif %}
 
 
   </div>
