@@ -9,12 +9,17 @@
 <div class="govuk-grid-row">
 
  <div class="govuk-grid-column-one-quarter">
-      <ul class="govuk-list">
-          <li><a href="index" class="govuk-link--no-underline govuk-link--no-visited-state">School user</a></li>
-          <li><a href="provider-user" class="govuk-link--no-underline govuk-link--no-visited-state">Provider user</a></li>
-         <!--  <li><a href="multi-org-user" class="govuk-link--no-underline govuk-link--no-visited-state">Multi-org user</a></li>
-          <li><a href="support-user" class="govuk-link--no-underline govuk-link--no-visited-state">Support user</a></li> -->
-        </ul>
+    {{ mojSideNavigation({
+      label: 'Side navigation',
+      items: [{
+        text: 'School user',
+        href: 'index',
+        active: true
+      }, {
+        text: 'Provider user',
+        href: 'provider-user'
+      }]
+    }) }}
   </div>
 
   <div class="govuk-grid-column-three-quarters">
