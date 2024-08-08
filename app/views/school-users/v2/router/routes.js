@@ -79,7 +79,7 @@ router.get("/school-users/v2/mentor-deleted", (req, res) => {
 })
 
 router.get("/school-users/v2/provider-deleted", (req, res) => {
-    req.flash('success', 'Provider deleted')
+    req.flash('success', 'Partner provider deleted')
     res.redirect(req.originalUrl.replace("provider-deleted","[providers]"))
 })
 
