@@ -11,7 +11,7 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">
       {{ pageName }}
       </h1>
@@ -20,15 +20,19 @@
       {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [{
-          text: 'Placements',
-          href: 'school-placements',
-          classes: 'govuk-!-font-weight-bold'
-        }, {
           text: 'School details',
           href: 'school-detail',
           classes: 'govuk-!-font-weight-bold',
           active: true
-        }]
+        }, {
+          text: 'Current placements (2024 - 2025)',
+          href: 'school-current-placements',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Future placements (2025 - 2026)',
+          href: 'school-future-placements',
+          classes: 'govuk-!-font-weight-bold'
+        } ]
       }) }}
 
       <h2 class="govuk-heading-m">

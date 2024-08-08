@@ -94,20 +94,21 @@
         items: [{
           text: 'Current placements (2024 - 2025)',
           href: 'placements',
-          classes: 'govuk-!-font-weight-bold',
-          active: true
+          classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Future placements (2025 - 2026)',
           href: 'placements-future',
-          classes: 'govuk-!-font-weight-bold'
+          classes: 'govuk-!-font-weight-bold',
+          active: true
         } ]
       }) }}
+
     <!-- <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>  -->
 
 
 
           {{ govukTable({
-            caption: "Current placements (2024 - 2025)",
+            caption: "Future placements (2025 - 2026)",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
             firstCellIsHeader: false,
             head: [
@@ -164,7 +165,7 @@
                   text: "Autumn term - Spring term"
                 },
                 {
-                  html: unavailableTag
+                  html: availableTag
                 }
               ],
               [
@@ -192,7 +193,7 @@
                   text: "Spring term - Summer term"
                 },
                 {
-                  html: unavailableTag
+                  html: availableTag
                 }
               ],
               [
@@ -220,7 +221,7 @@
                   text: "Any time in the academic year"
                 },
                 {
-                  html: unavailableTag
+                  html: availableTag
                 }
                 ],
                 [
@@ -248,7 +249,7 @@
                   text: "Any time in the academic year"
                 },
                 {
-                  html: unavailableTag
+                  html: availableTag
                 }
                 ],
                 [
@@ -262,7 +263,7 @@
                   text: "Autumn term - Spring term"
                 },
                 {
-                  html: unavailableTag
+                  html: availableTag
                 }
               ]
             ]

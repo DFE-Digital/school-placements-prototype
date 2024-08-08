@@ -1,0 +1,185 @@
+{% extends "layouts/user-provider.html" %}
+
+{% set pageName="Whitburn Church of England School" %}
+
+{% set primaryNavId = "partners" %}
+
+{% set back = false %}
+
+{% block content %}
+
+      {% set availableTag %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+      {% endset %}
+
+      {% set unavailableTag %}
+          {{ govukTag({
+           text: "Unavailable",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'School details',
+          href: 'school-detail',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Current placements (2024 - 2025)',
+          href: 'school-current-placements',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Future placements (2025 - 2026)',
+          href: 'school-future-placements',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        } ]
+      }) }}
+
+  </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+      Placements assigned to you
+    </h2>
+
+          {{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Mentor"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='placement-detail'>English</a>"
+                },
+                {
+                  text: "Santham Singh"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>History</a>"
+                },
+                {
+                  text: "Jan Harrison"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>History</a>"
+                },
+                {
+                  text: "Not known yet"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Modern languages (French)</a>"
+                },
+                {
+                  text: "Richard Evans"
+                }
+              ],[
+                {
+                  html: "<a href='placement-detail'>Primary</a>"
+                },
+                {
+                  text: "Not known yet"
+                }
+              ]
+            ]
+          }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Other placements
+    </h2>
+
+{{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='#'>Biology</a>"
+                },
+                {
+                  html: availableTag
+                }
+              ],[
+                {
+                  html: "<a href='#'>Chemistry</a>"
+                },
+                {
+                  html: availableTag
+                }
+              ],[
+                {
+                  html: "<a href='#'>Computing</a>"
+                },
+                {
+                  html: unavailableTag
+                }
+              ],[
+                {
+                  html: "<a href='#'>Maths</a>"
+                },
+                {
+                  html: availableTag
+                }
+              ],[
+                {
+                  html: "<a href='#'>Physics</a>"
+                },
+                {
+                  html: unavailableTag
+                }
+              ]
+            ]
+          }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

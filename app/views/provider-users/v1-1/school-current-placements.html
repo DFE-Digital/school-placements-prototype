@@ -24,7 +24,7 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l">
       {{ pageName }}
       </h1>
@@ -38,18 +38,23 @@
           href: 'school-detail',
           classes: 'govuk-!-font-weight-bold'
         }, {
-          text: 'Placements assigned to you',
-          href: 'school-placements',
+          text: 'Current placements (2024 - 2025)',
+          href: 'school-current-placements',
           classes: 'govuk-!-font-weight-bold',
           active: true
-        },
-        {
-          text: 'Other placements',
-          href: 'school-placements',
+        }, {
+          text: 'Future placements (2025 - 2026)',
+          href: 'school-future-placements',
           classes: 'govuk-!-font-weight-bold'
-        }
-         ]
+        } ]
       }) }}
+
+  </div>
+  </div>
+
+  <div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
 
       <h2 class="govuk-heading-m">
       Placements assigned to you
@@ -67,9 +72,6 @@
                 text: "Subject"
               },
               {
-                text: "Trainee"
-              },
-              {
                 text: "Mentor"
               }
             ],
@@ -79,17 +81,11 @@
                   html: "<a href='placement-detail'>English</a>"
                 },
                 {
-                  text: "Kara Lynn Tivan"
-                },
-                {
                   text: "Santham Singh"
                 }
               ],[
                 {
                   html: "<a href='placement-detail'>History</a>"
-                },
-                {
-                  text: "Jennifer Banner"
                 },
                 {
                   text: "Jan Harrison"
@@ -99,9 +95,6 @@
                   html: "<a href='placement-detail'>History</a>"
                 },
                 {
-                  text: "Peter Essien"
-                },
-                {
                   text: "Not known yet"
                 }
               ],[
@@ -109,17 +102,11 @@
                   html: "<a href='placement-detail'>Modern languages (French)</a>"
                 },
                 {
-                  text: "Malika Boutella"
-                },
-                {
                   text: "Richard Evans"
                 }
               ],[
                 {
                   html: "<a href='placement-detail'>Primary</a>"
-                },
-                {
-                  text: "Freida Jackson"
                 },
                 {
                   text: "Not known yet"
