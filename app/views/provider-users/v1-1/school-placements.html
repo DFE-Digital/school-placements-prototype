@@ -1,4 +1,4 @@
-{% extends "layouts/user-provider-with-trainees.html" %}
+{% extends "layouts/user-provider.html" %}
 
 {% set pageName="Whitburn Church of England School" %}
 
@@ -29,41 +29,26 @@
       {{ pageName }}
       </h1>
 
-    <h2 class="govuk-heading-m">Placement contact</h2>
 
-    {{ govukSummaryList({
-            rows: [
-              {
-                key: {
-                  text: "Name"
-                },
-                value: {
-                 text: "Adam Gould"
-                }
-              },
-              {
-                key: {
-                  text: "Email"
-                },
-                value: {
-                  html: "<a href='mailto:adam.gould@buxton.derbyshire.sch.uk'>adam.gould@buxton.derbyshire.sch.uk</a>"
-                }
-              }
-            ]
-          }) }}
 
       {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [{
-          text: 'Placements',
-          href: 'school-placements',
-          classes: 'govuk-!-font-weight-bold',
-          active: true
-        }, {
           text: 'School details',
           href: 'school-detail',
           classes: 'govuk-!-font-weight-bold'
-        } ]
+        }, {
+          text: 'Placements assigned to you',
+          href: 'school-placements',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        },
+        {
+          text: 'Other placements',
+          href: 'school-placements',
+          classes: 'govuk-!-font-weight-bold'
+        }
+         ]
       }) }}
 
       <h2 class="govuk-heading-m">
