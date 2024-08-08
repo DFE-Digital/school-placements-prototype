@@ -2,7 +2,7 @@
 
 {% set pageName="Are you sure you no longer want Best Practice Network as one of your partner providers?" %}
 
-{% set primaryNavId = "mentors" %}
+{% set primaryNavId = "providers" %}
 
 {% set back = true %}
 
@@ -24,11 +24,11 @@
 
       {{ govukButton({
         text: "Delete partner provider",
-        href: "#",
+        href: "provider-deleted",
         classes: "govuk-button--warning"
       }) }}
 
-      <p class="govuk-body"><a href="placement-detail" class="govuk-link">Cancel</a></p>
+      <p class="govuk-body"><a href="provider-detail" class="govuk-link">Cancel</a></p>
 
   </div>
 
