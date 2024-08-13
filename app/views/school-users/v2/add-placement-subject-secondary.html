@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Subject" %}
+{% set pageName="Select a subject" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -15,7 +15,7 @@
 
         <form action="add-placement-mentor"  method="post">
 
-        <span class="govuk-caption-l">Add placement</span>
+        <span class="govuk-caption-l">Placement details</span>
         {{ govukRadios({
             name: "placementSubject",
             fieldset: {

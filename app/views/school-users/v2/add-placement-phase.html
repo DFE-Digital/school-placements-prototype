@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Phase" %}
+{% set pageName="Select a phase" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -13,7 +13,7 @@
   <div class="govuk-grid-column-two-thirds">
 
       <form method="post">
-        <span class="govuk-caption-l">Add placement</span>
+        <span class="govuk-caption-l">Placement details</span>
         {{ govukRadios({
             name: "placementPhase",
             fieldset: {

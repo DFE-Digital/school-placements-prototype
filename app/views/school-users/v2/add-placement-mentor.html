@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Mentor" %}
+{% set pageName="Select a mentor" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -13,7 +13,7 @@
   <div class="govuk-grid-column-two-thirds">
 
       <form action="add-placement-check" method="post">
-        <span class="govuk-caption-l">Add placement</span>
+        <span class="govuk-caption-l">Placement details</span>
         {{ govukCheckboxes({
             name: "placementMentor",
             fieldset: {
@@ -22,6 +22,9 @@
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
+            },
+            hint: {
+              html: "Some placements may have more than one mentor. For example, if a mentor works part time.<br><br>You can change who the mentor is after you have published the placement."
             },
             items: [
               {
@@ -45,7 +48,7 @@
 
             {{ govukDetails({
         summaryText: "My mentor is not listed",
-        html: "You need to <a href='providers'>add a mentor</a> first"
+        html: "You must <a href='providers'>add mentors to your school's profile</a> before they can be assigned to a specific placement."
       }) }}
       </form>
 

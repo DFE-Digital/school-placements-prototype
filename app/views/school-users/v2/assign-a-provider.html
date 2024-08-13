@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Provider" %}
+{% set pageName="Assign a provider" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -13,7 +13,7 @@
   <div class="govuk-grid-column-two-thirds">
 
       <form action="placement-assigned" method="post">
-        <span class="govuk-caption-l">Manage placement</span>
+        <span class="govuk-caption-l">Placement details</span>
         {{ govukRadios({
             name: "placementProvider",
             fieldset: {

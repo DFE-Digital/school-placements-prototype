@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Modern languages" %}
+{% set pageName="Select a modern language" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -14,7 +14,7 @@
 
         <form action="add-placement-mentor"  method="post">
 
-        <span class="govuk-caption-l">Add placement</span>
+        <span class="govuk-caption-l">Placement details</span>
         {{ govukCheckboxes({
             name: "placementModernForeignLanguage",
             fieldset: {
@@ -23,6 +23,9 @@
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
+            },
+            hint: {
+              text: "Select all that apply"
             },
             items: [
               {

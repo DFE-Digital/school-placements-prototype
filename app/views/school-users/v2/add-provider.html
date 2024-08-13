@@ -13,11 +13,14 @@
   <div class="govuk-grid-column-two-thirds">
 
       <form action="add-provider-check" method="post">
-        <span class="govuk-caption-l">Add partner provider</span>
+        <span class="govuk-caption-l">Partner provider details</span>
         <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--l" for="my-autocomplete">Enter a provider name, United Kingdom Provider Number (UKPRN), unique reference number (URN) or postcode.</label>
+          <label class="govuk-label govuk-label--l" for="my-autocomplete">Add a provider</label>
         </h1>
+        <div id="my-autocomplete-hint" class="govuk-hint">
+          Enter a provider name, United Kingdom provider number (UKPRN), unique reference number (URN) or postcode
+        </div>
         <div id="my-autocomplete-container"></div>
         </div>
           {{ govukButton({
