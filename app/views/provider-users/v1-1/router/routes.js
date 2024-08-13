@@ -6,7 +6,7 @@ router.get("/provider-users/v1-1/user-added", (req, res) => {
     res.redirect(req.originalUrl.replace("user-added","users"))
 })
 
-router.get("/school-users/v2/school-added", (req, res) => {
+router.get("/provider-users/v1-1/school-added", (req, res) => {
     req.flash('success', 'Partner school added')
         res.redirect(req.originalUrl.replace("school-added","schools"))
 
