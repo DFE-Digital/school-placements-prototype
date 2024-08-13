@@ -1,0 +1,74 @@
+{% extends "layouts/user-provider.html" %}
+
+{% set pageName="Users" %}
+
+{% set primaryNavId = "users" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <a href="add-user" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add user
+      </a>
+
+      {{ govukTable({
+            caption: "Users",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Email"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='user-detail'>Anne Wilson</a>"
+                },
+                {
+                  text: "anne@example.com"
+                }
+              ],
+              [
+                {
+                  html: userName
+                },
+                {
+                  text: data['useremail']
+                }
+              ] if data ['username']
+            ]
+          }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
