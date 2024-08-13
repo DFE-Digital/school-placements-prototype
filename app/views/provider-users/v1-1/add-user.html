@@ -1,4 +1,4 @@
-{% extends "layouts/user-school.html" %}
+{% extends "layouts/user-provider.html" %}
 
 {% set pageName="Personal details" %}
 
@@ -58,11 +58,9 @@
 
       </form>
 
-       {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
+
             <p class="govuk-body"><a href="users">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 

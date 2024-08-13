@@ -1,8 +1,8 @@
-{% extends "layouts/user-school.html" %}
+{% extends "layouts/user-provider.html" %}
 
 {% set pageName="Check your answers" %}
 
-{% set primaryNavId = "users" %}
+{% set primaryNavId = "mentors" %}
 
 {% set back = true %}
 
@@ -11,6 +11,7 @@
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
+
 
             <form action="user-added" method="post">
 
@@ -78,11 +79,9 @@
           }) }}
       </form>
 
-       {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
+
             <p class="govuk-body"><a href="users">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 
