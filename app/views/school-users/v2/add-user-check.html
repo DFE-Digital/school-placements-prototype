@@ -24,7 +24,7 @@
             rows: [
               {
                 key: {
-                  text: "Full name"
+                  text: "First name"
                 },
                 value: {
                  text: data['userName']
@@ -34,7 +34,24 @@
                     {
                       href: "add-user",
                       text: "Change",
-                      visuallyHiddenText: "user name"
+                      visuallyHiddenText: "first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['userName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-user",
+                      text: "Change",
+                      visuallyHiddenText: "last name"
                     }
                   ]
                 }

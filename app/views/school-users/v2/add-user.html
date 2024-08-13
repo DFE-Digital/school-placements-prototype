@@ -21,13 +21,24 @@
 
         {{ govukInput({
           label: {
+            text: "First name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "userFirstName",
+          name: "userFirstName"
+        }) }}
+
+         {{ govukInput({
+          label: {
             text: "Full name",
             classes: "govuk-label--s",
             isPageHeading: false
           },
           classes: "govuk-input--width-20",
-          id: "userName",
-          name: "userName"
+          id: "userLastName",
+          name: "userLastName"
         }) }}
 
       {{ govukInput({
