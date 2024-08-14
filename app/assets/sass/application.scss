@@ -18,6 +18,10 @@
 }
 .govuk-header { border-bottom: 10px solid #1d70b8; }
 
+/// SECONDARY TEXT ///
+
+.govuk-secondary-text-colour { color:#505a5f; }
+
 /// Phase banner ///
 
 .govuk-phase-banner--no-border-bottom { border-bottom: 0; }
@@ -159,7 +163,7 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 
 .locationSearchButton { width: 100px; margin-left:15px; float:right; }
 
-.searchResult { padding-top:20px; padding-bottom:20px; }
+.searchResult { padding-top:20px; padding-bottom:20px; border-bottom: 1px solid #b1b4b6; }
 
 .app-result-detail {
     font-family: "GDS Transport", arial, sans-serif;

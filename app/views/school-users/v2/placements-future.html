@@ -24,15 +24,6 @@
       {{ pageName }}
       </h1>
 
-      {% set "<span class='govuk-secondary-text-colour'>Not yet known</span>" %}
-          {{ govukTag({
-           text: "Available",
-           classes: "govuk-tag--turquoise"
-          }) }}
-      {% endset %}
-
-
-
 
 {% set placementTitle %}
         {% if data['placementModernForeignLanguage'] %}
@@ -75,20 +66,21 @@
         items: [{
           text: 'This year (2024 to 2025)',
           href: 'placements',
-          classes: 'govuk-!-font-weight-bold',
-          active: true
+          classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Next year (2025 to 2026)',
           href: 'placements-future',
-          classes: 'govuk-!-font-weight-bold'
+          classes: 'govuk-!-font-weight-bold',
+          active: true
         } ]
       }) }}
+
     <!-- <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>  -->
 
 
 
           {{ govukTable({
-            caption: "Current placements (2024 - 2025)",
+            caption: "Future placements (2025 - 2026)",
             captionClasses: "govuk-table__caption--m govuk-visually-hidden",
             firstCellIsHeader: false,
             head: [
@@ -102,7 +94,7 @@
                 text: "Expected date"
               },
               {
-                text: "Status"
+                text: "Provider"
               }
             ],
             rows: [
@@ -113,7 +105,7 @@
                 {
                   html: mentorName
                 },
-                                {
+                {
                   html: windowHtml
                 },
                 {
@@ -145,7 +137,7 @@
                   text: "Autumn term - Spring term"
                 },
                 {
-                  html: "Leeds Beckett University"
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 }
               ],
               [
@@ -173,7 +165,7 @@
                   text: "Spring term - Summer term"
                 },
                 {
-                  html: "Gorse SCITT"
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 }
               ],
               [
@@ -201,7 +193,7 @@
                   text: "Any time in the academic year"
                 },
                 {
-                  html: "Gorse SCITT"
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 }
                 ],
                 [
@@ -229,7 +221,7 @@
                   text: "Any time in the academic year"
                 },
                 {
-                  html: "Leeds Trinity"
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 }
                 ],
                 [
@@ -243,7 +235,7 @@
                   text: "Autumn term - Spring term"
                 },
                 {
-                  html: "Leeds SCITT"
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 }
               ]
             ]

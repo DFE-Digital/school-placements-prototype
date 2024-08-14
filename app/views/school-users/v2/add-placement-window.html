@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Select a mentor" %}
+{% set pageName="Select when the placement could be" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,10 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-year" method="post">
+      <form action="add-placement-check" method="post">
         <span class="govuk-caption-l">Placement details</span>
         {{ govukCheckboxes({
-            name: "placementMentor",
+            name: "placementTerms",
             fieldset: {
               legend: {
                 text: pageName,
@@ -24,32 +24,38 @@
               }
             },
             hint: {
-              html: "Some placements may have more than one mentor. For example, if a mentor works part time.<br><br>You can change who the mentor is after you have published the placement."
-            },
+                text: "Terms are used as an estimate as some providers have different start and end dates. Discuss specific dates with your chosen provider once the placement is published."
+              },
             items: [
               {
-                value: "Thea Weiss",
-                text: "Thea Weiss"
+                value: "Autumn term",
+                text: "Autumn term"
+              },
+              {
+                value: "Spring term",
+                text: "Spring term"
+              },
+              {
+                value: "Summer term",
+                text: "Summer term"
               },
               {
                 divider: "or"
               },
               {
-                value: "Not yet known",
-                text: "Not yet known",
+                value: "Any time in the academic year",
+                text: "Any time in the academic year",
                 behaviour: "exclusive"
               }
             ]
           }) }}
 
+
+
           {{ govukButton({
             text: "Continue"
           }) }}
 
-            {{ govukDetails({
-        summaryText: "My mentor is not listed",
-        html: "You must <a href='add-mentor'>add mentors to your school's profile</a> before they can be assigned to a specific placement."
-      }) }}
       </form>
 
       {% if data['onboarding'] === "true" %}

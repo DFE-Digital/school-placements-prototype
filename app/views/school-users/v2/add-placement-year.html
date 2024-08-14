@@ -1,6 +1,6 @@
 {% extends "layouts/user-school.html" %}
 
-{% set pageName="Select a mentor" %}
+{% set pageName="Select an academic year" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,10 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="add-placement-year" method="post">
+      <form action="add-placement-window" method="post">
         <span class="govuk-caption-l">Placement details</span>
-        {{ govukCheckboxes({
-            name: "placementMentor",
+        {{ govukRadios({
+            name: "placementYear",
             fieldset: {
               legend: {
                 text: pageName,
@@ -23,33 +23,24 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
-            hint: {
-              html: "Some placements may have more than one mentor. For example, if a mentor works part time.<br><br>You can change who the mentor is after you have published the placement."
-            },
             items: [
               {
-                value: "Thea Weiss",
-                text: "Thea Weiss"
+                value: "This academic year (2024 to 2025)",
+                text: "This academic year (2024 to 2025)"
               },
               {
-                divider: "or"
-              },
-              {
-                value: "Not yet known",
-                text: "Not yet known",
-                behaviour: "exclusive"
+                value: "Next academic year (2025 to 2026)",
+                text: "Next academic year (2025 to 2026)"
               }
             ]
           }) }}
+
+
 
           {{ govukButton({
             text: "Continue"
           }) }}
 
-            {{ govukDetails({
-        summaryText: "My mentor is not listed",
-        html: "You must <a href='add-mentor'>add mentors to your school's profile</a> before they can be assigned to a specific placement."
-      }) }}
       </form>
 
       {% if data['onboarding'] === "true" %}

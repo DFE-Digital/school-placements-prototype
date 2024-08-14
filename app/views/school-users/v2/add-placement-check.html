@@ -118,7 +118,42 @@
                     }
                   ]
                 }
-              } if data['placementMentor']
+              } if data['placementMentor'],
+              {
+                key: {
+                  text: "Academic year"
+                },
+                value: {
+                  text: data['placementYear']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-year",
+                      text: "Change",
+                      visuallyHiddenText: "academic year"
+                    }
+                  ]
+                }
+              },
+
+              {
+                key: {
+                  text: "Expected date"
+                },
+                value: {
+                  text: data['placementMonths']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-placement-window",
+                      text: "Change",
+                      visuallyHiddenText: "when the placement could be"
+                    }
+                  ]
+                }
+              }
             ]
           }) }}
 
