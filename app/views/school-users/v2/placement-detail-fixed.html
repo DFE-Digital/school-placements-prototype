@@ -22,17 +22,12 @@
   <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Business studies</h1>
-        {% if data['placementProvider'] %}
-          {{ govukTag({
-            text: "Unavailable",
-            classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-          }) }}
-        {% else %}
+
           {{ govukTag({
            text: "Available",
            classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
           }) }}
-        {% endif %}
+
 
         {% set mentorName %}
           {% if data['placementMentor'] %}
