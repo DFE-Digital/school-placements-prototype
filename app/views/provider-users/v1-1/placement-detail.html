@@ -32,28 +32,30 @@
            classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
           }) }}
 
-        {% if data['placementTrainee'] %}
+        <h2 class="govuk-heading-m">Placement dates</h2>
 
-            {% set proposedTrainee %}
-              <p class="govuk-body">{{ data['placementTrainee'] }} has been proposed for this placement.</p>
-              <div class="govuk-button-group">
-                {{ govukButton({
-                  text: "Confirm trainee"
-                }) }}
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Academic year"
+                },
+                value: {
+                 text: "This year (2024 to 2025)"
+                }
+              },
+              {
+                key: {
+                  text: "Expected date"
+                },
+                value: {
+                  text: "Any time this academic year"
+                }
+              }
+            ]
+          }) }}
 
-                {{ govukButton({
-                  text: "Withdraw trainee",
-                  classes: "govuk-button--secondary"
-                }) }}
-              </div>
-            {% endset %}
 
-              {{ govukInsetText({
-                html: proposedTrainee,
-                classes: "govuk-!-margin-top-0"
-              }) }}
-
-        {% endif %}
 
         <h2 class="govuk-heading-m">Placement contact</h2>
 
