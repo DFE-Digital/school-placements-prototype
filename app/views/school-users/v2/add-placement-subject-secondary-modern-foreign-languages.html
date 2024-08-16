@@ -12,7 +12,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-        <form action="add-placement-mentor"  method="post">
+        <form action="add-placement-year"  method="post">
 
         <span class="govuk-caption-l">Placement details</span>
         {{ govukCheckboxes({
@@ -68,11 +68,9 @@
           }) }}
       </form>
 
-             {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
+
             <p class="govuk-body"><a href="placements">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 

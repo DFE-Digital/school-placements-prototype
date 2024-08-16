@@ -38,7 +38,7 @@
           {% if data['placementMentor'] %}
             {{ data['placementMentor'] }}
           {% else %}
-            Not known yet
+            Not yet known
           {% endif %}
         {% endset %}
 
@@ -64,36 +64,12 @@
               },
               {
                 key: {
-                  text: "Mentor"
-                },
-                value: {
-                  text: "Not yet known"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "change-placement-mentor",
-                      text: "Change",
-                      visuallyHiddenText: "mentor"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
                   text: "Academic year"
                 },
                 value: {
                   text: "Next academic year (2024 - 2045)"
                 },
                 actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "academic year"
-                    }
-                  ]
                 }
               },
               {
@@ -115,12 +91,29 @@
               },
               {
                 key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: "Not yet known"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
                   text: "Provider"
                 },
                 value: {
                   html: "<a href='assign-a-provider'>Assign a provider</a>"
                 }
-              } if not data ['placementProvider']
+              }
             ]
           }) }}
 

@@ -102,23 +102,7 @@
                   ]
                 }
               } if data['placementModernForeignLanguage'],
-              {
-                key: {
-                  text: "Mentor"
-                },
-                value: {
-                  text: data['placementMentor']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "mentor"
-                    }
-                  ]
-                }
-              } if data['placementMentor'],
+
               {
                 key: {
                   text: "Academic year"
@@ -153,7 +137,24 @@
                     }
                   ]
                 }
-              }
+              },
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  text: data['placementMentor']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              } if data['placementMentor']
             ]
           }) }}
 

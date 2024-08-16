@@ -48,7 +48,7 @@
           {% if data['placementMentor'] %}
             {{ data['placementMentor'] }}
           {% else %}
-            Not known yet
+            Not yet known
           {% endif %}
         {% endset %}
 
@@ -105,23 +105,7 @@
                   ]
                 }
               } if data['placementYearGroup'],
-              {
-                key: {
-                  text: "Mentor"
-                },
-                value: {
-                  html: mentorName
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "change-placement-mentor",
-                      text: "Change",
-                      visuallyHiddenText: "mentor"
-                    }
-                  ]
-                }
-              },
+
 
               {
                 key: {
@@ -151,6 +135,23 @@
                   ]
                 }
               } if data['placementTerms'],
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  html: mentorName
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "change-placement-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "mentor"
+                    }
+                  ]
+                }
+              },
               {
                 key: {
                   text: "Provider"

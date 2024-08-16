@@ -43,13 +43,6 @@
         {% endif %}
       {% endset %}
 
-            {% set windowHtml %}
-        {% if data['placementTiming'] === "Any time in the academic year" %}
-          {{ data['placementTiming'] }}
-        {% else %}
-          {{ data['placementMonths'] }}
-        {% endif %}
-      {% endset %}
 
     <!-- {{ govukInsetText({
             html: "<p>Before you add a placement, you must <a href='add-itt-contact'>add a placement contact</a> so that the teacher training providers can contact you.</p>"
@@ -109,7 +102,7 @@
                   html: windowHtml
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                  html: placementTerms
                 }
               ] if data['placementSubject'],
               [
