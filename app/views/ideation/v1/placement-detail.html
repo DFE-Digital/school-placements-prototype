@@ -1,0 +1,189 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Placement details" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <span class="govuk-caption-l">Placement - Whitburn Church of England school</span>
+      <h1 class="govuk-heading-l  govuk-!-margin-bottom-2">History
+        </h1>
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+          }) }}
+
+        <h2 class="govuk-heading-m">Placement dates</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Academic year"
+                },
+                value: {
+                 text: "This year (2024 to 2025)"
+                }
+              },
+              {
+                key: {
+                  text: "Expected date"
+                },
+                value: {
+                  text: "Any time this academic year"
+                }
+              }
+            ]
+          }) }}
+
+
+
+        <h2 class="govuk-heading-m">Placement contact</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                 text: "Adam Gould"
+                }
+              },
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  html: "<a href='mailto:adam.gould@buxton.derbyshire.sch.uk'>adam.gould@buxton.derbyshire.sch.uk</a>"
+                }
+              },
+              {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                  html: "College Road<br>Buxton<br>Derbyshire<br>SK17 9EA"
+                }
+              }
+            ]
+          }) }}
+
+
+          <h2 class="govuk-heading-m">School details</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Establishment group"
+                },
+                value: {
+                  text: "Independent schools"
+                }
+              },
+              {
+                key: {
+                  text: "School phase"
+                },
+                value: {
+                  text: "Secondary"
+                }
+              },
+              {
+                key: {
+                  text: "Gender"
+                },
+                value: {
+                  text: "Mixed"
+                }
+              },
+              {
+                key: {
+                  text: "Age range"
+                },
+                value: {
+                  text: "11 to 18"
+                }
+              },
+              {
+                key: {
+                  text: "Religious character"
+                },
+                value: {
+                  text: "None"
+                }
+              },
+              {
+                key: {
+                  text: "Urban or rural"
+                },
+                value: {
+                  text: "(England/Wales) Urban city and town"
+                }
+              },
+              {
+                key: {
+                  text: "Admission policy"
+                },
+                value: {
+                  text: "non-selective"
+                }
+              },
+              {
+                key: {
+                  text: "Ofsted rating"
+                },
+                value: {
+                  text: "Unknown"
+                }
+              },
+              {
+                key: {
+                  text: "Percentage free school meals"
+                },
+                value: {
+                  text: "Unknown"
+                }
+              }
+            ]
+          }) }}
+
+          {% if data['placementTrainee'] %}
+
+          {% else %}
+          <form class="button_to" method="get" action="propose-trainee">
+          {{ govukButton({
+            text: "Propose trainee"
+          }) }}
+          </form>
+        {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

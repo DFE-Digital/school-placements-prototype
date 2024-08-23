@@ -1,0 +1,110 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Users" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Your organisation
+      </h1>
+    </div>
+  </div>
+
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [ {
+          text: 'Details',
+          href: 'organisation',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Users',
+          href: 'users',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Placement timings',
+          href: 'windows',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        } ]
+      }) }}
+
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <a href="add-user" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement timing
+      </a>
+
+      {{ govukTable({
+            caption: "Users",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Placement"
+              },
+              {
+                text: "Date to"
+              },
+              {
+                text: "Date from"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='#'>Placement one</a>"
+                },
+                {
+                  text: "1 October 2024"
+                },
+                {
+                  text: "18 December 2024"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Placement two</a>"
+                },
+                {
+                  text: "12 January 2025"
+                },
+                {
+                  text: "28 June 2025"
+                }
+              ]
+            ]
+          }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

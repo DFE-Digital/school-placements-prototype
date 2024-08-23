@@ -1,0 +1,128 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Jennifer Banner" %}
+
+{% set primaryNavId = "trainees" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageName }}
+        </h1>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Personal information
+      </h2>
+
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Education phase"
+                },
+                value: {
+                  text: "Secondary"
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: "History"
+                }
+              },
+              {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                  html: "21 Robert St<br><br>South Shields<br>Tyne and Wear<br>NE33 3AG"
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Disability support
+      </h2>
+
+      <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Do you want to ask for help to become a teacher?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Yes, I want to share information about myself so my provider can take steps to support me
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Give any relevant information
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  I need wheelchair access.
+                </dd>
+              </div>
+        </dl>
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Placements
+      </h2>
+
+{{ govukTable({
+            caption: "Placements",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "School"
+              },
+              {
+                text: "Mentor"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='placement-detail'>History</a>"
+                },
+                {
+                  text: "Whitburn Church of England Academy"
+                },
+                {
+                  text: "Santham Singh"
+                }
+              ]
+            ]
+          }) }}
+
+          <form class="button_to" method="get" action="propose-trainee">
+          {{ govukButton({
+            text: "Find contrasting placements"
+          }) }}
+          </form>
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

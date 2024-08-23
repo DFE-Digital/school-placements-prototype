@@ -223,3 +223,38 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
     margin: 0;
     padding-bottom: 5px;
 }
+
+/// IDEATION
+///
+
+.headline-card, .headline-card:link, .headline-card:visited {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    background-color: #1d70b8;
+    color: #FFF;
+    padding:15px;
+    display: block;
+}
+
+.headline-card:hover {
+    background-color: #003078;
+}
+
+.headline-card:active {
+    color: #0b0c0c;
+    background-color: #ffdd00;
+}
+
+.headline-figure {
+    font-size:4rem;
+    margin:0;
+    display:block;
+}
+
+.headline-figure .headline-label {
+    font-size:1.5rem;
+    font-weight: 400;
+    display:block;
+}

@@ -1,0 +1,43 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Overview" %}
+
+{% set primaryNavId = "overview" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-visually-hidden">
+      {{ pageName }}
+      </h1>
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="headline-card">
+        <h2 class="headline-figure">76 <span class="headline-label">trainees</span></h2>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="headline-card">
+        <h2 class="headline-figure">113 <span class="headline-label">placements confirmed</span></h2>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="headline-card">
+        <h2 class="headline-figure">39 <span class="headline-label">placements needed</span></h2>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}

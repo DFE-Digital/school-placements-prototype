@@ -1,0 +1,106 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Freida Jackson" %}
+
+{% set primaryNavId = "trainees" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageName }}
+        </h1>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Personal information
+      </h2>
+
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Education phase"
+                },
+                value: {
+                  text: "Primary"
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: "Primary"
+                }
+              },
+              {
+                key: {
+                  text: "Address"
+                },
+                value: {
+                  html: "58 Brinkburn Ave<br><br>Gateshead<br>Tyne and Wear<br>NE8 6JT"
+                }
+              }
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Disability support
+      </h2>
+
+      <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Do you want to ask for help to become a teacher?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  No
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Give any relevant information
+                </dt>
+                <dd class="govuk-summary-list__value">
+                        -
+                </dd>
+              </div>
+        </dl>
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-8">
+        Placements
+      </h2>
+
+
+<div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Find placements",
+            href: "placements-jennifer"
+          }) }}
+
+
+  {{ govukButton({
+    text: "Notify me of new placements",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
+
+
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

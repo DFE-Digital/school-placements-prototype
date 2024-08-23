@@ -41,3 +41,7 @@ require('./views/provider-users/v1-1/router/routes')(router)
 // Link to support user router files
 
 require('./views/support-users/v1/router/routes')(router)
+
+// Link to ideation router files
+
+require('./views/ideation/v1/router/routes')(router)

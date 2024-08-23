@@ -1,0 +1,94 @@
+{% extends "layouts/user-provider-ideation.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+            <form action="user-added" method="post">
+
+
+        <span class="govuk-caption-l">Add user</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: data['userName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-user",
+                      text: "Change",
+                      visuallyHiddenText: "first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['userName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-user",
+                      text: "Change",
+                      visuallyHiddenText: "last name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: data['userEmail']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-user",
+                      text: "Change",
+                      visuallyHiddenText: "user contact email"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Add email"
+          }) }}
+      </form>
+
+
+            <p class="govuk-body"><a href="users">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
