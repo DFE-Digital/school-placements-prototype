@@ -15,8 +15,8 @@
 
       <form action="school-added" method="post">
 
-        <span class="govuk-caption-l">Add partner school</span>
-        <h1 class="govuk-heading-l">Check your answers</h1>
+        <span class="govuk-caption-l">Add school</span>
+        <h1 class="govuk-heading-l">Confirm school details</h1>
 
 {{ govukSummaryList({
         rows: [
@@ -43,170 +43,7 @@
             value: {
               html: "136386"
             }
-          }
-        ]
-      }) }}
-
-
-      <h2 class="govuk-heading-m govuk-!-margin-top-9">Additional details</h2>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Establishment group"
-            },
-            value: {
-              text: "Academies"
-            }
           },
-          {
-            key: {
-              text: "Phase"
-            },
-            value: {
-              text: "Secondary"
-            }
-          },
-          {
-            key: {
-              text: "Gender"
-            },
-            value: {
-              text: "Mixed"
-            }
-          },
-          {
-            key: {
-              text: "Age range"
-            },
-            value: {
-              text: "11 to 18"
-            }
-          },
-          {
-            key: {
-              text: "Religious character"
-            },
-            value: {
-              text: "Church of England"
-            }
-          },
-          {
-            key: {
-              text: "Admissions policy"
-            },
-            value: {
-              text: "Non-selective"
-            }
-          },
-          {
-            key: {
-              text: "Urban or rural"
-            },
-            value: {
-              text: "(England/Wales) Urban city and town"
-            }
-          },
-          {
-            key: {
-              text: "School capacity"
-            },
-            value: {
-              text: "1,305"
-            }
-          },
-          {
-            key: {
-              text: "Total pupils"
-            },
-            value: {
-              text: "1,240"
-            }
-          },
-          {
-            key: {
-              text: "Total boys"
-            },
-            value: {
-              text: "598"
-            }
-          },
-          {
-            key: {
-              text: "Total girls"
-            },
-            value: {
-              text: "642"
-            }
-          },
-          {
-            key: {
-              text: "Percentage free school meals"
-            },
-            value: {
-              text: "11%"
-            }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-m govuk-!-margin-top-9">
-        Special educational needs and disabilities (SEND)
-      </h2>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Special classes"
-            },
-            value: {
-              text: "Not entered"
-            }
-          },
-          {
-            key: {
-              html: '<abbr title="Special educational needs and disability">SEND</abbr> provision'
-            },
-            value: {
-              text: "Not entered"
-            }
-          }
-        ]
-      }) }}
-
-    <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Ofsted details
-    </h2>
-
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Rating"
-          },
-          value: {
-            text: "Good"
-          }
-        },
-        {
-          key: {
-            text: "Last inspection date"
-          },
-          value: {
-            text: "13 November 2019"
-          }
-        }
-      ]
-    }) }}
-
-  <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Contact details
-    </h2>
-
-  {{ govukSummaryList({
-      rows: [
         {
           key: {
             text: "Email address"
@@ -245,12 +82,12 @@
 
 
           {{ govukButton({
-            text: "Add partner school"
+            text: "Confirm and add school"
           }) }}
       </form>
 
 
-            <p class="govuk-body"><a href="schools">Add school</a></p>
+            <p class="govuk-body"><a href="schools">Cancel</a></p>
 
 
   </div>
