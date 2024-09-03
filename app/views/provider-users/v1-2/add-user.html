@@ -1,0 +1,77 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Personal details" %}
+
+{% set primaryNavId = "users" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+     <form action="add-user-check" method="post">
+
+
+            <span class="govuk-caption-l">User details</span>
+
+        <h1 class="govuk-heading-l">{{ pageName }}</h1>
+
+
+
+        {{ govukInput({
+          label: {
+            text: "First name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "userFirstName",
+          name: "userFirstName"
+        }) }}
+
+         {{ govukInput({
+          label: {
+            text: "Full name",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          classes: "govuk-input--width-20",
+          id: "userLastName",
+          name: "userLastName"
+        }) }}
+
+      {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label--s",
+            isPageHeading: false
+          },
+          id: "userEmail",
+          name: "userEmail"
+        }) }}
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+
+      </form>
+
+
+            <p class="govuk-body"><a href="users">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

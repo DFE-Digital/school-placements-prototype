@@ -1,4 +1,4 @@
-{% extends "layouts/user-school-v2.html" %}
+{% extends "layouts/user-provider-v2.html" %}
 
 {% set pageName="Check your answers" %}
 
@@ -12,13 +12,12 @@
 
   <div class="govuk-grid-column-two-thirds">
 
+
             <form action="user-added" method="post">
 
 
         <span class="govuk-caption-l">Add user</span>
         <h1 class="govuk-heading-l">Confirm user details</h1>
-
-        <p>Once added, they will be able to view, edit and create placements at your school.</p>
         <p>We will send them an email with information on how to access the Manage school placements service.</p>
           {{ govukSummaryList({
             rows: [
@@ -27,7 +26,7 @@
                   text: "First name"
                 },
                 value: {
-                 text: data['userFirstName']
+                 text: data['userName']
                 },
                 actions: {
                   items: [
@@ -44,7 +43,7 @@
                   text: "Last name"
                 },
                 value: {
-                 text: data['userLastName']
+                 text: data['userName']
                 },
                 actions: {
                   items: [
@@ -76,8 +75,8 @@
             ]
           }) }}
 
-          {{ govukWarningText({
-  text: "The user will be sent an email to tell them you’ve added them to [school name].",
+               {{ govukWarningText({
+  text: "The user will be sent an email to tell them you’ve added them to [provider].",
   iconFallbackText: "Warning"
 }) }}
 

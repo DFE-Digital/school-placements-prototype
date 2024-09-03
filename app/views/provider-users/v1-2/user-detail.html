@@ -1,0 +1,60 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Anne Wilson" %}
+
+{% set primaryNavId = "users" %}
+
+{% set back = true %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Anne Wilson</h1>
+
+
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: "Anne"
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                  text: "Wilson"
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: "anne@example.com"
+                }
+              }
+            ]
+          }) }}
+
+
+      <p class="govuk-body"><a href="user-delete" class="govuk-link app-link--destructive">Delete user</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
