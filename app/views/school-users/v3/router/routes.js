@@ -30,15 +30,8 @@ router.get("/school-users/v3/placement-assigned", (req, res) => {
 
 router.get("/school-users/v3/mentor-added", (req, res) => {
     req.flash('success', 'Mentor added')
-    if (req.session.data.onboarding == "true") {
-        req.session.data.mentorTRN = 1
-        req.session.data.onboardingMentor = "true"
-        res.redirect(req.originalUrl.replace("mentor-added","onboarding"))
-    }
-    else {
         req.session.data.mentorTRN = 1
         res.redirect(req.originalUrl.replace("mentor-added","mentors"))
-    }
 })
 
 router.get("/school-users/v3/provider-added", (req, res) => {

@@ -1,4 +1,4 @@
-{% extends "layouts/user-school.html" %}
+{% extends "layouts/user-school-v2.html" %}
 
 {% set pageName="Check your answers" %}
 
@@ -78,15 +78,12 @@
           }) }}
 
           {{ govukButton({
-            text: "Save mentor"
+            text: "Confirm and add mentor"
           }) }}
       </form>
 
-       {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
             <p class="govuk-body"><a href="mentors">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 
