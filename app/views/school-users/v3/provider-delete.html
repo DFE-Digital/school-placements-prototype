@@ -1,6 +1,6 @@
 {% extends "layouts/user-school-v2.html" %}
 
-{% set pageName="Are you sure you no longer want Best Practice Network as one of your partner providers?" %}
+{% set pageName="Are you sure you want to delete this provider?" %}
 
 {% set primaryNavId = "providers" %}
 
@@ -23,12 +23,12 @@
         </ul>
 
       {{ govukWarningText({
-        html: "We will send an email to Best Practice Network to let them know they are no longer a partner provider.<br><br>It is your responsibility to confirm with them whether they should still fulfil existing assigned placements.",
+        html: "We will send an email to Best Practice Network to let them know they are no longer one of your providers. It is your responsibility to confirm with them whether they should fulfil existing assigned placements.",
         iconFallbackText: "Warning"
       }) }}
 
       {{ govukButton({
-        text: "Delete partner provider",
+        text: "Delete provider",
         href: "provider-deleted",
         classes: "govuk-button--warning"
       }) }}
