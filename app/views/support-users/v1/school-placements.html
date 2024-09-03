@@ -1,0 +1,237 @@
+{% extends "layouts/user-support.html" %}
+
+{% set pageName="Castle View Primary School" %}
+
+{% set primaryNavId = "organisations" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">Castle View Primary School</h1>
+
+        {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'Details',
+          href: 'school',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Users',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Partner providers',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Mentors',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Placements',
+          href: 'school-placements',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        } ]
+      }) }}
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-one-quarter">
+       {{ mojSideNavigation({
+      label: 'Side navigation',
+      items: [{
+        text: 'This year',
+        href: 'index',
+        active: true
+      }, {
+        text: 'Next year',
+        href: 'provider-user'
+      }, {
+        text: 'Past years',
+        href: 'support-user'
+      }
+      ]
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+     <h2 class="govuk-heading-l">
+      Placements
+    </h2>
+
+      {% if not data['ittContactEmail'] %}
+       {{ govukInsetText({
+            html: "<p>Before you add a placement, you must <a href='add-itt-contact'>add a placement contact</a> so that the teacher training providers can contact you.</p>"
+          }) }}
+      {% else %}
+        {{ govukTable({
+            caption: "Current placements (2024 - 2025)",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Mentor"
+              },
+                            {
+                text: "Expected date"
+              },
+              {
+                text: "Provider"
+              }
+            ],
+            rows: [
+
+              [
+                {
+                  html: "<a href='placement-detail-fixed'>Business studies</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Chemistry</a>"
+                },
+                {
+                  text: "Thea Weiss"
+                },
+                {
+                  text: "Autumn term - Spring term"
+                },
+                {
+                  html: "Leeds Beckett University"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Primary with Maths (Year 3)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Biology</a>"
+                },
+                {
+                  text: "Thea Weiss"
+                },
+                {
+                  text: "Spring term - Summer term"
+                },
+                {
+                  html: "Gorse SCITT"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Primary with Maths (Year 5)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Autumn term - Summer term"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>English literature</a>"
+                },
+                {
+                  text: "Harpreet Singh"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "Gorse SCITT"
+                }
+                ],
+                [
+                {
+                  html: "<a href='#'>Primary (Year 1)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+                ],
+              [
+                {
+                  html: "<a href='#'>Ancient Greek</a>"
+                },
+                {
+                  text: "Harpreet Singh"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "Leeds Trinity"
+                }
+                ],
+                [
+                {
+                  html: "<a href='#'>Art</a>"
+                },
+                {
+                  text: "Phil Hartley"
+                },
+                {
+                  text: "Autumn term - Spring term"
+                },
+                {
+                  html: "Leeds SCITT"
+                }
+              ]
+            ]
+          }) }}
+      {% endif %}
+
+
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

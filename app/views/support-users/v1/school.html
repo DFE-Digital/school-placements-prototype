@@ -1,0 +1,354 @@
+{% extends "layouts/user-support.html" %}
+
+{% set pageName="Castle View Primary School" %}
+
+{% set primaryNavId = "organisations" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">Castle View Primary School</h1>
+
+        {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'Details',
+          href: 'school',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        }, {
+          text: 'Users',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Partner providers',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Mentors',
+          href: '#',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Placements',
+          href: 'school-placements',
+          classes: 'govuk-!-font-weight-bold'
+        } ]
+      }) }}
+
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+     <h2 class="govuk-heading-m">
+      Placement contact
+    </h2>
+
+      {% if not data['ittContactEmail'] %}
+       <a href="add-itt-contact" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement contact
+      </a>
+      {% else %}
+        {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: data['ittContactFirstName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['ittContactLastName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: data['ittContactEmail']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact email"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) if data['ittContactEmail'] }}
+      {% endif %}
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">
+      School details
+    </h2>
+
+{{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation name"
+            },
+            value: {
+              text: "Castle View Primary School"
+            }
+          },
+          {
+            key: {
+              text: "UK provider reference number (UKPRN)"
+            },
+            value: {
+              text: "10062517"
+            }
+          },
+          {
+            key: {
+              text: "Unique reference number (URN)"
+            },
+            value: {
+              html: "143968"
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Additional details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Establishment group"
+            },
+            value: {
+              text: "Academies"
+            }
+          },
+          {
+            key: {
+              text: "Phase"
+            },
+            value: {
+              text: "Primary"
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Mixed"
+            }
+          },
+          {
+            key: {
+              text: "Age range"
+            },
+            value: {
+              text: "2 to 11"
+            }
+          },
+          {
+            key: {
+              text: "Religious character"
+            },
+            value: {
+              text: "Does not apply"
+            }
+          },
+          {
+            key: {
+              text: "Admissions policy"
+            },
+            value: {
+              text: "Not applicable"
+            }
+          },
+          {
+            key: {
+              text: "Urban or rural"
+            },
+            value: {
+              text: "(England/Wales) Urban city and town"
+            }
+          },
+          {
+            key: {
+              text: "School capacity"
+            },
+            value: {
+              text: "150"
+            }
+          },
+          {
+            key: {
+              text: "Total pupils"
+            },
+            value: {
+              text: "133"
+            }
+          },
+          {
+            key: {
+              text: "Total boys"
+            },
+            value: {
+              text: "77"
+            }
+          },
+          {
+            key: {
+              text: "Total girls"
+            },
+            value: {
+              text: "56"
+            }
+          },
+          {
+            key: {
+              text: "Percentage free school meals"
+            },
+            value: {
+              text: "54%"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+        Special educational needs and disabilities (SEND)
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Special classes"
+            },
+            value: {
+              text: "Not entered"
+            }
+          },
+          {
+            key: {
+              html: '<abbr title="Special educational needs and disability">SEND</abbr> provision'
+            },
+            value: {
+              text: "Not entered"
+            }
+          }
+        ]
+      }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Ofsted details
+    </h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Rating"
+          },
+          value: {
+            text: "Requires improvement"
+          }
+        },
+        {
+          key: {
+            text: "Last inspection date"
+          },
+          value: {
+            text: "29 June 2022"
+          }
+        }
+      ]
+    }) }}
+
+  <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Contact details
+    </h2>
+
+  {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            html: "<span class='govuk-secondary-text-colour'>Not entered</span>"
+          }
+        },
+        {
+          key: {
+            text: "Telephone number"
+          },
+          value: {
+            html: "01629582699"
+          }
+        },
+        {
+          key: {
+            text: "Web address"
+          },
+          value: {
+            html: "<a href='http://www.castleviewmatlock.com'>http://www.castleviewmatlock.com (opens in new tab)</a>"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>School Road<br>Matlock<br>SR6 7EF</p>"
+          }
+        }
+      ]
+    }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
