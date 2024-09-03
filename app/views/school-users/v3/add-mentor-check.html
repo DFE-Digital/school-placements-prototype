@@ -14,7 +14,10 @@
 
             <form action="mentor-added" method="post">
         <span class="govuk-caption-l">Add mentor</span>
-        <h1 class="govuk-heading-l">Check your answers</h1>
+        <h1 class="govuk-heading-l">Confirm mentor details</h1>
+
+        <p>Once added, you will be able to assign them to placements.</p>
+
           {{ govukSummaryList({
             rows: [
               {
@@ -38,7 +41,7 @@
                   text: "Teacher reference number (TRN)"
                 },
                 value: {
-                  text: data['mentorTRN']
+                  text: "3402661"
                 },
                 actions: {
                   items: [
@@ -71,7 +74,7 @@
           }) }}
 
           {{ govukInsetText({
-            html: "I confirm that Thea Weiss has been informed that the Department for Education will store their information in line with the <a href=''>privacy notice</a> and have provided them with a copy of this notice for reference."
+            html: "Mentor data is stored in line with the <a href=''>Department for Education's (DfE) privacy notice (opens in new tab)</a>. I confirm that I have read, understood and accept how DfE uses mentor information as part of the Manage school placements service."
           }) }}
 
           {{ govukButton({
