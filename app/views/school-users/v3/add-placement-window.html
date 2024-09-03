@@ -1,0 +1,75 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="When could the placement take place?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-mentor" method="post">
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukCheckboxes({
+            name: "placementTerms",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+                text: "Provide estimate term dates. You can discuss specific start and end dates with providers after the placement is published."
+              },
+            items: [
+              {
+                value: "Autumn term",
+                text: "Autumn term"
+              },
+              {
+                value: "Spring term",
+                text: "Spring term"
+              },
+              {
+                value: "Summer term",
+                text: "Summer term"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Any time in the academic year",
+                text: "Any time in the academic year",
+                behaviour: "exclusive"
+              }
+            ]
+          }) }}
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

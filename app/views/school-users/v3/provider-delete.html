@@ -1,0 +1,46 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Are you sure you no longer want Best Practice Network as one of your partner providers?" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Best Practice Network</span>
+
+      <h1 class="govuk-heading-l">{{ pageName }}</h1>
+      <p>You will no longer be able to assign this provider to placements.</p><p>They will remain assigned to current placements unless you remove them.</p><p>Placements with this provider are:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="placement-detail-fixed" target="_blank">Business studies (opens in new tab)</a></li>
+          <li><a href="placement-detail-fixed" target="_blank">Physics (opens in new tab)</a></li>
+        </ul>
+
+      {{ govukWarningText({
+        html: "We will send an email to Best Practice Network to let them know they are no longer a partner provider.<br><br>It is your responsibility to confirm with them whether they should still fulfil existing assigned placements.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukButton({
+        text: "Delete partner provider",
+        href: "provider-deleted",
+        classes: "govuk-button--warning"
+      }) }}
+
+      <p class="govuk-body"><a href="provider-detail" class="govuk-link">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

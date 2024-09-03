@@ -1,0 +1,60 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Select an academic year" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-placement-window" method="post">
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukRadios({
+            name: "placementYear",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "This academic year (2024 to 2025)",
+                text: "This academic year (2024 to 2025)"
+              },
+              {
+                value: "Next academic year (2025 to 2026)",
+                text: "Next academic year (2025 to 2026)"
+              }
+            ]
+          }) }}
+
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      </form>
+
+      {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Are you sure you want to delete this mentor?" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Thea Weiss</span>
+
+      <h1 class="govuk-heading-l">{{ pageName }}</h1>
+      <p>You will no longer be able to assign Thea to placements.</p>
+
+      {{ govukButton({
+        text: "Delete mentor",
+        href: "mentor-deleted",
+        classes: "govuk-button--warning"
+      }) }}
+
+      <p class="govuk-body"><a href="mentor-detail" class="govuk-link">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

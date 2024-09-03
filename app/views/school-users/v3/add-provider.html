@@ -1,0 +1,66 @@
+{% extends "layouts/user-school.html" %}
+
+{% set pageName="Add a partner provider" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="add-provider-check" method="post">
+        <span class="govuk-caption-l">Partner provider details</span>
+        <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="my-autocomplete">Add a provider</label>
+        </h1>
+        <div id="my-autocomplete-hint" class="govuk-hint">
+          Enter a provider name, United Kingdom provider number (UKPRN), unique reference number (URN) or postcode
+        </div>
+        <div id="my-autocomplete-container"></div>
+        </div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+       {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="providers">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Growing Expert Teachers',
+    'West Herts College Group',
+    'Educate Group Initial Teacher Training',
+    'Chiltern Training Group',
+    'Bishop Grosseteste University',
+    'NITE: National Institute of Teaching & Education, part of Coventry University Group'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

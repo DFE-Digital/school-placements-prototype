@@ -26,6 +26,7 @@ require('./views/school-users/v1-12/router/routes')(router) // Placement window 
 require('./views/school-users/v1-13/router/routes')(router) // Placement window (dates)
 require('./views/school-users/v1-14/router/routes')(router) // Placement preview
 require('./views/school-users/v2/router/routes')(router) // Content sweep
+require('./views/school-users/v3/router/routes')(router) // CYA and Wayfinding
 
 //// UR Round 3
 require('./views/ur-archive/school-user-001/router/routes')(router)
