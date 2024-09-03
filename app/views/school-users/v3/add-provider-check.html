@@ -15,8 +15,12 @@
 
       <form action="provider-added" method="post">
 
-        <span class="govuk-caption-l">Add partner provider</span>
-        <h1 class="govuk-heading-l">Check your answers</h1>
+        <span class="govuk-caption-l">Add provider</span>
+        <h1 class="govuk-heading-l">Confirm provider details</h1>
+        <p>Adding them means you will be able to assign them to your placements.<br>We will send them an email to let them know you have added them.</p>
+
+        <h2 class="govuk-heading-m">Provider</h2>
+
           {{ govukSummaryList({
             rows: [
               {
@@ -43,16 +47,7 @@
                 value: {
                   text: "10005959"
                 }
-              }
-            ]
-          }) }}
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Contact details
-    </h2>
-
-  {{ govukSummaryList({
-      rows: [
+              },
         {
           key: {
             text: "Email address"
@@ -89,15 +84,12 @@
     }) }}
 
           {{ govukButton({
-            text: "Add partner provider"
+            text: "Confirm and add provider"
           }) }}
       </form>
 
-       {% if data['onboarding'] === "true" %}
-            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
-      {% else %}
             <p class="govuk-body"><a href="providers">Cancel</a></p>
-      {% endif %}
+
 
   </div>
 
