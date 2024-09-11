@@ -41,14 +41,19 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   {{ appPrimaryNavigation({
       items: [
         {
+          href: "overview",
+          text: "Overview",
+          active: primaryNavId == "overview"
+        },
+        {
+          href: "candidates",
+          text: "Candidates",
+          active: primaryNavId == "candidates"
+        },
+        {
           href: "placements",
           text: "Placements",
           active: primaryNavId == "placements"
-        },
-        {
-          href: "trainees",
-          text: "Candidates",
-          active: primaryNavId == "trainees"
         },
         {
           href: "mentors",

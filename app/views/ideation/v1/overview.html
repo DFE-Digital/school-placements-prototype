@@ -1,6 +1,6 @@
 {% extends "layouts/user-provider-ideation.html" %}
 
-{% set pageName="Overview" %}
+{% set pageName="Overview for 2024 - 2025" %}
 
 {% set primaryNavId = "overview" %}
 
@@ -14,30 +14,42 @@
     <h1 class="govuk-heading-l govuk-visually-hidden">
       {{ pageName }}
       </h1>
-
 </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+
+  <div class="govuk-grid-column-one-third">
+    <a href="trainees" class="headline-card">
+        <h2 class="headline-figure">76 <span class="headline-label">candidates</span></h2>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="placements" class="headline-card">
+        <h2 class="headline-figure">113 <span class="headline-label">offers</span></h2>
+    </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="placements-needed" class="headline-card">
+        <h2 class="headline-figure">39 <span class="headline-label">needed</span></h2>
+    </a>
+  </div>
+
 </div>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-    <div class="headline-card">
-        <h2 class="headline-figure">76 <span class="headline-label">trainees</span></h2>
-    </div>
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m sectionTop">New since you last signed in</h2>
   </div>
-
   <div class="govuk-grid-column-one-third">
-    <div class="headline-card">
-        <h2 class="headline-figure">113 <span class="headline-label">placements confirmed</span></h2>
-    </div>
+    <h2 class="govuk-heading-m asideTop">Useful resources</h2>
+    <ul class="govuk-list govuk-body-s">
+      <li><a href="https://www.gov.uk/government/collections/initial-teacher-training">Initial teacher training (ITT)</a></li>
+      <li><a href="https://www.apply-for-teacher-training.service.gov.uk/publications/monthly-statistics">Statistics: ITT applications for courses starting in the 2024 to 2025 academic year</a></li>
+    </ul>
   </div>
-
-  <div class="govuk-grid-column-one-third">
-    <div class="headline-card">
-        <h2 class="headline-figure">39 <span class="headline-label">placements needed</span></h2>
-    </div>
-  </div>
-
-
 </div>
 
 {% endblock %}

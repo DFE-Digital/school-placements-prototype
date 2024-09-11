@@ -12,14 +12,14 @@
       {% set plannedStatus %}
           {{ govukTag({
            text: "Planned",
-           classes: "govuk-tag--red"
+           classes: "govuk-tag--yellow"
           }) }}
       {% endset %}
 
       {% set availableStatus %}
           {{ govukTag({
            text: "Available",
-           classes: "govuk-tag--yellow"
+           classes: "govuk-tag--blue"
           }) }}
       {% endset %}
 
@@ -61,7 +61,7 @@
         label: 'Sub navigation',
         items: [ {
           text: 'This year (2024 to 2025)',
-          href: 'school-current-placements',
+          href: 'placements',
           classes: 'govuk-!-font-weight-bold',
           active: true
         }, {
@@ -83,28 +83,6 @@
       </div>
       </div>
 
-<div class="govuk-grid-row govuk-!-margin-bottom-7">
-
-  <div class="govuk-grid-column-one-third">
-    <a href="placements" class="headline-card">
-        <h2 class="headline-figure">113 <span class="headline-label">offers</span></h2>
-    </a>
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    <a href="placements-needed" class="headline-card">
-        <h2 class="headline-figure">39 <span class="headline-label">needed</span></h2>
-    </a>
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-    <a href="trainees" class="headline-card">
-        <h2 class="headline-figure">76 <span class="headline-label">candidates</span></h2>
-    </a>
-  </div>
-
-
-</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -174,7 +152,7 @@
                   html: "Placement one"
                 },
                 {
-                  html: plannedStatus
+                  html: confirmedStatus
                 }
               ],
               [
