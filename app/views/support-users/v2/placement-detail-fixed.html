@@ -1,0 +1,120 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Placement details" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">Business studies</h1>
+
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+          }) }}
+
+
+        {% set mentorName %}
+          {% if data['placementMentor'] %}
+            {{ data['placementMentor'] }}
+          {% else %}
+            Not yet known
+          {% endif %}
+        {% endset %}
+
+
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Phase"
+                },
+                value: {
+                 text: "Secondary"
+                }
+              },
+              {
+                key: {
+                  text: "Subject"
+                },
+                value: {
+                  text: "Business studies"
+                }
+              },
+              {
+                key: {
+                  text: "Academic year"
+                },
+                value: {
+                  text: "Next academic year (2024 - 2045)"
+                },
+                actions: {
+                }
+              },
+              {
+                key: {
+                  text: "Expected date"
+                },
+                value: {
+                  text: "Any time in the academic year"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "Expected date"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Mentor"
+                },
+                value: {
+                  html: "<a href='#'>Select a mentor</a>"
+                },
+                actions: {
+
+                }
+              },
+              {
+                key: {
+                  text: "Provider"
+                },
+                value: {
+                  html: "<a href='assign-a-provider'>Assign a provider</a>"
+                }
+              }
+            ]
+          }) }}
+
+
+      <p class="govuk-body"><a href="placement-remove" class="govuk-link app-link--destructive">Delete placement</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

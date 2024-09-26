@@ -1,0 +1,83 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Providers you work with" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <p class="govuk-body">Add providers to be able to assign them to your placements.</p>
+
+      <a href="add-provider" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add provider
+      </a>
+
+      <!-- <p class="govuk-body">There are no providers for Whitburn Church of England Academy.</p> -->
+
+      {{ govukTable({
+        caption: "Providers",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "UK Provider Reference Number (UKPRN)"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='provider-detail'>Best Practice Network</a>"
+            },
+            {
+              text: "10019464"
+            }
+          ],
+          [
+            {
+              html: "<a href='provider-detail'>Growing Expert Teachers</a>"
+            },
+            {
+              text: "10005959"
+            }
+          ] if data ['input-autocomplete'],
+          [
+            {
+              html: "<a href='provider-detail'>NIoT: National Institute of Teaching, founded by the School-Led Development Trust</a>"
+            },
+            {
+              text: "10090839"
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

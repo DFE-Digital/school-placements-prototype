@@ -1,0 +1,95 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "details" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="itt-added" method="post">
+        <span class="govuk-caption-l">Add placement contact details</span>
+        <h1 class="govuk-heading-l">Check your answers</h1>
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: data['ittContactFirstName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['ittContactLastName']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact last name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: data['ittContactEmail']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-itt-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact email"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+      </form>
+
+       {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="details">Cancel</a></p>
+      {% endif %}
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

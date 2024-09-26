@@ -1,0 +1,140 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Organisations" %}
+
+{% set primaryNavId = "organisations" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Organisations (4)
+      </h1>
+
+      {{ govukButton({
+          text: "Add organisation"
+        }) }}
+    </div>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="filters">
+        <h2 class="govuk-heading-m">Filter</h2>
+        {{ govukButton({
+              text: "Apply filters"
+            }) }}
+
+        <div class="individualFilter noBottomBorder">
+        {{ govukCheckboxes({
+          classes: "govuk-checkboxes--small",
+          name: "organisationType",
+          fieldset: {
+            legend: {
+              text: "Organisation type",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Lead partner",
+              text: "Lead partner"
+            },
+            {
+              value: "School",
+              text: "School"
+            },
+            {
+              value: "SCITT",
+              text: "SCITT"
+            },
+            {
+              value: "University",
+              text: "University"
+            }
+          ]
+        }) }}
+        </div>
+      </div>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+         <div class="govuk-form-group govuk-!-margin-bottom-3">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="locationSearch">
+                Search by organisation name or postcode
+              </label>
+            </h1>
+            <input class="govuk-input locationSearchInput" id="locationSearch" name="locationSearch" type="text" aria-describedby="locationSearch-hint">
+            {{ govukButton({
+              text: "Search",
+              classes: "locationSearchButton govuk-!-margin-bottom-0"
+            }) }}
+          </div>
+          <hr class="govuk-section-break govuk-section-break--visible">
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placements-as-school">Castle View Primary School</a></h2>
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Organisation type
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        School
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placements-as-school">Horsley Vale Academy</a></h2>
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Organisation type
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        School
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placements-as-school">St Edmund's Nursery School & Children's Centre</a></h2>
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Organisation type
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Lead partner
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-s"><a href="placements-as-school">Whitburn Church of England Academy</a></h2>
+                <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Organisation type
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        School
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+      </div>
+
+</div>
+
+{% endblock %}

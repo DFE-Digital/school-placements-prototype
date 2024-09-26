@@ -1,0 +1,97 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="mentor-added" method="post">
+        <h1 class="govuk-heading-l">Confirm mentor details</h1>
+
+        <p>Once added, you will be able to assign them to placements.</p>
+
+        <h2 class="govuk-heading-m">Mentor</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: "Thea"
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                  text: "Weiss"
+                }
+              },
+              {
+                key: {
+                  text: "Teacher reference number (TRN)"
+                },
+                value: {
+                  text: "3402661"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "Teacher reference number (TRN)"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Date of birth"
+                },
+                value: {
+                  text: "21/07/1978"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-mentor",
+                      text: "Change",
+                      visuallyHiddenText: "date of birth"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            html: "Mentor data is stored in line with the <a href=''>Department for Education's (DfE) privacy notice (opens in new tab)</a>. I confirm that I have read, understood and accept how DfE uses mentor information as part of the Manage school placements service."
+          }) }}
+
+          {{ govukButton({
+            text: "Confirm and add mentor"
+          }) }}
+      </form>
+
+            <p class="govuk-body"><a href="mentors">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

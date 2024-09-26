@@ -1,0 +1,47 @@
+{% extends "layouts/user-support-v2.html" %}
+
+{% set pageName="Sign in to Manage school placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+  </div>
+  </div>
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Use DfE Sign-in to access your account.</p>
+
+
+
+      {{ govukButton({
+        text: "Sign in using DfE Sign-in",
+        href: "dfe-sign-in"
+      }) }}
+
+
+<h2 class="govuk-heading-s">How to get an account</h2>
+
+<p>This is a pilot service for schools and teacher training providers in Leeds.</p>
+<p>Ask a colleague in your organisation to add you if you do not have an account.</p>
+<p>If your organisation has not been set up to use this service, email <a href="mailto:manage.schoolplacements@education.gov.uk">manage.schoolplacements@education.gov.uk</a>.</p>
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
