@@ -1,6 +1,6 @@
 {% extends "layouts/user-provider-v2.html" %}
 
-{% set pageName="Placements" %}
+{% set pageName="Find placements" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -16,7 +16,8 @@
       </h1>
 
       <h2 class="govuk-heading-m">10 placements</h2>
-      <p class="govuk-hint">Results sorted by travel time from SR2 7GL, arriving 8:30am</p>
+      <p class="govuk-hint">Results sorted by travel time from SR2 7GL</p>
+
 </div>
 </div>
 
@@ -370,7 +371,7 @@
               </label>
             </h2>
             <div id="locationSearch-hint" class="govuk-hint">
-              For example, Sunderland or SR2.
+              Enter a town, city or postcode in England
             </div>
             <input class="govuk-input locationSearchInput" id="locationSearch" name="locationSearch" type="text" aria-describedby="locationSearch-hint">
             {{ govukButton({
@@ -381,6 +382,8 @@
           <p class="govuk-body-s" style="color: #5F6368;">Powered by Google</p>
 
           <p><a href="#">Clear search</a></p>
+
+
           <hr class="govuk-section-break govuk-section-break--visible">
 
           <div class="searchResult">
@@ -449,7 +452,7 @@
                         33 minutes
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
+                   <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Walking
                       </dt>
