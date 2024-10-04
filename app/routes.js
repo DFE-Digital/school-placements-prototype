@@ -38,7 +38,7 @@ require('./views/ur-archive/school-user-003/router/routes')(router)
 require('./views/provider-users/v1/router/routes')(router)
 require('./views/provider-users/v1-1/router/routes')(router)
 require('./views/provider-users/v1-2/router/routes')(router)
-
+require('./views/provider-users/v1-3/router/routes')(router)
 
 // Link to support user router files
 

@@ -1,0 +1,112 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "partners" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="school-added" method="post">
+
+        <h1 class="govuk-heading-l">Confirm school details</h1>
+        <p>Once added, they will be able to assign you to their placements.</p>
+
+<p>We will send them an email to let them know you have added them.</p>
+<h2 class="govuk-heading-m">School</h2>
+{{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Whitburn Church of England Academy"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "UK provider reference number (UKPRN)"
+            },
+            value: {
+              text: "1003254"
+            }
+          },
+          {
+            key: {
+              text: "Unique reference number (URN)"
+            },
+            value: {
+              html: "136386"
+            }
+          },
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            html: "<a href='mailto:admin@whitburncofeacademy.org'>admin@whitburncofeacademy.org</a>"
+          }
+        },
+        {
+          key: {
+            text: "Telephone number"
+          },
+          value: {
+            html: "0191 632 2757"
+          }
+        },
+        {
+          key: {
+            text: "Website"
+          },
+          value: {
+            html: "<a href='https://www.whitburncofeacademy.org/'>https://www.whitburncofeacademy.org/ (opens in new tab)</a>"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
+          }
+        }
+      ]
+    }) }}
+
+
+
+          {{ govukButton({
+            text: "Confirm and add school"
+          }) }}
+      </form>
+
+
+            <p class="govuk-body"><a href="schools">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

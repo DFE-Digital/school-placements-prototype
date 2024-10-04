@@ -1,0 +1,92 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Schools you work with" %}
+
+{% set primaryNavId = "partners" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      <p>View all placements your schools have published.</p>
+      <p>Only schools you work with are able to assign you their placements.</p>
+
+      <a href="add-school" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Find school
+      </a>
+
+      <!-- <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p> -->
+
+      {{ govukTable({
+        caption: "Providers",
+        captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Unique reference number (URN)"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='school-current-placements'>Hazelwood Junior School</a>"
+            },
+            {
+              text: "101996"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>Outwood Academy Freeston</a>"
+            },
+            {
+              text: "145937"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>Whitburn Church of England School</a>"
+            },
+            {
+              text: "136386"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>The Whitby High School</a>"
+            },
+            {
+              text: "111429"
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
