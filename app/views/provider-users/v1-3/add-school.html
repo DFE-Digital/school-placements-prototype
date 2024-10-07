@@ -1,297 +1,35 @@
 {% extends "layouts/user-provider-v2.html" %}
 
-{% set pageName="Find schools" %}
+{% set pageName="Add a partner provider" %}
 
 {% set primaryNavId = "partners" %}
 
-{% set back = false %}
+{% set back = true %}
 
 {% block content %}
 
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">
-      {{ pageName }}
-      </h1>
-
-</div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-    <div class="filters">
-      <h2 class="govuk-heading-m">Filter</h2>
-      {{ govukButton({
-            text: "Apply filters"
-          }) }}
-
-      <div class="individualFilter">
-        {{ govukInput({
-            label: {
-              text: "Search by location",
-              classes: "govuk-label--s",
-              isPageHeading: true
-            },
-            hint: {
-              text: "Enter a town, city or postcode"
-            },
-            id: "location",
-            name: "location",
-            classes: "govuk-!-margin-bottom-1"
-          }) }}
-
-          <p class="govuk-body-s" style="margin-top: -25px; color: #5F6368;">Powered by Google</p>
-
-        </div>
-
-        <div class="individualFilter">
-        {{ govukInput({
-            label: {
-              text: "Search by name",
-              classes: "govuk-label--s",
-              isPageHeading: true
-            },
-            hint: {
-              text: "Enter a school name or URN"
-            },
-            id: "location",
-            name: "location",
-            classes: "govuk-!-margin-bottom-1"
-          }) }}
-
-        </div>
-
-      <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "schoolToShow",
-        fieldset: {
-          legend: {
-            text: "Schools to show",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "All schools",
-            text: "All schools",
-            checked: true
-          },
-          {
-            value: "Schools offering ITT",
-            text: "Schools offering ITT"
-          },
-          {
-            value: "Schools not offering ITT",
-            text: "Schools not offering ITT"
-          }
-        ]
-      }) }}
-      </div>
-
-      <div class="individualFilter">
-          {{ govukCheckboxes({
-            name: "primaryYearGroup",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "Age group",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "Nursery",
-                text: "Nursery"
-              },
-              {
-                value: "Reception",
-                text: "Reception"
-              },
-              {
-                value: "Year 1",
-                text: "Year 1"
-              },
-              {
-                value: "Year 2",
-                text: "Year 2"
-              },
-              {
-                value: "Year 3",
-                text: "Year 3"
-              },
-              {
-                value: "Year 4",
-                text: "Year 4"
-              },
-              {
-                value: "Year 5",
-                text: "Year 5"
-              },
-              {
-                value: "Year 6",
-                text: "Year 6"
-              }
-            ]
-          }) }}
-      </div>
-
-      <div class="individualFilter">
-        <h3 class="govuk-heading-s">Establishment group</h3>
-        <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
-          {{ govukCheckboxes({
-            name: "school",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "School",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
-              }
-            },
-            items: [
-              {
-                value: "Bath Spa University",
-                text: "Bath Spa University"
-              },
-              {
-                value: "Chingford CofE Primary School",
-                text: "Chingford CofE Primary School"
-              },
-              {
-                value: "Collegiate School",
-                text: "Collegiate School"
-              },
-              {
-                value: "Temple Learning Academy",
-                text: "Temple Learning Academy"
-              },
-              {
-                value: "University Technical College Leeds",
-                text: "University Technical College Leeds"
-              },
-              {
-                value: "Whitburn Church of England School",
-                text: "Whitburn Church of England School"
-              }
-            ]
-          }) }}
-      </div>
-
-  </div>
-  </div>
 
   <div class="govuk-grid-column-two-thirds">
 
-          <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
-
-      <h2 class="govuk-heading-m">1 placement</h2>
-      <p class="govuk-hint">Results sorted by distance from Shrewsbury</p>
-
-
-
-          <hr class="govuk-section-break govuk-section-break--visible">
-
-          <div class="searchResult">
-              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Collegiate School</a></h2>
-              {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-
-
-                  <dl class="app-result-detail">
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3.2 miles
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Phase
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Secondary
-                      </dd>
-                    </div>
+      <form action="add-school-check" method="post">
+        <span class="govuk-caption-l">School details</span>
+        <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="my-autocomplete">Add a school</label>
+        </h1>
+        <div id="my-autocomplete-hint" class="govuk-hint">
+          Enter a school name, unique reference number (URN) or postcode
+        </div>
+        <div id="my-autocomplete-container"></div>
+        </div>
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
 
 
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Expected date
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Summer term
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        11 to 18
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Establishment group
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Independent schools
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Good
-                      </dd>
-                    </div>
-                  </dl>
-
-  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
-
-                  <dl class="app-result-detail">
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Public transport
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        33 minutes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Driving
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        37 minutes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Walking
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        48 minutes
-                      </dd>
-                    </div>
-
-                  </dl>
-          </div>
-
-
+            <p class="govuk-body"><a href="schools">Cancel</a></p>
 
   </div>
 
@@ -300,5 +38,24 @@
   </div>
 
 </div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
 
 {% endblock %}
