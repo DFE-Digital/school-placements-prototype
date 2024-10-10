@@ -14,7 +14,6 @@
     <h1 class="govuk-heading-l">
       {{ pageName }}
       </h1>
-
 </div>
 </div>
 
@@ -80,64 +79,45 @@
             checked: true
           },
           {
-            value: "Schools offering ITT",
-            text: "Schools offering ITT"
+            value: "Currently doing ITT",
+            text: "Currently doing ITT"
           },
           {
-            value: "Schools not offering ITT",
-            text: "Schools not offering ITT"
+            value: "Not currently doing ITT",
+            text: "Not currently doing ITT"
           }
         ]
       }) }}
       </div>
 
-      <div class="individualFilter">
-          {{ govukCheckboxes({
-            name: "primaryYearGroup",
-            classes: "govuk-checkboxes--small",
-            fieldset: {
-              legend: {
-                text: "Age group",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--s"
-              }
-            },
-            items: [
-              {
-                value: "Nursery",
-                text: "Nursery"
-              },
-              {
-                value: "Reception",
-                text: "Reception"
-              },
-              {
-                value: "Year 1",
-                text: "Year 1"
-              },
-              {
-                value: "Year 2",
-                text: "Year 2"
-              },
-              {
-                value: "Year 3",
-                text: "Year 3"
-              },
-              {
-                value: "Year 4",
-                text: "Year 4"
-              },
-              {
-                value: "Year 5",
-                text: "Year 5"
-              },
-              {
-                value: "Year 6",
-                text: "Year 6"
-              }
-            ]
-          }) }}
+       <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "phase",
+        fieldset: {
+          legend: {
+            text: "Phase",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "All through",
+            text: "All through"
+          },
+          {
+            value: "Primary",
+            text: "Primary"
+          },
+          {
+            value: "Secondary",
+            text: "Secondary"
+          }
+        ]
+      }) }}
       </div>
+
 
       <div class="individualFilter">
         <h3 class="govuk-heading-s">Establishment group</h3>
@@ -154,28 +134,28 @@
             },
             items: [
               {
-                value: "Bath Spa University",
-                text: "Bath Spa University"
+                value: "Academies",
+                text: "Academies"
               },
               {
-                value: "Chingford CofE Primary School",
-                text: "Chingford CofE Primary School"
+                value: "Children's Centres",
+                text: "Children's Centres"
               },
               {
-                value: "Collegiate School",
-                text: "Collegiate School"
+                value: "Colleges",
+                text: "Colleges"
               },
               {
-                value: "Temple Learning Academy",
-                text: "Temple Learning Academy"
+                value: "Free Schools",
+                text: "Free Schools"
               },
               {
-                value: "University Technical College Leeds",
-                text: "University Technical College Leeds"
+                value: "Independent schools",
+                text: "Independent schools"
               },
               {
-                value: "Whitburn Church of England School",
-                text: "Whitburn Church of England School"
+                value: "Local authority maintained schools",
+                text: "Local authority maintained schools"
               }
             ]
           }) }}
@@ -188,18 +168,18 @@
 
           <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
 
-      <h2 class="govuk-heading-m">1 placement</h2>
-      <p class="govuk-hint">Results sorted by distance from Shrewsbury</p>
+      <h2 class="govuk-heading-m">4 schools</h2>
+      <p class="govuk-hint">Results sorted by distance from <strong>NE33 3AG</strong></p>
 
 
 
           <hr class="govuk-section-break govuk-section-break--visible">
 
           <div class="searchResult">
-              <h2 class="govuk-heading-m"><a href="placement-detail">Collegiate School</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">St Bede's Catholic Primary School, South Shields</a></h2>
               {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
 
 
@@ -207,19 +187,10 @@
 
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3.2 miles
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Phase
                       </dt>
                       <dd class="app-result-detail__value">
-                        Secondary
+                        Primary
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -227,21 +198,9 @@
                         Age range
                       </dt>
                       <dd class="app-result-detail__value">
-                        11 to 18
+                        3 to 11
                       </dd>
                     </div>
-
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Address
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Building, Street, Town, Postcode
-                      </dd>
-                    </div>
-
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -255,7 +214,23 @@
                         Ofsted rating
                       </dt>
                       <dd class="app-result-detail__value">
-                        Good
+                        Outstanding
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Claypath Lane, South Shields, Tyne and Wear, NE33 4PG
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.27 miles
                       </dd>
                     </div>
                   </dl>
@@ -269,7 +244,7 @@
                         Public transport
                       </dt>
                       <dd class="app-result-detail__value">
-                        33 minutes
+                        6 minutes
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -277,7 +252,7 @@
                         Driving
                       </dt>
                       <dd class="app-result-detail__value">
-                        37 minutes
+                        4 minutes
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -285,10 +260,275 @@
                         Walking
                       </dt>
                       <dd class="app-result-detail__value">
-                        48 minutes
+                        9 minutes
                       </dd>
                     </div>
 
+                  </dl>
+          </div>
+
+
+
+
+
+
+  <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Westoe Crown Primary School</a></h2>
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Primary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        3 to 11
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Community school
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.36 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        10 minutes
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Laygate Community School</a></h2>
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Primary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        3 to 11
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Community school
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                       Laygate Lane, South Shields, Tyne and Wear, NE33 4JJ
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.38 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        4 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        13 minutes
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Marine Park Primary School</a></h2>
+              {{ govukTag({
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Primary
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        3 to 11
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Community school
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Outstanding
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.46 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        10 minutes
+                      </dd>
+                    </div>
                   </dl>
           </div>
 
