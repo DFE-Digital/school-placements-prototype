@@ -1,0 +1,54 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="How do you want to add the placements?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukRadios({
+            name: "placementPhase",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Select from a list~add-multiple-placements-meta",
+                text: "Select from a list"
+              },
+              {
+                value: "Upload a CSV~add-multiple-placements-upload",
+                text: "Upload a CSV"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

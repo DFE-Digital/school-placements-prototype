@@ -1,0 +1,63 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Select a phase" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukRadios({
+            name: "placementPhase",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary~add-placement-subject-primary",
+                text: "Primary",
+                hint: {
+                  text: "3 to 11 years"
+                  }
+              },
+              {
+                value: "Secondary~add-placement-subject-secondary",
+                text: "Secondary",
+                hint: {
+                  text: "11 to 19 years"
+                  }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+        {% if data['onboarding'] === "true" %}
+            <p class="govuk-body"><a href="onboarding">Back to getting started page</a></p>
+      {% else %}
+            <p class="govuk-body"><a href="placements">Cancel</a></p>
+      {% endif %}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

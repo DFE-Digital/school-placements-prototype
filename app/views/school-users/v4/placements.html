@@ -1,0 +1,260 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+      {% set "<span class='govuk-secondary-text-colour'>Not yet known</span>" %}
+          {{ govukTag({
+           text: "Available",
+           classes: "govuk-tag--turquoise"
+          }) }}
+      {% endset %}
+
+
+
+
+{% set placementTitle %}
+        {% if data['placementModernForeignLanguage'] %}
+          <a href="placement-detail-dynamic">{{ data['placementModernForeignLanguage'] }}</a>
+        {% elseif data['placementYearGroup'] %}
+          <a href="placement-detail-dynamic">{{ data['placementSubject'] }} ({{ data['placementYearGroup'] }})</a>
+        {% else %}
+          <a href="placement-detail-dynamic">{{ data['placementSubject'] }}</a>
+        {% endif %}
+      {% endset %}
+
+      {% set mentorName %}
+        {% if data['placementMentor'] %}
+          {{ data['placementMentor'] }}
+        {% else %}
+          Not yet known
+        {% endif %}
+      {% endset %}
+
+      {% set placementTerms %}
+          {{ data['placementTerms'] }}
+      {% endset %}
+
+    <!-- {{ govukInsetText({
+            html: "<p>Before you add a placement, you must <a href='add-itt-contact'>add a placement contact</a> so that the teacher training providers can contact you.</p>"
+          }) }} -->
+
+
+       <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+      <a href="add-multiple-placements-route" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add multiple placements
+      </a>
+
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [{
+          text: 'This year (2024 to 2025)',
+          href: 'placements',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        }, {
+          text: 'Next year (2025 to 2026)',
+          href: 'placements-future',
+          classes: 'govuk-!-font-weight-bold'
+        } ]
+      }) }}
+    <!-- <p class="govuk-body">There are no placements for Whitburn Church of England Academy.</p>  -->
+
+
+
+          {{ govukTable({
+            caption: "Current placements (2024 - 2025)",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            head: [
+              {
+                text: "Subject"
+              },
+              {
+                text: "Mentor"
+              },
+                            {
+                text: "Expected date"
+              },
+              {
+                text: "Provider"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: placementTitle
+                },
+                {
+                  html: mentorName
+                },
+               {
+                  html: windowHtml
+                },
+                {
+                  html: placementTerms
+                }
+              ] if data['placementSubject'],
+              [
+                {
+                  html: "<a href='placement-detail-fixed'>Business studies</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Chemistry</a>"
+                },
+                {
+                  text: "Thea Weiss"
+                },
+                {
+                  text: "Autumn term - Spring term"
+                },
+                {
+                  html: "Leeds Beckett University"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Primary with Maths (Year 3)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Biology</a>"
+                },
+                {
+                  text: "Thea Weiss"
+                },
+                {
+                  text: "Spring term - Summer term"
+                },
+                {
+                  html: "Gorse SCITT"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>Primary with Maths (Year 5)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Autumn term - Summer term"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+              ],
+              [
+                {
+                  html: "<a href='#'>English literature</a>"
+                },
+                {
+                  text: "Harpreet Singh"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "Gorse SCITT"
+                }
+                ],
+                [
+                {
+                  html: "<a href='#'>Primary (Year 1)</a>"
+                },
+                {
+                  text: "Not yet known"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                }
+                ],
+              [
+                {
+                  html: "<a href='#'>Ancient Greek</a>"
+                },
+                {
+                  text: "Harpreet Singh"
+                },
+                {
+                  text: "Any time in the academic year"
+                },
+                {
+                  html: "Leeds Trinity"
+                }
+                ],
+                [
+                {
+                  html: "<a href='#'>Art</a>"
+                },
+                {
+                  text: "Phil Hartley"
+                },
+                {
+                  text: "Autumn term - Spring term"
+                },
+                {
+                  html: "Leeds SCITT"
+                }
+              ]
+            ]
+          }) }}
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <form action="provider-added" method="post">
+
+        <h1 class="govuk-heading-l">Confirm provider details</h1>
+        <p>Adding them means you will be able to assign them to your placements.<br>We will send them an email to let them know you have added them.</p>
+
+        <h2 class="govuk-heading-m">Provider</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                 text: "Growing Expert Teachers"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "add-provider",
+                      text: "Change",
+                      visuallyHiddenText: " provider"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "UK Provider Reference Number (UKPRN)"
+                },
+                value: {
+                  text: "10005959"
+                }
+              },
+        {
+          key: {
+            text: "Email address"
+          },
+          value: {
+            text: "paul.sainsbury@birdwellschool.co.uk"
+          }
+        },
+        {
+          key: {
+            text: "Telephone"
+          },
+          value: {
+            text: "01275 392496"
+          }
+        },
+        {
+          key: {
+            text: "Website"
+          },
+          value: {
+            html: "<a href='https://www.birdwellschool.co.uk/'>https://www.birdwellschool.co.uk/</a>"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>Birdwell School Academy<br>Hollis Close<br>Long Ahston<br>North Somerset<br>BS41 9AZ</p>"
+          }
+        }
+      ]
+    }) }}
+
+          {{ govukButton({
+            text: "Confirm and add provider"
+          }) }}
+      </form>
+
+            <p class="govuk-body"><a href="providers">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
