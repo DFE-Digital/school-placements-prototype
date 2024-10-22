@@ -22,8 +22,7 @@
     <div class="filters">
       <h2 class="govuk-heading-m">Filter</h2>
       {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
+            text: "Apply filters"
           }) }}
 
       <div class="individualFilter">
@@ -80,12 +79,12 @@
             checked: true
           },
           {
-            value: "Currently doing ITT",
-            text: "Currently doing ITT"
+            value: "Currently Recently hosted",
+            text: "Currently Recently hosted"
           },
           {
-            value: "Not currently doing ITT",
-            text: "Not currently doing ITT"
+            value: "Not currently Recently hosted",
+            text: "Not currently Recently hosted"
           }
         ]
       }) }}
@@ -162,26 +161,21 @@
           }) }}
       </div>
 
-            {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
-          }) }}
-
   </div>
 </div>
 
 <div class="govuk-grid-column-two-thirds">
   <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
 
-      <h2 class="govuk-heading-m">18,914 schools</h2>
-      <p class="govuk-hint">Results sorted alphabetically</p>
+      <h2 class="govuk-heading-m">4 schools</h2>
+      <p class="govuk-hint">Results sorted by distance from <strong>NE33 3AG</strong></p>
 
           <hr class="govuk-section-break govuk-section-break--visible">
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="school-detail-bede">St Bede's Catholic Primary School, South Shields</a></h2>
               {{ govukTag({
-                text: "Not doing ITT",
+                text: "Not recently hosted",
                 classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
 
@@ -222,7 +216,7 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Last offered placements
+                        Last hosted placements
                       </dt>
                       <dd class="app-result-detail__value">
                         2020 - 2021 academic year (school has not yet reported for 2024 - 2025)
@@ -236,6 +230,45 @@
                         Claypath Lane, South Shields, Tyne and Wear, NE33 4PG
                       </dd>
                     </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.27 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        6 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        4 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+
                   </dl>
           </div>
 
@@ -247,7 +280,7 @@
   <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Westoe Crown Primary School</a></h2>
               {{ govukTag({
-                text: "Doing ITT",
+                text: "Recently hosted",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
                   <dl class="app-result-detail">
@@ -285,7 +318,7 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Last offered placements
+                        Last hosted placements
                       </dt>
                       <dd class="app-result-detail__value">
                         2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
@@ -299,6 +332,42 @@
                         Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
                       </dd>
                     </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.36 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        10 minutes
+                      </dd>
+                    </div>
                   </dl>
           </div>
 
@@ -306,7 +375,7 @@
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Laygate Community School</a></h2>
               {{ govukTag({
-                text: "Doing ITT",
+                text: "Recently hosted",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
                   <dl class="app-result-detail">
@@ -344,7 +413,7 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Last offered placements
+                        Last hosted placements
                       </dt>
                       <dd class="app-result-detail__value">
                         2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
@@ -358,6 +427,42 @@
                        Laygate Lane, South Shields, Tyne and Wear, NE33 4JJ
                       </dd>
                     </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.38 miles
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        4 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        13 minutes
+                      </dd>
+                    </div>
                   </dl>
           </div>
 
@@ -365,7 +470,7 @@
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Marine Park Primary School</a></h2>
               {{ govukTag({
-                text: "Not doing ITT",
+                text: "Not recently hosted",
                 classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
                   <dl class="app-result-detail">
@@ -403,7 +508,7 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Last offered placements
+                        Last hosted placements
                       </dt>
                       <dd class="app-result-detail__value">
                         2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
@@ -417,8 +522,43 @@
                         Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
                       </dd>
                     </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.46 miles
+                      </dd>
+                    </div>
                   </dl>
 
+                  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+                  <dl class="app-result-detail">
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        5 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        10 minutes
+                      </dd>
+                    </div>
+                  </dl>
           </div>
 
 
