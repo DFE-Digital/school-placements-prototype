@@ -1,0 +1,70 @@
+{% extends "layouts/user-provider-ideation-b.html" %}
+
+{% set pageName="Overview for 2024 - 2025" %}
+
+{% set primaryNavId = "overview" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-visually-hidden">
+      {{ pageName }}
+      </h1>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="candidates" class="headline-card">
+          <h2 class="headline-figure">76 <span class="headline-label">candidates</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>68 offered</li>
+          <li>8 rejected</li>
+          <li>12 accepted</li>
+          <li>1 declined</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="placements" class="headline-card">
+          <h2 class="headline-figure">113 <span class="headline-label">offers</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list">
+          <li><a href="">See all offers</a></li>
+          <li><a href="">See breakdown by subject</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="placements-needed" class="headline-card">
+          <h2 class="headline-figure">39 <span class="headline-label">needed</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list">
+          <li><a href="">See breakdown by subject</a></li>
+          <li><a href="">Search all placements</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

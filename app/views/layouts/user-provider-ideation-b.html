@@ -1,0 +1,127 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% from "_components/primary-navigation/macro.njk" import appPrimaryNavigation %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Manage school placements",
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "#",
+        text: "Users"
+      },{
+        href: "#",
+        text: "Settings"
+      },
+      {
+        href: "#2",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+
+    {# Add phase banner #}
+	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
+  <div class="govuk-width-container">
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+
+  <div class="app-organisation-actions govuk-width-container">
+     <div class="app-organisation-actions__title">ACME Training Provider</div>
+     <div class="app-organisation-actions__actions">Academic year 2024-2025 (<a href="organisation-change">change <span class="govuk-visually-hidden">academic year</span></a>)</div>
+  </div>
+
+  </div>
+
+  {# Add primary nav #}
+	{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
+  {{ appPrimaryNavigation({
+      items: [
+        {
+          href: "overview",
+          text: "Overview",
+          active: primaryNavId == "overview"
+        },
+        {
+          href: "candidates",
+          text: "Candidates",
+          active: primaryNavId == "candidates"
+        },
+        {
+          href: "placements",
+          text: "Placements",
+          active: primaryNavId == "placements"
+        },
+        {
+          href: "mentors",
+          text: "Mentors",
+          active: primaryNavId == "mentors"
+        },
+        {
+          href: "schools",
+          text: "Schools",
+          active: primaryNavId == "schools"
+        }
+      ]
+    }) }}
+
+    {% endblock %}
+
+{% block beforeContent %}
+
+	{% block backLink %}
+
+		{# Add a javascript back link, remove on pages that don't need it with:
+		{# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ #}
+		{# {% set back = false %} #}
+		{# ░░░░░░░░░░░░░░░░░░░░░░ #}
+
+		{{ govukBackLink({
+			html: 'Back',
+			href: 'javascript:history.back()'
+		}) if back != false }}
+
+	{% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "#",
+        text: "Accessibility"
+      },
+      {
+        href: "#",
+        text: "Cookies"
+      },
+      {
+        href: "/static/privacy",
+        text: "Privacy notice"
+      },
+      {
+        href: "/static/tandc",
+        text: "Terms and conditions"
+      },
+      {
+        href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      }
+    ]
+  }
+}) }}
+
+{% endblock %}

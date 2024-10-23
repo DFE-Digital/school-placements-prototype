@@ -77,6 +77,7 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 }
 
 .app-organisation-actions__actions {
+    font-family: "GDS Transport", arial, sans-serif;
     display: table-cell;
     width: 40%;
     padding-right: 0;
@@ -228,6 +229,14 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 
 /// IDEATION
 ///
+
+.card {
+    border: 1px solid #1d70b8;
+}
+
+.card-actions {
+    padding:16px;
+}
 
 .headline-card, .headline-card:link, .headline-card:visited {
     font-family: "GDS Transport", arial, sans-serif;

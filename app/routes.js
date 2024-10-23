@@ -48,3 +48,4 @@ require('./views/support-users/v2/router/routes')(router)
 // Link to ideation router files
 
 require('./views/ideation/v1/router/routes')(router)
+require('./views/ideation/v2/router/routes')(router)

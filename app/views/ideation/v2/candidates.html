@@ -1,0 +1,139 @@
+{% extends "layouts/user-provider-ideation-b.html" %}
+
+{% set pageName="Candidates" %}
+
+{% set primaryNavId = "candidates" %}
+
+{% set back = false %}
+
+{% block content %}
+
+     {% set appliedStatus %}
+          {{ govukTag({
+           text: "Applied",
+           classes: "govuk-tag--light-blue"
+          }) }}
+      {% endset %}
+
+     {% set acceptedStatus %}
+          {{ govukTag({
+           text: "Accepted",
+           classes: "govuk-tag--yellow"
+          }) }}
+      {% endset %}
+
+     {% set confirmedStatus %}
+          {{ govukTag({
+           text: "Confirmed",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set declinedStatus %}
+          {{ govukTag({
+           text: "Declined",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {{ mojPageHeaderActions({
+  heading: {
+    text: 'Candidates'
+  },
+  items: [{
+    text: 'Add candidate',
+    href: 'add-candidate',
+    classes: 'govuk-button--secondary'
+  }]
+}) }}
+
+          {{ govukTable({
+            caption: "Candidates",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Course"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='trainee-detail'>Jennifer Banner</a>"
+                },
+                {
+                  text: "History (HIS1)"
+                },
+                {
+                  html: acceptedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Malika Boutella</a>"
+                },
+                {
+                  text: "Modern languages (French) (MD9Q)"
+                },
+                {
+                  html: confirmedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Peter Essien</a>"
+                },
+                {
+                  text: "History (H152)"
+                },
+                {
+                  html: confirmedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail-freida'>Freida Jackson</a>"
+                },
+                {
+                  text: "Primary (2S8T)"
+                },
+                {
+                  html: appliedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Kara Lynn Tivan</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: declinedStatus
+                }
+              ]
+            ]
+          }) }}
+     </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+          {{ govukInsetText({
+            html: "Candidates are automatically added from <a href='#'>Apply for teacher training</a>. If an application has came through another route you can <a href='#'>add a candidate</a>."
+          }) }}
+
+  </div>
+</div>
+
+{% endblock %}
