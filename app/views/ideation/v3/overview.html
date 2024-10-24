@@ -1,0 +1,67 @@
+{% extends "layouts/user-school-ideation.html" %}
+
+{% set pageName="Overview for 2024 - 2025" %}
+
+{% set primaryNavId = "overview" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-visually-hidden">
+      {{ pageName }}
+      </h1>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="candidates" class="headline-card">
+          <h2 class="headline-figure">13 <span class="headline-label">placements offered</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list">
+          <li><a href="" class="govuk-link govuk-link--no-visited-state">See placements offered</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="placements" class="headline-card">
+          <h2 class="headline-figure">4 <span class="headline-label">placements wanted</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list">
+          <li><a href="" class="govuk-link govuk-link--no-visited-state">Search all placements</a></li>
+          <li><a href="" class="govuk-link govuk-link--no-visited-state">Edit placement listings</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <a href="placements-needed" class="headline-card">
+          <h2 class="headline-figure">8 <span class="headline-label">providers</span></h2>
+      </a>
+      <div class="card-actions">
+        <ul class="govuk-list">
+          <li><a href="" class="govuk-link govuk-link--no-visited-state">Providers I work with</a></li>
+          <li><a href="" class="govuk-link govuk-link--no-visited-state">Find providers</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

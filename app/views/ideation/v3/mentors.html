@@ -1,0 +1,102 @@
+{% extends "layouts/user-school-ideation.html" %}
+
+{% set pageName="Trained mentors" %}
+
+{% set primaryNavId = "mentors" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+
+
+  {{ mojPageHeaderActions({
+  heading: {
+    text: 'Trained mentors'
+  },
+  items: [{
+    text: 'Add mentor',
+    href: '#'
+  },
+  {
+    text: 'Upload mentors',
+    href: '#',
+    classes: 'govuk-button--secondary'
+  }]
+}) }}
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+
+        {{ govukTable({
+          caption: "Mentors who've completed training",
+          captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+          firstCellIsHeader: false,
+          head: [
+            {
+              text: "Name"
+            },
+            {
+              text: "School"
+            },
+            {
+              text: "Subject"
+            }
+          ],
+          rows: [
+            [
+              {
+                html: "<a href='#'>Gill Atkinson</a>"
+              },
+              {
+                html: "<a href='#'>St Mary's School</a>"
+              },
+              {
+                html: "Primary"
+              }
+            ],
+            [
+              {
+                html: "<a href='#'>Malcolm Smith</a>"
+              },
+              {
+                html: "<a href='#'>Whitburn Church of England School</a>"
+              },
+              {
+                html: "Modern languages"
+              }
+            ],
+            [
+              {
+                html: "<a href='#'>Thea Weiss</a>"
+              },
+              {
+                html: "<a href='#'>Whitburn Church of England School</a>"
+              },
+              {
+                html: "History"
+              }
+            ]
+          ]
+        }) }}
+
+  </div>
+  </div>
+
+
+
+
+</div>
+
+{% endblock %}

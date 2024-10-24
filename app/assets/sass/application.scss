@@ -235,7 +235,13 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 }
 
 .card-actions {
-    padding:16px;
+    padding:15px;
+}
+
+.headline-notify {
+    padding:15px;
+    background-color: #5694ca;
+    display:block;
 }
 
 .headline-card, .headline-card:link, .headline-card:visited {
@@ -275,3 +281,21 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 .sectionTop { border-top: 2px solid #BFC1C3; padding-top:10px;  }
 .normalWeight { font-weight: 400 ;}
 .searchBox { background-color: 	#f3f2f1;}
+
+/// VIEW MAP
+///
+
+.view-map-container {
+    margin-top:-42px;
+    float: right;
+}
+
+.view-map-container #view-map-link {
+    margin-top:4px;
+    margin-left:8px;
+    float:left;
+}
+
+.view-map-container .gias-map-toggle-icon-container {
+    float:left;
+}

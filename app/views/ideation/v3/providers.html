@@ -1,0 +1,93 @@
+{% extends "layouts/user-school-ideation.html" %}
+
+{% set pageName="Providers" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+
+
+  {{ mojPageHeaderActions({
+  heading: {
+    text: 'Schools'
+  },
+  items: [{
+    text: 'Find a school',
+    href: '#'
+  }]
+}) }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <!-- <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p> -->
+
+      {{ govukTable({
+        caption: "Schools you already work with",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Unique reference number (URN)"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='school-current-placements'>Hazelwood Junior School</a>"
+            },
+            {
+              text: "101996"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>Outwood Academy Freeston</a>"
+            },
+            {
+              text: "145937"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>Whitburn Church of England School</a>"
+            },
+            {
+              text: "136386"
+            }
+          ],
+          [
+            {
+              html: "<a href='school-current-placements'>The Whitby High School</a>"
+            },
+            {
+              text: "111429"
+            }
+          ]
+        ]
+      }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
