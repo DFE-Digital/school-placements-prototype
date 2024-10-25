@@ -240,10 +240,13 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 
 .headline-notify {
     padding:15px;
-    background-color: #5694ca;
+    font-size:1.1875em;
+    background-color: #d5e4f2;
+    font-weight: bold;
     display:block;
 }
 
+/*
 .headline-card, .headline-card:link, .headline-card:visited {
     font-family: "GDS Transport", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -254,10 +257,20 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
     padding:15px;
     display: block;
 }
+*/
 
-.headline-card:hover {
-    background-color: #003078;
+.headline-card {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    background-color: #1d70b8;
+    color: #FFF;
+    padding:15px;
+    display: block;
 }
+
+
 
 .headline-card:active {
     color: #0b0c0c;

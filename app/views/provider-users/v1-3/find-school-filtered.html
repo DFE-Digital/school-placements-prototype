@@ -22,7 +22,8 @@
     <div class="filters">
       <h2 class="govuk-heading-m">Filter</h2>
       {{ govukButton({
-            text: "Apply filters"
+            text: "Apply filters",
+            href: "find-school-filtered"
           }) }}
 
       <div class="individualFilter">
@@ -61,36 +62,7 @@
 
         </div>
 
-      <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "schoolToShow",
-        fieldset: {
-          legend: {
-            text: "Schools to show",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "All schools",
-            text: "All schools",
-            checked: true
-          },
-          {
-            value: "Recently hosted",
-            text: "Recently hosted"
-          },
-          {
-            value: "Not recently hosted",
-            text: "Not recently hosted"
-          }
-        ]
-      }) }}
-      </div>
-
-       <div class="individualFilter">
+               <div class="individualFilter">
       {{ govukRadios({
         classes: "govuk-radios--small",
         name: "phase",
@@ -103,8 +75,9 @@
         },
         items: [
           {
-            value: "All through",
-            text: "All through"
+            value: "All",
+            text: "All",
+            checked: true
           },
           {
             value: "Primary",
@@ -113,6 +86,64 @@
           {
             value: "Secondary",
             text: "Secondary"
+          }
+        ]
+      }) }}
+      </div>
+
+      <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "schoolToShow",
+        fieldset: {
+          legend: {
+            text: "Placement status",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "All",
+            text: "All",
+            checked: true
+          },
+          {
+            value: "Offered placements in 2022 - 2023",
+            text: "Offered placements in 2022 - 2023"
+          },
+          {
+            value: "Did not offer placements in 2022 - 2023",
+            text: "Did not offer placements in 2022 - 2023"
+          }
+        ]
+      }) }}
+      </div>
+
+       <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "phase",
+        fieldset: {
+          legend: {
+            text: "Trained mentors",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "All",
+            text: "All",
+            checked: true
+          },
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
           }
         ]
       }) }}
@@ -161,6 +192,11 @@
           }) }}
       </div>
 
+            {{ govukButton({
+            text: "Apply filters",
+            href: "find-school-filtered"
+          }) }}
+
   </div>
 </div>
 
@@ -174,30 +210,18 @@
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="school-detail-bede">St Bede's Catholic Primary School, South Shields</a></h2>
-              {{ govukTag({
-                text: "Not recently hosted",
-                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-
 
                   <dl class="app-result-detail">
 
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Phase
+                        Phase (age group)
                       </dt>
                       <dd class="app-result-detail__value">
                         Primary
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3 to 11
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -206,28 +230,29 @@
                         Independent schools
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Outstanding
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Last hosted placements
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        2020 - 2021 academic year (school has not yet reported for 2024 - 2025)
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Address
                       </dt>
                       <dd class="app-result-detail__value">
                         Claypath Lane, South Shields, Tyne and Wear, NE33 4PG
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Did not offer placements in 2022 - 2023
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -279,27 +304,17 @@
 
   <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Westoe Crown Primary School</a></h2>
-              {{ govukTag({
-                text: "Recently hosted",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
+
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Phase
+                        Phase (age range)
                       </dt>
                       <dd class="app-result-detail__value">
-                        Primary
+                        Primary (3 to 11)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3 to 11
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -310,26 +325,26 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Good
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Last hosted placements
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Address
                       </dt>
                       <dd class="app-result-detail__value">
                         Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -374,27 +389,17 @@
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Laygate Community School</a></h2>
-              {{ govukTag({
-                text: "Recently hosted",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
+
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Phase
+                        Phase (age range)
                       </dt>
                       <dd class="app-result-detail__value">
-                        Primary
+                        Primary (3 to 11)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3 to 11
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -403,28 +408,29 @@
                         Community school
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Good
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Last hosted placements
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Address
                       </dt>
                       <dd class="app-result-detail__value">
                        Laygate Lane, South Shields, Tyne and Wear, NE33 4JJ
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -469,27 +475,17 @@
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Marine Park Primary School</a></h2>
-              {{ govukTag({
-                text: "Not recently hosted",
-                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
+
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Phase
+                        Phase (age group)
                       </dt>
                       <dd class="app-result-detail__value">
-                        Primary
+                        Primary (3 to 11)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        3 to 11
-                      </dd>
-                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -500,26 +496,26 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Outstanding
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Last hosted placements
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Address
                       </dt>
                       <dd class="app-result-detail__value">
                         Sea Winnings Way, South Shields, Tyne and Wear, NE33 3NS
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        no
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
