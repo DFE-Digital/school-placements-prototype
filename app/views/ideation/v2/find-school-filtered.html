@@ -94,10 +94,10 @@
       <div class="individualFilter">
       {{ govukRadios({
         classes: "govuk-radios--small",
-        name: "placementsInService",
+        name: "schoolToShow",
         fieldset: {
           legend: {
-            text: "Placements availability",
+            text: "Placement status",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
@@ -109,41 +109,12 @@
             checked: true
           },
           {
-            value: "Placements listed",
-            text: "Placements listed"
-          },
-          {
-            value: "No placements listed",
-            text: "No placements listed"
-          }
-        ]
-      }) }}
-      </div>
-
-      <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "schoolToShow",
-        fieldset: {
-          legend: {
-            text: "Last offered placements",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "No recent placements",
-            text: "No recent placements",
-            checked: true
-          },
-          {
-            value: "Offered placements in 2023 - 2024",
-            text: "Offered placements in 2023 - 2024"
-          },
-          {
             value: "Offered placements in 2022 - 2023",
             text: "Offered placements in 2022 - 2023"
+          },
+          {
+            value: "Did not offer placements in 2022 - 2023",
+            text: "Did not offer placements in 2022 - 2023"
           }
         ]
       }) }}
@@ -171,8 +142,8 @@
             text: "Yes"
           },
           {
-            value: "Unknown",
-            text: "Unknown"
+            value: "Unknwon",
+            text: "Unknwon"
           }
         ]
       }) }}
@@ -273,7 +244,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        No recent placements
+                        Did not offer placements in 2022 - 2023
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -467,7 +438,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Offered placements in 2023 - 2024
+                        Offered placements in 2022 - 2023
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -560,7 +531,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        No recent placements
+                        Offered placements in 2022 - 2023
                       </dd>
                     </div>
                      <div class="app-result-detail__row">

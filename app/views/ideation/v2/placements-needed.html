@@ -49,25 +49,25 @@
   items: [{
     text: 'Find placements',
     href: 'find-placements'
+  },
+  {
+    text: 'Plan placements',
+    href: 'planning',
+    classes: 'govuk-button--secondary'
   }]
 }) }}
 
 {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [ {
-          text: 'This year (2024 to 2025)',
+          text: 'Placements offered',
           href: 'placements',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Placements needed',
+          href: 'placements-needed',
           classes: 'govuk-!-font-weight-bold',
           active: true
-        }, {
-          text: 'Next year (2025 to 2026)',
-          href: '#',
-          classes: 'govuk-!-font-weight-bold'
-        },
-        {
-          text: 'Past years',
-          href: '#',
-          classes: 'govuk-!-font-weight-bold'
         } ]
       }) }}
 
@@ -105,7 +105,7 @@
         text: "2"
       },
       {
-        html: "<a href='find-placements'>Find English placements</a>"
+        html: "<a href='find-placements-english'>Find English placements</a>"
       }
     ],
     [

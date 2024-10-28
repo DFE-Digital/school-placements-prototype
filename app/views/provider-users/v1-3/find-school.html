@@ -94,10 +94,10 @@
       <div class="individualFilter">
       {{ govukRadios({
         classes: "govuk-radios--small",
-        name: "schoolToShow",
+        name: "placementsInService",
         fieldset: {
           legend: {
-            text: "Placement status",
+            text: "Placements availability",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
@@ -109,21 +109,50 @@
             checked: true
           },
           {
-            value: "Offered placements in 2022 - 2023",
-            text: "Offered placements in 2022 - 2023"
+            value: "Placements listed",
+            text: "Placements listed"
           },
           {
-            value: "Did not offer placements in 2022 - 2023",
-            text: "Did not offer placements in 2022 - 2023"
+            value: "No placements listed",
+            text: "No placements listed"
           }
         ]
       }) }}
       </div>
 
-       <div class="individualFilter">
+      <div class="individualFilter">
       {{ govukRadios({
         classes: "govuk-radios--small",
-        name: "phase",
+        name: "schoolToShow",
+        fieldset: {
+          legend: {
+            text: "Last offered placements",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "No recent placements",
+            text: "No recent placements",
+            checked: true
+          },
+          {
+            value: "Offered placements in 2023 - 2024",
+            text: "Offered placements in 2023 - 2024"
+          },
+          {
+            value: "Offered placements in 2022 - 2023",
+            text: "Offered placements in 2022 - 2023"
+          }
+        ]
+      }) }}
+      </div>
+
+        <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "mentors",
         fieldset: {
           legend: {
             text: "Trained mentors",
@@ -142,8 +171,8 @@
             text: "Yes"
           },
           {
-            value: "No",
-            text: "No"
+            value: "Unknown",
+            text: "Unknown"
           }
         ]
       }) }}
@@ -264,6 +293,14 @@
                         Yes
                       </dd>
                     </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Andrea Smith (andrea.smith@abkettleby.co.uk)
+                      </dd>
+                    </div>
                   </dl>
           </div>
 
@@ -305,7 +342,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                        No recent placements
                       </dd>
                     </div>
                       <div class="app-result-detail__row">
@@ -313,7 +350,15 @@
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
-                        No
+                        Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
                       </dd>
                     </div>
                   </dl>
@@ -364,6 +409,14 @@
                         Yes
                       </dd>
                     </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
                     </dl>
           </div>
 
@@ -401,7 +454,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                       Offered placements in 2023 - 2024
                       </dd>
                     </div>
                    <div class="app-result-detail__row">
@@ -410,6 +463,14 @@
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Bill Johnson (bill.johnson@school.co.uk)
                       </dd>
                     </div>
                     </dl>
@@ -448,7 +509,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                        Offered placements in 2022 - 2023
                       </dd>
                     </div>
                    <div class="app-result-detail__row">
@@ -456,7 +517,15 @@
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
-                        No
+                        Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Harpreet Singh (harpreet@school.co.uk)
                       </dd>
                     </div>
                     </dl>
@@ -506,6 +575,14 @@
                         Yes
                       </dd>
                     </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                       Unknown
+                      </dd>
+                    </div>
                   </dl>
 
           </div>
@@ -543,7 +620,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                        No recent placements
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -552,6 +629,14 @@
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
                       </dd>
                     </div>
                   </dl>
@@ -590,7 +675,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
+                        Offered placements in 2023 - 2024
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -599,6 +684,14 @@
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Anne Rogers (anne.rogers@theschool.co.uk)
                       </dd>
                     </div>
                   </dl>
@@ -649,6 +742,14 @@
                       </dd>
                     </div>
                   </dl>
+                  <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
           </div>
 
                    <div class="searchResult">
@@ -684,7 +785,7 @@
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                        No recent placements
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -692,7 +793,15 @@
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
-                        No
+                        Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
                       </dd>
                     </div>
                   </dl>
