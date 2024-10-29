@@ -312,3 +312,30 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
 .view-map-container .gias-map-toggle-icon-container {
     float:left;
 }
+
+/// Help icons
+
+.help-icon {
+position: relative;
+display: inline-block;
+top: 4px;
+width: 28px;
+height: 25px;
+}
+
+.help-icon::after {
+    position: absolute;
+    font-weight: bold;
+    content: "?";
+    width: 18px;
+    height: 12px;
+    background-color: #1d70b8;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+    padding: 0 2px 10px;
+    margin-left: 3px;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}

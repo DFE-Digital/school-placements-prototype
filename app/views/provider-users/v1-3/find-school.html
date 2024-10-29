@@ -62,9 +62,9 @@
 
         </div>
 
-               <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+ <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "phase",
         fieldset: {
           legend: {
@@ -74,11 +74,6 @@
           }
         },
         items: [
-          {
-            value: "All",
-            text: "All",
-            checked: true
-          },
           {
             value: "Primary",
             text: "Primary"
@@ -92,29 +87,24 @@
       </div>
 
       <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "placementsInService",
         fieldset: {
           legend: {
-            text: "Placement availability",
+            text: "Placements listed",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
         },
         items: [
           {
-            value: "All",
-            text: "All",
-            checked: true
+            value: "Yes",
+            text: "Yes"
           },
           {
-            value: "Placements listed",
-            text: "Placements listed"
-          },
-          {
-            value: "No placements listed",
-            text: "No placements listed"
+            value: "Not recorded",
+            text: "Not recorded"
           }
         ]
       }) }}
@@ -149,9 +139,9 @@
       }) }}
       </div>
 
-        <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+       <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "mentors",
         fieldset: {
           legend: {
@@ -161,11 +151,6 @@
           }
         },
         items: [
-          {
-            value: "All",
-            text: "All",
-            checked: true
-          },
           {
             value: "Yes",
             text: "Yes"
@@ -271,14 +256,6 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Address
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Wartnaby Road, Ab Kettleby, Melton Mowbray, Leicestershire, LE14 3JJ
-                      </dd>
-                    </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
@@ -287,7 +264,20 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Wartnaby Road, Ab Kettleby, Melton Mowbray, Leicestershire, LE14 3JJ
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         Offered placements in 2022 - 2023
@@ -295,10 +285,10 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement availability
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        No placements listed
+                        Yes
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -347,18 +337,31 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         No recent placements
                       </dd>
                     </div>
-                      <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Unknown
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -403,18 +406,31 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                        Offered placements in 2022 - 2023
                       </dd>
                     </div>
-                   <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -459,15 +475,28 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                        Offered placements in 2023 - 2024
                       </dd>
                     </div>
-                   <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
@@ -512,20 +541,33 @@
                         Apostles Oak, Abberley, Worcestershire, WR6 6AA
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                   <div class="app-result-detail__row">
+                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -569,18 +611,31 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         Offered placements in 2022 - 2023
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -625,15 +680,28 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         No recent placements
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
@@ -680,18 +748,31 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         Offered placements in 2023 - 2024
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -735,21 +816,32 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
                       </dd>
                     </div>
-                  </dl>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                  <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
                   <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Placement contact
@@ -758,6 +850,7 @@
                         Unknown
                       </dd>
                     </div>
+                    </dl>
           </div>
 
                    <div class="searchResult">
@@ -790,18 +883,31 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status <a href="#help-text-age-range" class="help-icon modal-link">
+                <span class="govuk-visually-hidden">Help with placement status field</span>
+                    <span class="govuk-visually-hidden">Opens a dialog</span>
+
+            </a>
                       </dt>
                       <dd class="app-result-detail__value">
                         No recent placements
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Unknown
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">

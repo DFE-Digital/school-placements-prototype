@@ -62,9 +62,9 @@
 
         </div>
 
-               <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+      <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "phase",
         fieldset: {
           legend: {
@@ -74,11 +74,6 @@
           }
         },
         items: [
-          {
-            value: "All",
-            text: "All",
-            checked: true
-          },
           {
             value: "Primary",
             text: "Primary"
@@ -92,29 +87,24 @@
       </div>
 
       <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "placementsInService",
         fieldset: {
           legend: {
-            text: "Placement availability",
+            text: "Placements listed",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
         },
         items: [
           {
-            value: "All",
-            text: "All",
-            checked: true
+            value: "Yes",
+            text: "Yes"
           },
           {
-            value: "Placements listed",
-            text: "Placements listed"
-          },
-          {
-            value: "No placements listed",
-            text: "No placements listed"
+            value: "Not recorded",
+            text: "Not recorded"
           }
         ]
       }) }}
@@ -150,8 +140,8 @@
       </div>
 
        <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "mentors",
         fieldset: {
           legend: {
@@ -161,11 +151,6 @@
           }
         },
         items: [
-          {
-            value: "All",
-            text: "All",
-            checked: true
-          },
           {
             value: "Yes",
             text: "Yes"
@@ -268,6 +253,22 @@
                         Claypath Lane, South Shields, Tyne and Wear, NE33 4PG
                       </dd>
                     </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.27 miles
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
                      <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Placement status
@@ -276,12 +277,12 @@
                         No recent placements
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -292,14 +293,7 @@
                         Bill Johnson (bill.johnson@school.co.uk)
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        0.27 miles
-                      </dd>
-                    </div>
+
                   </dl>
 
   <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
@@ -370,13 +364,13 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Distance
                       </dt>
                       <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
+                        0.36 miles
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
@@ -386,20 +380,30 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement contact
                       </dt>
                       <dd class="app-result-detail__value">
                         Unknown
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        0.36 miles
-                      </dd>
-                    </div>
+
                   </dl>
 
                   <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
@@ -464,10 +468,10 @@
                     </div>
                      <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Distance
                       </dt>
                       <dd class="app-result-detail__value">
-                        Offered placements in 2023 - 2024
+                        0.38 miles
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -478,6 +482,23 @@
                         Yes
                       </dd>
                     </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2023 - 2024
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                       Not recorded
+                      </dd>
+                    </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Placement contact
@@ -486,14 +507,7 @@
                         Unknown
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        0.38 miles
-                      </dd>
-                    </div>
+
                   </dl>
 
                   <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
@@ -557,13 +571,13 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Distance
                       </dt>
                       <dd class="app-result-detail__value">
-                        No recent placements
+                        0.46 miles
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
@@ -573,20 +587,30 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement contact
                       </dt>
                       <dd class="app-result-detail__value">
-                        Unknown
+                        Colin Jones (colin.jones@school.co.uk)
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Distance
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        0.46 miles
-                      </dd>
-                    </div>
+
                   </dl>
 
                   <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
