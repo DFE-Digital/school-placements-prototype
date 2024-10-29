@@ -1,0 +1,46 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Are you sure you want to delete this school?" %}
+
+{% set primaryNavId = "providers" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Whitburn Church of England School</span>
+
+      <h1 class="govuk-heading-l">{{ pageName }}</h1>
+      <p>	This school will no longer be able to assign you to their placements. You can still view placements at this school. </p><p>You will remain assigned to current placements unless the school removes you.</p><p>You are assigned to:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="placement-detail-fixed" target="_blank">Business studies (opens in new tab)</a></li>
+          <li><a href="placement-detail-fixed" target="_blank">Physics (opens in new tab)</a></li>
+        </ul>
+
+      {{ govukWarningText({
+        html: "We will send an email to [school]. This will let them know they can no longer assign you to placements.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukButton({
+        text: "Delete school",
+        href: "school-deleted",
+        classes: "govuk-button--warning"
+      }) }}
+
+      <p class="govuk-body"><a href="provider-detail" class="govuk-link">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

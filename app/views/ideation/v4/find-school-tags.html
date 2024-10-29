@@ -62,9 +62,38 @@
 
         </div>
 
- <div class="individualFilter">
-      {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
+      <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "schoolToShow",
+        fieldset: {
+          legend: {
+            text: "Schools to show",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "All",
+            text: "All",
+            checked: true
+          },
+          {
+            value: "Offered placements in 2022 - 2023",
+            text: "Offered placements in 2022 - 2023"
+          },
+          {
+            value: "Did not offer placements in 2022 - 2023",
+            text: "Did not offer placements in 2022 - 2023"
+          }
+        ]
+      }) }}
+      </div>
+
+       <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
         name: "phase",
         fieldset: {
           legend: {
@@ -75,89 +104,17 @@
         },
         items: [
           {
+            value: "All",
+            text: "All",
+            checked: true
+          },
+          {
             value: "Primary",
             text: "Primary"
           },
           {
             value: "Secondary",
             text: "Secondary"
-          }
-        ]
-      }) }}
-      </div>
-
-      <div class="individualFilter">
-      {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
-        name: "placementsInService",
-        fieldset: {
-          legend: {
-            text: "Placements listed",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
-          },
-          {
-            value: "Not recorded",
-            text: "Not recorded"
-          }
-        ]
-      }) }}
-      </div>
-
-      <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "schoolToShow",
-        fieldset: {
-          legend: {
-            text: "Last offered placements",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "No recent placements",
-            text: "No recent placements",
-            checked: true
-          },
-          {
-            value: "Offered placements in 2023 - 2024",
-            text: "Offered placements in 2023 - 2024"
-          },
-          {
-            value: "Offered placements in 2022 - 2023",
-            text: "Offered placements in 2022 - 2023"
-          }
-        ]
-      }) }}
-      </div>
-
-       <div class="individualFilter">
-      {{ govukCheckboxes({
-        classes: "govuk-checkboxes--small",
-        name: "mentors",
-        fieldset: {
-          legend: {
-            text: "Trained mentors",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
-          },
-          {
-            value: "Unknown",
-            text: "Unknown"
           }
         ]
       }) }}
@@ -235,6 +192,11 @@
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="school-detail-bede">Ab Kettleby Primary School</a></h2>
+              {{ govukTag({
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+
 
                   <dl class="app-result-detail">
 
@@ -254,7 +216,6 @@
                         Academy converter
                       </dd>
                     </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Address
@@ -265,34 +226,10 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Andrea Smith (andrea.smith@abkettleby.co.uk)
+                        2022 - 2023 academic year (school has not yet reported for 2023 - 2024)
                       </dd>
                     </div>
                   </dl>
@@ -305,7 +242,10 @@
 
   <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abacus Belsize Primary School</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -333,44 +273,23 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        No recent placements
+                        2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
 
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
                   </dl>
           </div>
 
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abacus Primary School</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -398,44 +317,22 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        2023 - 2024 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                       Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
-                    </dl>
+                  </dl>
           </div>
 
 
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbas and Templecombe Church School</a></h2>
-
+              {{ govukTag({
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -463,43 +360,21 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                       Offered placements in 2023 - 2024
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Bill Johnson (bill.johnson@school.co.uk)
-                      </dd>
-                    </div>
-                    </dl>
+                  </dl>
           </div>
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abberley Parochial VC Primary School</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -525,45 +400,23 @@
                         Apostles Oak, Abberley, Worcestershire, WR6 6AA
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Trained mentors
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Harpreet Singh (harpreet@school.co.uk)
-                      </dd>
-                    </div>
-                    </dl>
+                  </dl>
           </div>
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbey Catholic Primary School</a></h2>
-
+              {{ govukTag({
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -591,44 +444,21 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                       Unknown
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
                   </dl>
-
           </div>
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbey CofE Academy</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -656,35 +486,10 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        No recent placements
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
                   </dl>
@@ -692,7 +497,10 @@
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbey CofE Infant School</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -720,35 +528,10 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2023 - 2024
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Anne Rogers (anne.rogers@theschool.co.uk)
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
                   </dl>
@@ -756,7 +539,10 @@
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbey College, Ramsey</a></h2>
-
+              {{ govukTag({
+                text: "Not doing ITT",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -784,42 +570,21 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                  <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                  <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
-                    </dl>
+                  </dl>
           </div>
 
                    <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Abbey Court Foundation Special School</a></h2>
-
+              {{ govukTag({
+                text: "Doing ITT",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
                   <dl class="app-result-detail">
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
@@ -847,35 +612,10 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Last offered placements
                       </dt>
                       <dd class="app-result-detail__value">
-                        Unknown
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        No recent placements
-                      </dd>
-                    </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placements listed
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Not recorded
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement contact
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Unknown
+                        2021 - 2022 academic year (school has not yet reported for 2024 - 2025)
                       </dd>
                     </div>
                   </dl>

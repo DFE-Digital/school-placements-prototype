@@ -1,0 +1,286 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="St Bede's Catholic Primary School, South Shields" %}
+
+{% set primaryNavId = "partners" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+      <a href="#" class="govuk-button">Add school</a>
+</div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+
+
+      {{ mojSubNavigation({
+        label: 'Sub navigation',
+        items: [ {
+          text: 'School details',
+          href: 'school-detail-bede',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
+        }, {
+          text: 'This year (2024 to 2025)',
+          href: 'school-current-placements-bede',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Next year (2025 to 2026)',
+          href: 'school-future-placements-bede',
+          classes: 'govuk-!-font-weight-bold'
+        } ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+      School details
+    </h2>
+
+       {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation name"
+            },
+            value: {
+              text: "St Bede's Catholic Primary School, South Shields"
+            }
+          },
+          {
+            key: {
+              text: "UK provider reference number (UKPRN)"
+            },
+            value: {
+              text: "1003254"
+            }
+          },
+          {
+            key: {
+              text: "Unique reference number (URN)"
+            },
+            value: {
+              html: "136386"
+            }
+          },
+          {
+          key: {
+            text: "Telephone number"
+          },
+          value: {
+            html: "0191 3524675"
+          }
+        },
+        {
+          key: {
+            text: "Website"
+          },
+          value: {
+            html: "<a href='#'>https://www.whitburn.co.uk/ (opens in new tab)</a>"
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "<p class='govuk-body'>Whitburn<br>Sunderland<br>Tyne and Wear<br>SR6 7EF</p>"
+          }
+        }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Placement contact</h2>
+
+    {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                 text: "Adam Gould"
+                }
+              },
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  html: "<a href='mailto:adam.gould@buxton.derbyshire.sch.uk'>adam.gould@buxton.derbyshire.sch.uk</a>"
+                }
+              }
+            ]
+          }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">Additional details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Establishment group"
+            },
+            value: {
+              text: "Independent schools"
+            }
+          },
+          {
+            key: {
+              text: "Phase"
+            },
+            value: {
+              text: "Primary"
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Mixed"
+            }
+          },
+          {
+            key: {
+              text: "Age range"
+            },
+            value: {
+              text: "3 to 11"
+            }
+          },
+          {
+            key: {
+              text: "Religious character"
+            },
+            value: {
+              text: "Roman Catholic"
+            }
+          },
+          {
+            key: {
+              text: "Admissions policy"
+            },
+            value: {
+              text: "Non-selective"
+            }
+          },
+          {
+            key: {
+              text: "Urban or rural"
+            },
+            value: {
+              text: "(England/Wales) Urban city and town"
+            }
+          },
+          {
+            key: {
+              text: "School capacity"
+            },
+            value: {
+              text: "100"
+            }
+          },
+          {
+            key: {
+              text: "Total pupils"
+            },
+            value: {
+              text: "100"
+            }
+          },
+          {
+            key: {
+              text: "Total boys"
+            },
+            value: {
+              text: "50"
+            }
+          },
+          {
+            key: {
+              text: "Total girls"
+            },
+            value: {
+              text: "50"
+            }
+          },
+          {
+            key: {
+              text: "Percentage free school meals"
+            },
+            value: {
+              text: "11%"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+        Special educational needs and disabilities (SEND)
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Special classes"
+            },
+            value: {
+              text: "Not entered"
+            }
+          },
+          {
+            key: {
+              html: '<abbr title="Special educational needs and disability">SEND</abbr> provision'
+            },
+            value: {
+              text: "Not entered"
+            }
+          }
+        ]
+      }) }}
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Ofsted details
+    </h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Rating"
+          },
+          value: {
+            text: "Outstanding"
+          }
+        },
+        {
+          key: {
+            text: "Last inspection date"
+          },
+          value: {
+            text: "13 November 2019"
+          }
+        }
+      ]
+    }) }}
+
+<p class="govuk-body"><a href="school-delete" class="govuk-link app-link--destructive">Delete school</a></p>
+
+  </div>
+
+
+
+</div>
+
+{% endblock %}

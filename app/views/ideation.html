@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Support user prototypes" %}
+{% set pageName="Ideation prototypes" %}
 
 {% set back = false %}
 
@@ -19,11 +19,11 @@
         href: 'provider-user'
       }, {
         text: 'Support user',
-        href: 'support-user',
-        active: true
+        href: 'support-user'
       }, {
         text: 'Ideation',
-        href: 'ideation'
+        href: 'ideation',
+        active: true
       }]
     }) }}
   </div>
@@ -37,32 +37,41 @@
    <h2 class="govuk-heading-m">Colin</h2>
 
         {{ govukTag({
-          text: "Support",
-          classes: "govuk-tag--blue govuk-!-margin-bottom-5"
+          text: "Ideation",
+          classes: "govuk-tag--red govuk-!-margin-bottom-5"
         }) }}
 
         <p class="govuk-body">
-          Colin is a DfE support agent who has administrator access to all organisations.
+          A selection of ideas and concepts that may help shape the future of the service.
         </p>
 
-        <h2 class="govuk-heading-m">Version 2</h2>
-     <p>Includes:</p>
+        <h2 class="govuk-heading-m">Concept 2</h2>
+     <p>Rethinking the service to:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>New support structure</li>
+          <li>Use data from across DfE to automate tasks</li>
+          <li>Allow providers to show what placements they need</li>
           </ul>
 
    {{ govukButton({
-            text: "Sign in as Colin",
-            href: "support-users/v2/index",
-            isStartButton: true
+            text: "Provider view",
+            href: "ideation/v2/overview"
+          }) }}
+
+          {{ govukButton({
+            text: "School view",
+            href: "ideation/v3/overview"
           }) }}
 
           <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-<h2 class="govuk-heading-m">Version 1</h2>
+        <h2 class="govuk-heading-m">Concept 1</h2>
+
+        <p class="govuk-body">
+          Brings in a find a school option to help providers find new schools for placements.
+        </p>
 
           {{ govukButton({
             text: "Sign in as Colin",
-            href: "support-users/v1/index",
+            href: "ideation/v4/index",
             isStartButton: true
           }) }}
 

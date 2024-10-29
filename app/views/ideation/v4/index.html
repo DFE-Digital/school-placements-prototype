@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Manage school placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+  </div>
+  </div>
+
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Use this service if you are involved in arranging school placements for trainees in England.</p>
+
+
+      <h2 class="govuk-heading-s">If you work in a school</h2>
+
+      <p class="govuk-body">Publish placement opportunities for trainee teachers. Your chosen teacher training providers can then contact you to arrange placements for their trainees.</p>
+
+      <h2 class="govuk-heading-s">If you are a teacher training provider</h2>
+
+      <p class="govuk-body">Find schools that are offering placements for trainee teachers. View opportunities from the schools you work with, as well as information about other schools.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "pre-sign-in",
+        isStartButton: true
+      }) }}
+
+
+<!-- <h2 class="govuk-heading-s">How to get an account</h2>
+
+<p>Ask a colleague in your organisation to add you if you do not have an account.</p>
+<p>If your organisation has not been set up to use this service, email <a href="mailto:manage.schoolplacements@education.gov.uk">manage.schoolplacements@education.gov.uk</a>.</p>
+
+-->
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">Related content</h3>
+      <ul class="govuk-list govuk-body-s">
+      <li><a href="https://www.gov.uk/guidance/offer-a-trainee-teacher-placement" class="govuk-link">Guidance on what schools need to do to offer trainee teacher placements</a></li>
+      <li><a href="https://www.gov.uk/guidance/teacher-reference-number-trn" class="govuk-link">Guidance on how to find or request a TRN</a></li>
+      </ul>
+  </div>
+
+</div>
+
+{% endblock %}

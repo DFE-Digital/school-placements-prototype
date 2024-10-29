@@ -38,7 +38,6 @@ require('./views/ur-archive/school-user-003/router/routes')(router)
 require('./views/provider-users/v1/router/routes')(router)
 require('./views/provider-users/v1-1/router/routes')(router)
 require('./views/provider-users/v1-2/router/routes')(router)
-require('./views/provider-users/v1-3/router/routes')(router)
 
 // Link to support user router files
 
@@ -49,3 +48,5 @@ require('./views/support-users/v2/router/routes')(router)
 
 require('./views/ideation/v1/router/routes')(router)
 require('./views/ideation/v2/router/routes')(router)
+require('./views/ideation/v3/router/routes')(router)
+require('./views/ideation/v4/router/routes')(router)
