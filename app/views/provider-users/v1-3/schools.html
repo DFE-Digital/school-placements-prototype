@@ -1,6 +1,6 @@
 {% extends "layouts/user-provider-v2.html" %}
 
-{% set pageName="Schools you work with" %}
+{% set pageName="Schools" %}
 
 {% set primaryNavId = "partners" %}
 
@@ -24,8 +24,8 @@
       {{ pageName }}
       </h1>
 
-      <p>View all placements your schools have published.</p>
-      <p>Only schools you work with are able to assign you their placements.</p>
+      <p>Search for schools to find out their availability.</p>
+
 
       <a href="find-school" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
         Find schools
@@ -33,8 +33,12 @@
 
       <!-- <p class="govuk-body">There are no partner providers for Whitburn Church of England Academy.</p> -->
 
+      <h2 class="govuk-heading-m">Schools you work with</h2>
+
+      <p>Only schools you work with are able to assign you their placements.</p>
+
       {{ govukTable({
-        caption: "Providers",
+        caption: "Schools you work with",
         captionClasses: "govuk-table__caption--m govuk-visually-hidden",
         firstCellIsHeader: false,
         head: [
