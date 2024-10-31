@@ -12,14 +12,14 @@
       {% set plannedStatus %}
           {{ govukTag({
            text: "Planned",
-           classes: "govuk-tag--yellow"
+           classes: "govuk-tag--red"
           }) }}
       {% endset %}
 
       {% set availableStatus %}
           {{ govukTag({
            text: "Available",
-           classes: "govuk-tag--blue"
+           classes: "govuk-tag--yellow"
           }) }}
       {% endset %}
 
@@ -60,21 +60,21 @@
 {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [ {
-          text: 'Needed',
+          text: 'Required',
           href: 'placements',
           classes: 'govuk-!-font-weight-bold',
           active: true
         }, {
           text: 'Offers from schools',
-          href: 'placements-needed',
+          href: 'placements-offers-from',
           classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Offers to schools',
-          href: 'placements-needed',
+          href: 'placements-offers-to',
           classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Confirmed',
-          href: 'placements-needed',
+          href: 'placements-confirmed',
           classes: 'govuk-!-font-weight-bold'
         } ]
       }) }}
@@ -86,224 +86,146 @@
       </div>
       </div>
 
-
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukTable({
+  caption: "7 first placements required",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Subject"
+    },
+    {
+      text: "Needed"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "English"
+      },
+      {
+        text: "2"
+      },
+      {
+        html: "<a href='find-placements-english'>Find English placements</a>"
+      }
+    ],
+    [
+      {
+        text: "History"
+      },
+      {
+        text: "1"
+      },
+      {
+        html: "<a href='find-placements'>Find history placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Primary"
+      },
+      {
+        text: "4"
+      },
+      {
+        html: "<a href='find-placements'>Find primary placements</a>"
+      }
+    ]
+  ]
+}) }}
 
 
-
-
-          {{ govukTable({
-            caption: "Placements",
-            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
-            firstCellIsHeader: false,
-            head: [
-              {
-                text: "Subject"
-              },
-              {
-                text: "School"
-              },
-              {
-                text: "Mentor"
-              },
-              {
-                text: "Trainee"
-              },
-              {
-                text: "Window"
-              },
-              {
-                text: "Status"
-              }
-            ],
-            rows: [
-              [
-                {
-                  html: "<a href='#'>Chemistry</a>"
-                },
-                {
-                  text: "Whitburn Church of England School"
-                },
-                {
-                  text: "Thea Weiss"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: availableStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>English</a>"
-                },
-                {
-                  text: "Whitburn Church of England School"
-                },
-                {
-                  text: "Harpreet Singh"
-                },
-                {
-                  text: "Kara Lynn Tivan"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: confirmedStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>English</a>"
-                },
-                {
-                  text: "Collegiate School"
-                },
-                {
-                  text: "Phil Hartley"
-                },
-                {
-                  text: "Kara Lynn Tivan"
-                },
-                {
-                  html: "Placement two"
-                },
-                {
-                  html: plannedStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>English literature</a>"
-                },
-                {
-                  text: "Prudhoe Secondary School"
-                },
-                {
-                  text: "Harpreet Singh"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: availableStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>French and Spanish</a>"
-                },
-                {
-                  text: "Excelsior Academy"
-                },
-                {
-                  text: "Thea Weiss"
-                },
-                {
-                  text: "Malika Boutella"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: plannedStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='placement-detail-fixed'>History</a>"
-                },
-                {
-                  text: "St Mary's School"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  text: "Jennifer Banner"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: plannedStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>Primary (Year 1)</a>"
-                },
-                {
-                  text: "St Mary's School"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: "Placement two"
-                },
-                {
-                  html: availableStatus
-                }
-              ],
-              [
-                {
-                  html: "<a href='#'>Primary with Maths (Year 3)</a>"
-                },
-                {
-                  text: "Collegiate School"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  text: "Freida Jackson"
-                },
-                {
-                  html: "Placement one"
-                },
-                {
-                  html: plannedStatus
-                }
-              ],
-
-              [
-                {
-                  html: "<a href='#'>Primary with Maths (Year 5)</a>"
-                },
-                {
-                  text: "St Mary's School"
-                },
-                {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  text: "Freida Jackson"
-                },
-                {
-                  html: "Placement two"
-                },
-                {
-                  html: plannedStatus
-                }
-              ]
-
-
-            ]
-          }) }}
-
+    {{ govukTable({
+  caption: "32 second placements required",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Subject"
+    },
+    {
+      text: "Needed"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "English"
+      },
+      {
+        text: "3"
+      },
+      {
+        html: "<a href='find-placements'>Find English placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Geography"
+      },
+      {
+        text: "4"
+      },
+      {
+        html: "<a href='find-placements'>Find geography placements</a>"
+      }
+    ],
+    [
+      {
+        text: "History"
+      },
+      {
+        text: "5"
+      },
+      {
+        html: "<a href='find-placements'>Find history placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Maths"
+      },
+      {
+        text: "4"
+      },
+      {
+        html: "<a href='find-placements'>Find maths placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Primary"
+      },
+      {
+        text: "9"
+      },
+      {
+        html: "<a href='find-placements'>Find primary placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Science"
+      },
+      {
+        text: "7"
+      },
+      {
+        html: "<a href='find-placements'>Find science placements</a>"
+      }
+    ]
+  ]
+}) }}
 
 
   </div>

@@ -1,4 +1,4 @@
-{% extends "layouts/user-school-ideation.html" %}
+{% extends "layouts/user-provider-ideation-b.html" %}
 
 {% set pageName="Placements" %}
 
@@ -60,22 +60,22 @@
 {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [ {
-          text: 'Your placement postings',
+          text: 'Required',
           href: 'placements',
-          classes: 'govuk-!-font-weight-bold',
-          active: true
-        }, {
-          text: 'Offers from providers',
-          href: 'placements-needed',
           classes: 'govuk-!-font-weight-bold'
         }, {
-          text: 'Offers to providers',
-          href: 'placements-needed',
+          text: 'Offers from schools',
+          href: 'placements-offers-from',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Offers to schools',
+          href: 'placements-offers-to',
           classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Confirmed',
-          href: 'placements-needed',
-          classes: 'govuk-!-font-weight-bold'
+          href: 'placements-confirmed',
+          classes: 'govuk-!-font-weight-bold',
+          active: true
         } ]
       }) }}
 
@@ -102,16 +102,16 @@
                 text: "Subject"
               },
               {
-                text: "Expected date"
+                text: "School"
               },
               {
                 text: "Mentor"
               },
               {
-                text: "Provider"
+                text: "Trainee"
               },
               {
-                text: "Status"
+                text: "Window"
               }
             ],
             rows: [
@@ -120,7 +120,7 @@
                   html: "<a href='#'>Chemistry</a>"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Whitburn Church of England School"
                 },
                 {
                   text: "Thea Weiss"
@@ -129,7 +129,7 @@
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 },
                 {
-                  html: availableStatus
+                  html: "Placement one"
                 }
               ],
               [
@@ -137,7 +137,7 @@
                   html: "<a href='#'>English</a>"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Whitburn Church of England School"
                 },
                 {
                   text: "Harpreet Singh"
@@ -146,7 +146,7 @@
                   text: "Kara Lynn Tivan"
                 },
                 {
-                  html: confirmedStatus
+                  html: "Placement one"
                 }
               ],
               [
@@ -154,7 +154,7 @@
                   html: "<a href='#'>English</a>"
                 },
                 {
-                  text: "Autumn term, Spring term"
+                  text: "Collegiate School"
                 },
                 {
                   text: "Phil Hartley"
@@ -163,7 +163,7 @@
                   text: "Kara Lynn Tivan"
                 },
                 {
-                  html: plannedStatus
+                  html: "Placement two"
                 }
               ],
               [
@@ -171,7 +171,7 @@
                   html: "<a href='#'>English literature</a>"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "Prudhoe Secondary School"
                 },
                 {
                   text: "Harpreet Singh"
@@ -180,7 +180,7 @@
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 },
                 {
-                  html: availableStatus
+                  html: "Placement one"
                 }
               ],
               [
@@ -188,7 +188,7 @@
                   html: "<a href='#'>French and Spanish</a>"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Excelsior Academy"
                 },
                 {
                   text: "Thea Weiss"
@@ -197,7 +197,7 @@
                   text: "Malika Boutella"
                 },
                 {
-                  html: plannedStatus
+                  html: "Placement one"
                 }
               ],
               [
@@ -205,7 +205,7 @@
                   html: "<a href='placement-detail-fixed'>History</a>"
                 },
                 {
-                  text: "Summer term"
+                  text: "St Mary's School"
                 },
                 {
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
@@ -214,7 +214,7 @@
                   text: "Jennifer Banner"
                 },
                 {
-                  html: plannedStatus
+                  html: "Placement one"
                 }
               ],
               [
@@ -222,7 +222,7 @@
                   html: "<a href='#'>Primary (Year 1)</a>"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "St Mary's School"
                 },
                 {
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
@@ -231,7 +231,7 @@
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
                 },
                 {
-                  html: availableStatus
+                  html: "Placement two"
                 }
               ],
               [
@@ -239,7 +239,7 @@
                   html: "<a href='#'>Primary with Maths (Year 3)</a>"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "Collegiate School"
                 },
                 {
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
@@ -248,7 +248,7 @@
                   text: "Freida Jackson"
                 },
                 {
-                  html: plannedStatus
+                  html: "Placement one"
                 }
               ],
 
@@ -257,7 +257,7 @@
                   html: "<a href='#'>Primary with Maths (Year 5)</a>"
                 },
                 {
-                  text: "Summer term"
+                  text: "St Mary's School"
                 },
                 {
                   html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
@@ -266,7 +266,7 @@
                   text: "Freida Jackson"
                 },
                 {
-                  html: plannedStatus
+                  html: "Placement two"
                 }
               ]
 

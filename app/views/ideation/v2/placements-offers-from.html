@@ -1,4 +1,4 @@
-{% extends "layouts/user-school-ideation.html" %}
+{% extends "layouts/user-provider-ideation-b.html" %}
 
 {% set pageName="Placements" %}
 
@@ -60,21 +60,21 @@
 {{ mojSubNavigation({
         label: 'Sub navigation',
         items: [ {
-          text: 'Your placement postings',
+          text: 'Required',
           href: 'placements',
+          classes: 'govuk-!-font-weight-bold'
+        }, {
+          text: 'Offers from schools',
+          href: 'placements-offers-from',
           classes: 'govuk-!-font-weight-bold',
           active: true
         }, {
-          text: 'Offers from providers',
-          href: 'placements-needed',
-          classes: 'govuk-!-font-weight-bold'
-        }, {
-          text: 'Offers to providers',
-          href: 'placements-needed',
+          text: 'Offers to schools',
+          href: 'placements-offers-to',
           classes: 'govuk-!-font-weight-bold'
         }, {
           text: 'Confirmed',
-          href: 'placements-needed',
+          href: 'placements-confirmed',
           classes: 'govuk-!-font-weight-bold'
         } ]
       }) }}
@@ -102,171 +102,141 @@
                 text: "Subject"
               },
               {
-                text: "Expected date"
+                text: "School"
               },
               {
-                text: "Mentor"
+                text: "Window"
               },
               {
-                text: "Provider"
-              },
-              {
-                text: "Status"
+                text: "Action"
               }
             ],
             rows: [
               [
                 {
-                  html: "<a href='#'>Chemistry</a>"
+                  html: "Chemistry"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Whitburn Church of England School"
                 },
                 {
-                  text: "Thea Weiss"
+                  html: "Placement one"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: availableStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>English</a>"
+                  html: "English"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Whitburn Church of England School"
                 },
                 {
-                  text: "Harpreet Singh"
+                  html: "Placement one"
                 },
                 {
-                  text: "Kara Lynn Tivan"
-                },
-                {
-                  html: confirmedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>English</a>"
+                  html: "English"
                 },
                 {
-                  text: "Autumn term, Spring term"
+                  text: "Collegiate School"
                 },
                 {
-                  text: "Phil Hartley"
+                  html: "Placement two"
                 },
                 {
-                  text: "Kara Lynn Tivan"
-                },
-                {
-                  html: plannedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>English literature</a>"
+                  html: "English literature"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "Prudhoe Secondary School"
                 },
                 {
-                  text: "Harpreet Singh"
+                  html: "Placement one"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: availableStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>French and Spanish</a>"
+                  html: "French and Spanish"
                 },
                 {
-                  text: "Autumn term"
+                  text: "Excelsior Academy"
                 },
                 {
-                  text: "Thea Weiss"
+                  html: "Placement one"
                 },
                 {
-                  text: "Malika Boutella"
-                },
-                {
-                  html: plannedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='placement-detail-fixed'>History</a>"
+                  html: "History"
                 },
                 {
-                  text: "Summer term"
+                  text: "St Mary's School"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                  html: "Placement one"
                 },
                 {
-                  text: "Jennifer Banner"
-                },
-                {
-                  html: plannedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>Primary (Year 1)</a>"
+                  html: "Primary (Year 1)"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "St Mary's School"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                  html: "Placement two"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
-                },
-                {
-                  html: availableStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
               [
                 {
-                  html: "<a href='#'>Primary with Maths (Year 3)</a>"
+                  html: "Primary with Maths (Year 3)"
                 },
                 {
-                  text: "Any time in the academic year"
+                  text: "Collegiate School"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                  html: "Placement one"
                 },
                 {
-                  text: "Freida Jackson"
-                },
-                {
-                  html: plannedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ],
 
               [
                 {
-                  html: "<a href='#'>Primary with Maths (Year 5)</a>"
+                  html: "Primary with Maths (Year 5)"
                 },
                 {
-                  text: "Summer term"
+                  text: "St Mary's School"
                 },
                 {
-                  html: "<span class='govuk-secondary-text-colour'>Not yet known</span>"
+                  html: "Placement two"
                 },
                 {
-                  text: "Freida Jackson"
-                },
-                {
-                  html: plannedStatus
+                  html: "<a href='#'>Accept</a> | <a href='#' class='govuk-link app-link--destructive'>Decline</a>"
                 }
               ]
 
