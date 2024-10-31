@@ -1,6 +1,6 @@
 {% extends "layouts/user-provider-ideation-b.html" %}
 
-{% set pageName="Trained mentors" %}
+{% set pageName="Mentors" %}
 
 {% set primaryNavId = "mentors" %}
 
@@ -18,7 +18,7 @@
 
   {{ mojPageHeaderActions({
   heading: {
-    text: 'Trained mentors'
+    text: 'Mentors'
   },
   items: [{
     text: 'Add mentor',
@@ -36,7 +36,247 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-one-third">
+    <div class="filters">
+      <h2 class="govuk-heading-m">Filter</h2>
+      {{ govukButton({
+            text: "Apply filters"
+          }) }}
+
+      <div class="individualFilter">
+          <h3 class="govuk-heading-s">Subject</h3>
+          <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "subjects",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Subjects",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Ancient Greek",
+                text: "Ancient Greek"
+              },
+              {
+                value: "Ancient Hebrew",
+                text: "Ancient Hebrew"
+              },
+              {
+                value: "Art and design",
+                text: "Art and design"
+              },
+              {
+                value: "Biology",
+                text: "Biology"
+              },
+              {
+                value: "Business studies",
+                text: "Business studies"
+              },
+              {
+                value: "Chemistry",
+                text: "Chemistry"
+              },
+              {
+                value: "Citizenship",
+                text: "Citizenship"
+              },
+              {
+                value: "Classics",
+                text: "Classics"
+              },
+              {
+                value: "Communication and media studies",
+                text: "Communication and media studies"
+              },
+              {
+                value: "Computing",
+                text: "Computing"
+              },
+              {
+                value: "Dance",
+                text: "Dance"
+              },
+              {
+                value: "Design and technology",
+                text: "Design and technology"
+              },
+              {
+                value: "Drama",
+                text: "Drama"
+              },
+              {
+                value: "Economics",
+                text: "Economics"
+              },
+              {
+                value: "English",
+                text: "English"
+              },
+              {
+                value: "English as a second or other language",
+                text: "English as a second or other language"
+              },
+              {
+                value: "Geography",
+                text: "Geography"
+              },
+              {
+                value: "Health and social care",
+                text: "Health and social care"
+              },
+              {
+                value: "History",
+                text: "History"
+              },
+              {
+                value: "Latin",
+                text: "Latin"
+              },
+              {
+                value: "Mathematics",
+                text: "Mathematics"
+              },
+              {
+                value: "Modern languages~add-placement-subject-secondary-modern-foreign-languages",
+                text: "Modern languages"
+              },
+              {
+                value: "Music",
+                text: "Music"
+              },
+              {
+                value: "Philosophy",
+                text: "Philosophy"
+              },
+              {
+                value: "Physical education",
+                text: "Physical education"
+              },
+              {
+                value: "Physics",
+                text: "Physics"
+              },
+              {
+                value: "Psychology",
+                text: "Psychology"
+              },
+              {
+                value: "Religious education",
+                text: "Religious education"
+              },
+              {
+                value: "Science",
+                text: "Science"
+              },
+              {
+                value: "Social sciences",
+                text: "Social sciences"
+              }
+            ]
+          }) }}
+      </div>
+
+                <div class="individualFilter">
+          <h3 class="govuk-heading-s">Schools I work with</h3>
+          {{ govukCheckboxes({
+            name: "subjects",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Subjects",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Mentors in schools I work with",
+                text: "Mentors in schools I work with"
+              },
+              {
+                value: "Mentors in schools I don't currently work with",
+                text: "Mentors in schools I don't currently work with"
+              }
+            ]
+          }) }}
+      </div>
+
+<div class="individualFilter">
+      <h3 class="govuk-heading-s">School</h3>
+          <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        name: "placementsToShow",
+        fieldset: {
+          legend: {
+            text: "Status",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+          }
+        },
+        items: [
+          {
+            value: "Ashington Academy",
+            text: "Ashington Academy"
+          },
+          {
+            value: "Corbridge Primary School",
+            text: "Corbridge Primary School"
+          },
+          {
+            value: "Denton Primary School",
+            text: "Denton Primary School"
+          },
+          {
+            value: "Excelsior Academy",
+            text: "Excelsior Academy"
+          },
+          {
+            value: "Gosforth High School",
+            text: "Gosforth High School"
+          },
+          {
+            value: "Heaton Park Secondary School",
+            text: "Heaton Park Secondary School"
+          },
+          {
+            value: "Mortimer Comprehensive School",
+            text: "Mortimer Comprehensive School"
+          },
+          {
+            value: "Newcastle High School for Girls",
+            text: "Newcastle High School for Girls"
+          },
+          {
+            value: "St Bede's Catholic Primary School",
+            text: "St Bede's Catholic Primary School"
+          },
+          {
+            value: "St Mary's School",
+            text: "St Mary's School"
+          },
+          {
+            value: "St Wilfrid's Catholic Secondary School",
+            text: "St Wilfrid's Catholic Secondary School"
+          },
+          {
+            value: "Whitburn Church of England Academy",
+            text: "Whitburn Church of England Academy"
+          }
+        ]
+      }) }}
+      </div>
+
+      </div>
+
+  </div>
+
+    <div class="govuk-grid-column-two-thirds">
 
 
         {{ govukTable({
@@ -68,6 +308,17 @@
             ],
             [
               {
+                html: "<a href='#'>Harpreet Singh</a>"
+              },
+              {
+                html: "<a href='#'>Ashington Academy</a>"
+              },
+              {
+                html: "English"
+              }
+            ],
+            [
+              {
                 html: "<a href='#'>Malcolm Smith</a>"
               },
               {
@@ -87,16 +338,42 @@
               {
                 html: "History"
               }
+            ],
+            [
+              {
+                html: "<a href='#'>Gill Atkinson</a>"
+              },
+              {
+                html: "<a href='#'>Excelsior Academy</a>"
+              },
+              {
+                html: "Geography"
+              }
+            ],
+            [
+              {
+                html: "<a href='#'>Zoe Rogers</a>"
+              },
+              {
+                html: "<a href='#'>Gosforth Primary School</a>"
+              },
+              {
+                html: "Primary"
+              }
             ]
           ]
         }) }}
 
+          {{ govukInsetText({
+            html: "Mentors are automatically added from <a href='#'>Claim funding for mentor training</a>. You can also <a href='#'>add a mentor</a>."
+          }) }}
+
   </div>
   </div>
 
 
 
 
-</div>
+
 
 {% endblock %}

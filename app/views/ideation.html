@@ -34,8 +34,6 @@
     {{ pageName }}
     </h1>
 
-   <h2 class="govuk-heading-m">Colin</h2>
-
         {{ govukTag({
           text: "Ideation",
           classes: "govuk-tag--red govuk-!-margin-bottom-5"
@@ -45,6 +43,7 @@
           A selection of ideas and concepts that may help shape the future of the service.
         </p>
 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
         <h2 class="govuk-heading-m">Concept 2</h2>
      <p>Rethinking the service to:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -52,15 +51,12 @@
           <li>Allow providers to show what placements they need</li>
           </ul>
 
-   {{ govukButton({
-            text: "Provider view",
-            href: "ideation/v2/overview"
-          }) }}
-
-          {{ govukButton({
-            text: "School view",
-            href: "ideation/v3/overview"
-          }) }}
+          <p>Links:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="ideation/v2-onboarding/">Provider onboarding</a></li>
+          <li><a href="ideation/v2/overview">Provider view</a></li>
+          <li><a href="ideation/v3/overview">School view</a></li>
+          </ul>
 
           <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
         <h2 class="govuk-heading-m">Concept 1</h2>

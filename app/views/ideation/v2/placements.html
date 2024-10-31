@@ -90,10 +90,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-        <p>These placements are currently being shared with schools that you work with.</p>
-
-     <p class="govuk-!-margin-bottom-9"><a href="#">Change who can see these placements</a></p>
-
     {{ govukTable({
   caption: "7 first placements required",
   captionClasses: "govuk-table__caption--m",
@@ -231,6 +227,10 @@
     ]
   ]
 }) }}
+
+{{ govukInsetText({
+            html: "<p>These placements are currently being shared with schools that you work with.</p><p><a href='#''>Change who can see these placements</a></p>"
+          }) }}
 
 
   </div>
