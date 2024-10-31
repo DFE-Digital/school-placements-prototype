@@ -8,30 +8,93 @@
 
 {% block content %}
 
-     {% set appliedStatus %}
+     {% set newStatus %}
           {{ govukTag({
-           text: "Applied",
+           text: "New",
            classes: "govuk-tag--light-blue"
           }) }}
       {% endset %}
 
-     {% set acceptedStatus %}
+     {% set inreviewStatus %}
           {{ govukTag({
-           text: "Accepted",
+           text: "In review",
            classes: "govuk-tag--yellow"
           }) }}
       {% endset %}
 
-     {% set offeredStatus %}
+      {% set interviewingStatus %}
+          {{ govukTag({
+           text: "Interviewing",
+           classes: "govuk-tag--yellow"
+          }) }}
+      {% endset %}
+
+     {% set conditionspendingStatus %}
+          {{ govukTag({
+           text: "Conditions pending",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
+      {% set deferredStatus %}
+          {{ govukTag({
+           text: "Deferred",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
+      {% set shortlistedStatus %}
+          {{ govukTag({
+           text: "Shortlisted",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set offeredStatus %}
           {{ govukTag({
            text: "Offered",
            classes: "govuk-tag--green"
           }) }}
       {% endset %}
 
+      {% set recruitedStatus %}
+          {{ govukTag({
+           text: "Recruited",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set applicationwithdrawnStatus %}
+          {{ govukTag({
+           text: "Application withdrawn",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set offerwithdrawnStatus %}
+          {{ govukTag({
+           text: "Offer withdrawn",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
       {% set declinedStatus %}
           {{ govukTag({
            text: "Declined",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set rejectedStatus %}
+          {{ govukTag({
+           text: "Rejected",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set conditionsnotmetStatus %}
+          {{ govukTag({
+           text: "Conditions not met",
            classes: "govuk-tag--red"
           }) }}
       {% endset %}
@@ -267,7 +330,7 @@
                   text: "History (HIS1)"
                 },
                 {
-                  html: acceptedStatus
+                  html: newStatus
                 }
               ],[
                 {
@@ -277,7 +340,7 @@
                   text: "Modern languages (French) (MD9Q)"
                 },
                 {
-                  html: offeredStatus
+                  html: inreviewStatus
                 }
               ],[
                 {
@@ -287,7 +350,7 @@
                   text: "History (H152)"
                 },
                 {
-                  html: offeredStatus
+                  html: interviewingStatus
                 }
               ],[
                 {
@@ -297,7 +360,7 @@
                   text: "Primary (2S8T)"
                 },
                 {
-                  html: appliedStatus
+                  html: conditionspendingStatus
                 }
               ],[
                 {
@@ -307,7 +370,87 @@
                   text: "English (E15P)"
                 },
                 {
+                  html: deferredStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Jean Foucalt</a>"
+                },
+                {
+                  text: "Mathematics (E175P)"
+                },
+                {
+                  html: shortlistedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Karolina Lewandowski</a>"
+                },
+                {
+                  text: "Geography (E15P)"
+                },
+                {
+                  html: offeredStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Karen Richards</a>"
+                },
+                {
+                  text: "Science (E15P)"
+                },
+                {
+                  html: recruitedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Julie Sayers</a>"
+                },
+                {
+                  text: "Primary with English (E15P)"
+                },
+                {
+                  html: applicationwithdrawnStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Will Turner</a>"
+                },
+                {
+                  text: "Primary (P15P)"
+                },
+                {
+                  html: offerwithdrawnStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Husna Ali</a>"
+                },
+                {
+                  text: "History (E15P)"
+                },
+                {
                   html: declinedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Kiera Vaughan</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: rejectedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Phil Smith</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: conditionsnotmetStatus
                 }
               ]
             ]
