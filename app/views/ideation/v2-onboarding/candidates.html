@@ -1,0 +1,466 @@
+{% extends "layouts/user-provider-ideation-b.html" %}
+
+{% set pageName="Candidates" %}
+
+{% set primaryNavId = "candidates" %}
+
+{% set back = false %}
+
+{% block content %}
+
+     {% set newStatus %}
+          {{ govukTag({
+           text: "New",
+           classes: "govuk-tag--light-blue"
+          }) }}
+      {% endset %}
+
+     {% set inreviewStatus %}
+          {{ govukTag({
+           text: "In review",
+           classes: "govuk-tag--yellow"
+          }) }}
+      {% endset %}
+
+      {% set interviewingStatus %}
+          {{ govukTag({
+           text: "Interviewing",
+           classes: "govuk-tag--yellow"
+          }) }}
+      {% endset %}
+
+     {% set conditionspendingStatus %}
+          {{ govukTag({
+           text: "Conditions pending",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
+      {% set deferredStatus %}
+          {{ govukTag({
+           text: "Deferred",
+           classes: "govuk-tag--orange"
+          }) }}
+      {% endset %}
+
+      {% set shortlistedStatus %}
+          {{ govukTag({
+           text: "Shortlisted",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set offeredStatus %}
+          {{ govukTag({
+           text: "Offered",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set recruitedStatus %}
+          {{ govukTag({
+           text: "Recruited",
+           classes: "govuk-tag--green"
+          }) }}
+      {% endset %}
+
+      {% set applicationwithdrawnStatus %}
+          {{ govukTag({
+           text: "Application withdrawn",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set offerwithdrawnStatus %}
+          {{ govukTag({
+           text: "Offer withdrawn",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set declinedStatus %}
+          {{ govukTag({
+           text: "Declined",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set rejectedStatus %}
+          {{ govukTag({
+           text: "Rejected",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+      {% set conditionsnotmetStatus %}
+          {{ govukTag({
+           text: "Conditions not met",
+           classes: "govuk-tag--red"
+          }) }}
+      {% endset %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {{ mojPageHeaderActions({
+  heading: {
+    text: 'Candidates'
+  },
+  items: [{
+    text: 'Add candidate',
+    href: 'add-candidate',
+    classes: 'govuk-button--secondary'
+  }]
+}) }}
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="filters">
+      <h2 class="govuk-heading-m">Filter</h2>
+      {{ govukButton({
+            text: "Apply filters"
+          }) }}
+
+      <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        name: "placementsToShow",
+        fieldset: {
+          legend: {
+            text: "Status",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Applied",
+            text: "Applied"
+          },
+          {
+            value: "Offered",
+            text: "Offered"
+          },
+          {
+            value: "Rejected",
+            text: "Rejected"
+          },
+          {
+            value: "Accepted",
+            text: "Accepted"
+          },
+          {
+            value: "Declined",
+            text: "Declined"
+          }
+        ]
+      }) }}
+      </div>
+
+      <div class="individualFilter">
+          <h3 class="govuk-heading-s">Subject</h3>
+          <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "subjects",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Subjects",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Ancient Greek",
+                text: "Ancient Greek"
+              },
+              {
+                value: "Ancient Hebrew",
+                text: "Ancient Hebrew"
+              },
+              {
+                value: "Art and design",
+                text: "Art and design"
+              },
+              {
+                value: "Biology",
+                text: "Biology"
+              },
+              {
+                value: "Business studies",
+                text: "Business studies"
+              },
+              {
+                value: "Chemistry",
+                text: "Chemistry"
+              },
+              {
+                value: "Citizenship",
+                text: "Citizenship"
+              },
+              {
+                value: "Classics",
+                text: "Classics"
+              },
+              {
+                value: "Communication and media studies",
+                text: "Communication and media studies"
+              },
+              {
+                value: "Computing",
+                text: "Computing"
+              },
+              {
+                value: "Dance",
+                text: "Dance"
+              },
+              {
+                value: "Design and technology",
+                text: "Design and technology"
+              },
+              {
+                value: "Drama",
+                text: "Drama"
+              },
+              {
+                value: "Economics",
+                text: "Economics"
+              },
+              {
+                value: "English",
+                text: "English"
+              },
+              {
+                value: "English as a second or other language",
+                text: "English as a second or other language"
+              },
+              {
+                value: "Geography",
+                text: "Geography"
+              },
+              {
+                value: "Health and social care",
+                text: "Health and social care"
+              },
+              {
+                value: "History",
+                text: "History"
+              },
+              {
+                value: "Latin",
+                text: "Latin"
+              },
+              {
+                value: "Mathematics",
+                text: "Mathematics"
+              },
+              {
+                value: "Modern languages~add-placement-subject-secondary-modern-foreign-languages",
+                text: "Modern languages"
+              },
+              {
+                value: "Music",
+                text: "Music"
+              },
+              {
+                value: "Philosophy",
+                text: "Philosophy"
+              },
+              {
+                value: "Physical education",
+                text: "Physical education"
+              },
+              {
+                value: "Physics",
+                text: "Physics"
+              },
+              {
+                value: "Psychology",
+                text: "Psychology"
+              },
+              {
+                value: "Religious education",
+                text: "Religious education"
+              },
+              {
+                value: "Science",
+                text: "Science"
+              },
+              {
+                value: "Social sciences",
+                text: "Social sciences"
+              }
+            ]
+          }) }}
+      </div>
+
+      </div>
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+          {{ govukTable({
+            caption: "Candidates",
+            captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+            firstCellIsHeader: false,
+            attributes: {
+              'data-module': 'moj-sortable-table'
+            },
+            head: [
+              {
+                text: "Name"
+              },
+              {
+                text: "Course"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+              [
+                {
+                  html: "<a href='trainee-detail'>Jennifer Banner</a>"
+                },
+                {
+                  text: "History (HIS1)"
+                },
+                {
+                  html: newStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Malika Boutella</a>"
+                },
+                {
+                  text: "Modern languages (French) (MD9Q)"
+                },
+                {
+                  html: inreviewStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Peter Essien</a>"
+                },
+                {
+                  text: "History (H152)"
+                },
+                {
+                  html: interviewingStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail-freida'>Freida Jackson</a>"
+                },
+                {
+                  text: "Primary (2S8T)"
+                },
+                {
+                  html: conditionspendingStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Kara Lynn Tivan</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: deferredStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Jean Foucalt</a>"
+                },
+                {
+                  text: "Mathematics (E175P)"
+                },
+                {
+                  html: shortlistedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Karolina Lewandowski</a>"
+                },
+                {
+                  text: "Geography (E15P)"
+                },
+                {
+                  html: offeredStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Karen Richards</a>"
+                },
+                {
+                  text: "Science (E15P)"
+                },
+                {
+                  html: recruitedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Julie Sayers</a>"
+                },
+                {
+                  text: "Primary with English (E15P)"
+                },
+                {
+                  html: applicationwithdrawnStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Will Turner</a>"
+                },
+                {
+                  text: "Primary (P15P)"
+                },
+                {
+                  html: offerwithdrawnStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Husna Ali</a>"
+                },
+                {
+                  text: "History (E15P)"
+                },
+                {
+                  html: declinedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Kiera Vaughan</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: rejectedStatus
+                }
+              ],[
+                {
+                  html: "<a href='trainee-detail'>Phil Smith</a>"
+                },
+                {
+                  text: "English (E15P)"
+                },
+                {
+                  html: conditionsnotmetStatus
+                }
+              ]
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            html: "Candidates are automatically added from <a href='#'>Apply for teacher training</a>. If an application has came through another route you can <a href='#'>add a candidate</a>."
+          }) }}
+     </div>
+</div>
+
+
+{% endblock %}

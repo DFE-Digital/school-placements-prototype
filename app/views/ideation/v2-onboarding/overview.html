@@ -1,0 +1,72 @@
+{% extends "layouts/user-provider-ideation-b.html" %}
+
+{% set pageName="2024 - 2025 overview" %}
+
+{% set primaryNavId = "overview" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-visually-hidden">
+      {{ pageName }}
+      </h1>
+</div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <div class="headline-card">
+          <h2 class="headline-figure">76 <span class="headline-label">successful candidates</span></h2>
+      </div>
+      <div class="card-actions">
+        <ul class="govuk-list govuk-!-margin-bottom-0">
+          <li><a href="candidates" class="govuk-link govuk-link--no-visited-state">See all candidates</a></li>
+        </ul>
+        <!-- <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+          <li>4 New</li>
+          <li>13 progressing</li>
+          <li>9 waiting</li>
+          <li>76 successful</li>
+           <li>44 failed</li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <div class="headline-card">
+          <h2 class="headline-figure">152 <span class="headline-label">unassigned placements</span></h2>
+      </div>
+      <div class="card-actions">
+        <ul class="govuk-list govuk-!-margin-bottom-0">
+          <li><a href="placements" class="govuk-link govuk-link--no-visited-state">Manage placement listings</a></li>
+          <li><a href="find-placements" class="govuk-link govuk-link--no-visited-state">Find placements</a></li>
+          <li><a href="find-school" class="govuk-link govuk-link--no-visited-state">Find schools</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="card">
+      <div class="headline-card">
+          <h2 class="headline-figure">0 <span class="headline-label">confirmed placements</span></h2>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}

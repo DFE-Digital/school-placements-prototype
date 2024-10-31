@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Onboarding" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Your candidates
+      </h1>
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <p>You have 76 candidates in <a href="#">Manage teacher training applications</a>.</p>
+      <p>If you choose to sync these candidates, you can automatically create listings of all of the placemenst you need, categorised by subject.</p>
+      <p>Candidate information will only be visible to you, unless you choose to share with a school once a placement is organised.</p>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "Automatically sync candidates from Manage teacher training applications?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "This includes the candidates name, course and the status of their application"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+
+        <a href="onboarding-placements" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

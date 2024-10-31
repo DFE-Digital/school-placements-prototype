@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Onboarding" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Sharing the placements you're looking for
+      </h1>
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <p>The service can estimate your need for placements. These can be shared with schools if you choose to.</p>
+
+    <p>This is based on the number of candidates that are successful and the number of placements you offer each candidate. A successful candidate in Manage teacher training applications is one with a status of shortlisted, offered, or recruited.</p>
+
+    <p>You can change how this number is calculated from your settings at any time.</p>
+
+
+
+        {{ govukRadios({
+          classes: "govuk-checkboxes",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "Would you to share the list of placements you're looking for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Share with the schools I work with",
+              text: "Share with the schools I work with"
+            },
+            {
+              value: "List in the placements service for any school to see",
+              text: "List in the placements service for any school to see"
+            },{
+            divider: "or"
+              },
+              {
+                value: "none",
+                text: "Do not share the placement calculations",
+                behaviour: "exclusive"
+            }
+
+          ]
+        }) }}
+
+
+        <a href="overview" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

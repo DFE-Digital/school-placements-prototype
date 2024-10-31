@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Onboarding" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Your placements
+      </h1>
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <p>Entering how many placements you offer each trainee will let us help you keep track of how many placements you're looking for in each subject.</p>
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "How many placements do you have for each trainee?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "2",
+              text: "2"
+            },
+            {
+              value: "3",
+              text: "3"
+            }
+          ]
+        }) }}
+
+
+        <a href="onboarding-schools-you-work-with" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Onboarding" %}
+
+{% set primaryNavId = "organisation" %}
+
+{% set back = false %}
+
+{% block content %}
+
+{% set userName %}
+          <a href='#'>{{ data['userName'] }}</a>
+      {% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Schools you work with
+      </h1>
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <p>Entering the schools you regularly work with will let you show them the placemenst you're looking for.</p>
+      <p>You've registered trainees as having had placements in these schools within the last two years.</p>
+
+        {{ govukCheckboxes({
+            name: "waste",
+            fieldset: {
+              legend: {
+                text: "Which of these schools do you work with?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: "Select all that apply. You will be able to add and remove from this list."
+            },
+            items: [
+            {
+                value: "Select all",
+                text: "Select all"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Ashington Academy",
+                text: "Ashington Academy"
+              },
+              {
+                value: "Corbridge Primary School",
+                text: "Corbridge Primary School"
+              },
+              {
+                value: "Denton Primary School",
+                text: "Denton Primary School"
+              },
+              {
+                value: "Excelsior Academy",
+                text: "Excelsior Academy"
+              },
+              {
+                value: "Gosforth High School",
+                text: "Gosforth High School"
+              },
+              {
+                value: "Heaton Park Secondary School",
+                text: "Heaton Park Secondary School"
+              },
+              {
+                value: "Mortimer Comprehensive School",
+                text: "Mortimer Comprehensive School"
+              },
+              {
+                value: "Newcastle High School for Girls",
+                text: "Newcastle High School for Girls"
+              },
+              {
+                value: "St Bede's Catholic Primary School",
+                text: "St Bede's Catholic Primary School"
+              },
+              {
+                value: "St Wilfrid's Catholic Secondary School",
+                text: "St Wilfrid's Catholic Secondary School"
+              },
+              {
+                value: "Whitburn Church of England Academy",
+                text: "Whitburn Church of England Academy"
+              }
+            ]
+          }) }}
+
+
+        <a href="onboarding-placement-sharing" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
