@@ -21,34 +21,22 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">Getting started</span>
-    <h1 class="govuk-heading-l">
-      Schools you work with
-      </h1>
-    </div>
-  </div>
 
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
-
-      <p>Entering the schools you regularly work with will let you show them the placements you're looking for.</p>
-      <p>You've registered trainees as having had placements in these schools within the last two years.</p>
-
+    <span class="govuk-caption-l">Your preferences</span>
         {{ govukCheckboxes({
             name: "waste",
             fieldset: {
               legend: {
-                text: "Which of these schools do you work with?",
+                text: "Select the schools you currently work with",
                 isPageHeading: true,
-                classes: "govuk-fieldset__legend--m"
+                classes: "govuk-fieldset__legend--l"
               }
             },
             hint: {
-              text: "Select all that apply. You will be able to add and remove from this list."
+              text: "These are the schools you have worked with recently. Adding them will allow them to see your profile. You can change this later."
             },
             items: [
             {

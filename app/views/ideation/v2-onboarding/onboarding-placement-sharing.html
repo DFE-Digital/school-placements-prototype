@@ -21,57 +21,41 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">Getting started</span>
-    <h1 class="govuk-heading-l">
-      Sharing the placements you're looking for
-      </h1>
-    </div>
-  </div>
 
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
 
-    <p>The service can estimate your need for placements. These can be shared with schools if you choose to.</p>
-
-{{ govukDetails({
+<!-- {{ govukDetails({
   summaryText: "How do we estimate placement numbers?",
   html: "<p>This is based on the number of candidates that are successful and the number of placements you offer each candidate. A successful candidate in Manage teacher training applications is one with a status of shortlisted, offered, or recruited.</p><p>You can change how this number is calculated from your settings at any time.</p>"
-}) }}
+}) }} -->
 
 
 
-
+<span class="govuk-caption-l">Your preferences</span>
         {{ govukRadios({
           classes: "govuk-checkboxes",
           name: "changedName",
           fieldset: {
             legend: {
-              text: "Would you to share the list of placements you're looking for?",
+              text: "How would you like to share your placement requests?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            text: "You can change this later in your settings"
+            },
           items: [
             {
-              value: "Share with the schools I work with",
-              text: "Share with the schools I work with"
+              value: "Only share with schools I work with",
+              text: "Only share with schools I work with"
             },
             {
-              value: "List in the placements service for any school to see",
-              text: "List in the placements service for any school to see"
-            },{
-            divider: "or"
-              },
-              {
-                value: "none",
-                text: "Do not share the placement calculations",
-                behaviour: "exclusive"
+              value: "Share with all schools",
+              text: "Share with all schools"
             }
-
           ]
         }) }}
 

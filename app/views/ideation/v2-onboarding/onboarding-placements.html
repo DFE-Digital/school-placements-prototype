@@ -21,30 +21,21 @@
   </div>
 </div>
 
-<div class="govuk-grid-row">
-
-  <div class="govuk-grid-column-full">
-    <span class="govuk-caption-l">Getting started</span>
-    <h1 class="govuk-heading-l">
-      Your placements
-      </h1>
-    </div>
-  </div>
 
 <div class="govuk-grid-row">
 
   <div class="govuk-grid-column-two-thirds">
 
-    <p>Entering how many placements you offer each trainee will help you track how many placements you're looking for in each subject.</p>
 
+<span class="govuk-caption-l">Your organisation's details</span>
         {{ govukRadios({
           classes: "govuk-radios",
           name: "changedName",
           fieldset: {
             legend: {
-              text: "How many placements do you have for each trainee?",
+              text: "How many placements do each of your trainees do?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
