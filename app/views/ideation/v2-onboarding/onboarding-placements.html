@@ -28,9 +28,10 @@
 
 
 <span class="govuk-caption-l">Your organisation's details</span>
+        <form action="onboarding-schools-you-work-with" method="post">
         {{ govukRadios({
           classes: "govuk-radios",
-          name: "changedName",
+          name: "placementNo",
           fieldset: {
             legend: {
               text: "How many placements do each of your trainees do?",
@@ -50,10 +51,11 @@
           ]
         }) }}
 
+{{ govukButton({
+            text: "Continue"
+          }) }}
 
-        <a href="onboarding-schools-you-work-with" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Continue
-      </a>
+      </form>
   </div>
 
   <div class="govuk-grid-column-one-third">

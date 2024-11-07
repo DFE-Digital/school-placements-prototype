@@ -21,7 +21,7 @@
   <div class="govuk-grid-column-one-third">
     <div class="card">
       <div class="headline-card">
-          <h2 class="headline-figure">76 <span class="headline-label">successful candidates</span></h2>
+          <h2 class="headline-figure">30 <span class="headline-label">successful candidates</span></h2>
       </div>
       <div class="card-actions">
         <ul class="govuk-list govuk-!-margin-bottom-0">
@@ -41,7 +41,11 @@
   <div class="govuk-grid-column-one-third">
     <div class="card">
       <div class="headline-card">
-          <h2 class="headline-figure">152 <span class="headline-label">unassigned placements</span></h2>
+        {% if data['placementNo'] == '2'%}
+          <h2 class="headline-figure">60 <span class="headline-label">unassigned placements</span></h2>
+        {% elseif data['placementNo'] == '3'%}
+          <h2 class="headline-figure">90 <span class="headline-label">unassigned placements</span></h2>
+        {% endif %}
       </div>
       <div class="card-actions">
         <ul class="govuk-list govuk-!-margin-bottom-0">

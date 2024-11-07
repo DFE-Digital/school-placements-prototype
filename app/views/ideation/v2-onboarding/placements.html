@@ -69,7 +69,7 @@
 
 
    {{ govukTable({
-  caption: "76 first placements required",
+  caption: "30 first placements required",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   head: [
@@ -89,7 +89,7 @@
         text: "English"
       },
       {
-        text: "14"
+        text: "7"
       },
       {
         html: "<a href='find-placements'>Find English placements</a>"
@@ -100,7 +100,7 @@
         text: "Geography"
       },
       {
-        text: "12"
+        text: "6"
       },
       {
         html: "<a href='find-placements'>Find geography placements</a>"
@@ -111,7 +111,7 @@
         text: "History"
       },
       {
-        text: "9"
+        text: "5"
       },
       {
         html: "<a href='find-placements'>Find history placements</a>"
@@ -122,7 +122,7 @@
         text: "Maths"
       },
       {
-        text: "7"
+        text: "5"
       },
       {
         html: "<a href='find-placements'>Find maths placements</a>"
@@ -133,7 +133,7 @@
         text: "Primary"
       },
       {
-        text: "23"
+        text: "3"
       },
       {
         html: "<a href='find-placements'>Find primary placements</a>"
@@ -144,7 +144,7 @@
         text: "Science"
       },
       {
-        text: "11"
+        text: "4"
       },
       {
         html: "<a href='find-placements'>Find science placements</a>"
@@ -155,7 +155,7 @@
 
 
     {{ govukTable({
-  caption: "76 second placements required",
+  caption: "30 second placements required",
   captionClasses: "govuk-table__caption--m",
   firstCellIsHeader: true,
   head: [
@@ -175,7 +175,7 @@
         text: "English"
       },
       {
-        text: "14"
+        text: "7"
       },
       {
         html: "<a href='find-placements'>Find English placements</a>"
@@ -186,7 +186,7 @@
         text: "Geography"
       },
       {
-        text: "12"
+        text: "6"
       },
       {
         html: "<a href='find-placements'>Find geography placements</a>"
@@ -197,7 +197,7 @@
         text: "History"
       },
       {
-        text: "9"
+        text: "5"
       },
       {
         html: "<a href='find-placements'>Find history placements</a>"
@@ -208,7 +208,7 @@
         text: "Maths"
       },
       {
-        text: "7"
+        text: "5"
       },
       {
         html: "<a href='find-placements'>Find maths placements</a>"
@@ -219,7 +219,7 @@
         text: "Primary"
       },
       {
-        text: "23"
+        text: "3"
       },
       {
         html: "<a href='find-placements'>Find primary placements</a>"
@@ -230,7 +230,7 @@
         text: "Science"
       },
       {
-        text: "11"
+        text: "4"
       },
       {
         html: "<a href='find-placements'>Find science placements</a>"
@@ -238,6 +238,95 @@
     ]
   ]
 }) }}
+
+{% if data['placementNo'] == '3'%}
+
+{{ govukTable({
+  caption: "30 third placements required",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Subject"
+    },
+    {
+      text: "Needed"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "English"
+      },
+      {
+        text: "7"
+      },
+      {
+        html: "<a href='find-placements'>Find English placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Geography"
+      },
+      {
+        text: "6"
+      },
+      {
+        html: "<a href='find-placements'>Find geography placements</a>"
+      }
+    ],
+    [
+      {
+        text: "History"
+      },
+      {
+        text: "5"
+      },
+      {
+        html: "<a href='find-placements'>Find history placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Maths"
+      },
+      {
+        text: "5"
+      },
+      {
+        html: "<a href='find-placements'>Find maths placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Primary"
+      },
+      {
+        text: "3"
+      },
+      {
+        html: "<a href='find-placements'>Find primary placements</a>"
+      }
+    ],
+    [
+      {
+        text: "Science"
+      },
+      {
+        text: "4"
+      },
+      {
+        html: "<a href='find-placements'>Find science placements</a>"
+      }
+    ]
+  ]
+}) }}
+
+{% endif %}
 
 {{ govukInsetText({
             html: "<p>These placements are currently being shared with schools that you work with.</p><p><a href='#''>Change who can see these placements</a></p>"
