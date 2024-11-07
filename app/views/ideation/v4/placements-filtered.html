@@ -1,0 +1,453 @@
+{% extends "layouts/user-provider-v2.html" %}
+
+{% set pageName="Find placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      {{ pageName }}
+      </h1>
+
+</div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div class="filters">
+      <h2 class="govuk-heading-m">Filter</h2>
+      <form action="placements-filtered"  method="post">
+      {{ govukButton({
+            text: "Apply filters"
+          }) }}
+
+<div class="individualFilter">
+
+          <div class="app-filter__selected-heading">
+            <div class="app-filter__heading-title">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Selected filters</h2>
+              <p class="govuk-body">
+                <a class="govuk-link govuk-link--no-visited-state" href="placements">Clear filters</a>
+              </p>
+            </div>
+          </div>
+
+          {% if data['location'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Location</h3>
+          <ul class="app-filter-tags">
+                <li>
+                  <a class="govuk-link govuk-link--no-visited-state app-filter__tag" href="#">{{ data['location'] }}</a>
+                </li>
+            </ul>
+          {% endif %}
+
+          {% if data['subjects'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Subject</h3>
+          <ul class="app-filter-tags">
+                <li>
+                  <a class="govuk-link govuk-link--no-visited-state app-filter__tag" href="#">{{ data['subjects'] }}</a>
+                </li>
+            </ul>
+          {% endif %}
+
+          {% if data['primaryYearGroup'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Primary year group</h3>
+          <ul class="app-filter-tags">
+                <li>
+                  <a class="govuk-link govuk-link--no-visited-state app-filter__tag" href="#">{{ data['primaryYearGroup'] }}</a>
+                </li>
+            </ul>
+            {% endif %}
+
+
+</div>
+
+
+
+      <div class="individualFilter">
+        {{ govukInput({
+            label: {
+              text: "Search by location",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Enter a town, city or postcode"
+            },
+            id: "location",
+            name: "location",
+            classes: "govuk-!-margin-bottom-1"
+          }) }}
+
+          <p class="govuk-body-s" style="margin-top: -25px; color: #5F6368;">Powered by Google</p>
+
+        </div>
+
+      <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "placementsToShow",
+        fieldset: {
+          legend: {
+            text: "Placements to show",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Available placements",
+            text: "Available placements",
+            checked: true
+          },
+          {
+            value: "Assigned to me",
+            text: "Assigned to me"
+          },
+          {
+            value: "All placements",
+            text: "All placements"
+          }
+        ]
+      }) }}
+      </div>
+
+      <div class="individualFilter">
+      {{ govukRadios({
+        classes: "govuk-radios--small",
+        name: "academicYear",
+        fieldset: {
+          legend: {
+            text: "Academic year",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "This year (2024 to 2025)",
+            text: "This year (2024 to 2025)",
+            checked: true
+          },
+          {
+            value: "Next year (2025 to 2026)",
+            text: "Next year (2025 to 2026)"
+          }
+        ]
+      }) }}
+      </div>
+
+      <div class="individualFilter">
+          {{ govukCheckboxes({
+            name: "placementWindow",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Expected date",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Autumn term",
+                text: "Autumn term"
+              },
+              {
+                value: "Spring term",
+                text: "Spring term"
+              },
+              {
+                value: "Summer term",
+                text: "Summer term"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+          <h3 class="govuk-heading-s">Subject</h3>
+          <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "subjects",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Subjects",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Ancient Greek",
+                text: "Ancient Greek"
+              },
+              {
+                value: "Ancient Hebrew",
+                text: "Ancient Hebrew"
+              },
+              {
+                value: "Art and design",
+                text: "Art and design"
+              },
+              {
+                value: "Biology",
+                text: "Biology"
+              },
+              {
+                value: "Business studies",
+                text: "Business studies"
+              },
+              {
+                value: "Chemistry",
+                text: "Chemistry"
+              },
+              {
+                value: "Citizenship",
+                text: "Citizenship"
+              },
+              {
+                value: "Classics",
+                text: "Classics"
+              },
+              {
+                value: "Communication and media studies",
+                text: "Communication and media studies"
+              },
+              {
+                value: "Computing",
+                text: "Computing"
+              },
+              {
+                value: "Dance",
+                text: "Dance"
+              },
+              {
+                value: "Design and technology",
+                text: "Design and technology"
+              },
+              {
+                value: "Drama",
+                text: "Drama"
+              },
+              {
+                value: "Economics",
+                text: "Economics"
+              },
+              {
+                value: "English",
+                text: "English"
+              },
+              {
+                value: "English as a second or other language",
+                text: "English as a second or other language"
+              },
+              {
+                value: "Geography",
+                text: "Geography"
+              },
+              {
+                value: "Health and social care",
+                text: "Health and social care"
+              },
+              {
+                value: "History",
+                text: "History"
+              },
+              {
+                value: "Latin",
+                text: "Latin"
+              },
+              {
+                value: "Mathematics",
+                text: "Mathematics"
+              },
+              {
+                value: "Modern languages~add-placement-subject-secondary-modern-foreign-languages",
+                text: "Modern languages"
+              },
+              {
+                value: "Music",
+                text: "Music"
+              },
+              {
+                value: "Philosophy",
+                text: "Philosophy"
+              },
+              {
+                value: "Physical education",
+                text: "Physical education"
+              },
+              {
+                value: "Physics",
+                text: "Physics"
+              },
+              {
+                value: "Psychology",
+                text: "Psychology"
+              },
+              {
+                value: "Religious education",
+                text: "Religious education"
+              },
+              {
+                value: "Science",
+                text: "Science"
+              },
+              {
+                value: "Social sciences",
+                text: "Social sciences"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+          {{ govukCheckboxes({
+            name: "primaryYearGroup",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Primary year group",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Nursery",
+                text: "Nursery"
+              },
+              {
+                value: "Reception",
+                text: "Reception"
+              },
+              {
+                value: "Year 1",
+                text: "Year 1"
+              },
+              {
+                value: "Year 2",
+                text: "Year 2"
+              },
+              {
+                value: "Year 3",
+                text: "Year 3"
+              },
+              {
+                value: "Year 4",
+                text: "Year 4"
+              },
+              {
+                value: "Year 5",
+                text: "Year 5"
+              },
+              {
+                value: "Year 6",
+                text: "Year 6"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+          {{ govukCheckboxes({
+            name: "partnerSchools",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "Schools I work with",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "partners",
+                text: "Only show placements from schools I work with"
+              }
+            ]
+          }) }}
+      </div>
+
+      <div class="individualFilter">
+        <h3 class="govuk-heading-s">School</h3>
+        <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
+          {{ govukCheckboxes({
+            name: "school",
+            classes: "govuk-checkboxes--small",
+            fieldset: {
+              legend: {
+                text: "School",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "Bath Spa University",
+                text: "Bath Spa University"
+              },
+              {
+                value: "Chingford CofE Primary School",
+                text: "Chingford CofE Primary School"
+              },
+              {
+                value: "Collegiate School",
+                text: "Collegiate School"
+              },
+              {
+                value: "Temple Learning Academy",
+                text: "Temple Learning Academy"
+              },
+              {
+                value: "University Technical College Leeds",
+                text: "University Technical College Leeds"
+              },
+              {
+                value: "Whitburn Church of England School",
+                text: "Whitburn Church of England School"
+              }
+            ]
+          }) }}
+
+
+        </div>
+      </form>
+  </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+
+          <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
+
+      <h2 class="govuk-heading-m">0 placements</h2>
+      <p class="govuk-hint">No placements were found matching your filters.</p>
+
+
+
+          <hr class="govuk-section-break govuk-section-break--visible">
+
+
+
+          <br>
+
+
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -143,12 +143,39 @@ h1 .govuk-tag { position: relative; top: -7px; margin-left:5px;}
     text-decoration: none;
 }
 
+.app-filter__tag:hover {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+    background-color: #0b0c0c;
+    border: 1px solid #FFF;
+    color: #FFF !important;
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
 .app-filter__tag:link, .app-filter__tag:visited {
     color: #0b0c0c;
 }
 
 .app-filter__tag:after {
-    background-image: url(https://manage-school-placements-qa.test.teacherservices.cloud/assets/icon-tag-remove-cross-d919a551.svg);
+    background-image: url(../../public/images/icon-tag-remove-cross.svg);
+    content: "";
+    display: inline-block;
+    font-weight: bold;
+    height: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+    width: 10px;
+}
+
+.app-filter__tag:hover:after {
+    background-image: url(../../public/images/icon-tag-remove-cross-white.svg) !important;
     content: "";
     display: inline-block;
     font-weight: bold;

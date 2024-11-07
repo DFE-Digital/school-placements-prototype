@@ -26,6 +26,35 @@
             href: "find-school-filtered"
           }) }}
 
+        <div class="individualFilter">
+        <div class="app-filter__selected-heading">
+            <div class="app-filter__heading-title">
+              <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Selected filters</h2>
+              <p class="govuk-body">
+                <a class="govuk-link govuk-link--no-visited-state" href="placements">Clear filters</a>
+              </p>
+            </div>
+          </div>
+
+          {% if data['schoollocation'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Location</h3>
+          <ul class="app-filter-tags">
+                <li>
+                  <a class="govuk-link govuk-link--no-visited-state app-filter__tag" href="#">{{ data['schoollocation'] }}</a>
+                </li>
+            </ul>
+          {% endif %}
+
+          {% if data['phase'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Phase</h3>
+          <ul class="app-filter-tags">
+                <li>
+                  <a class="govuk-link govuk-link--no-visited-state app-filter__tag" href="#">{{ data['phase'] }}</a>
+                </li>
+            </ul>
+          {% endif %}
+      </div>
+
       <div class="individualFilter">
         {{ govukInput({
             label: {
@@ -217,8 +246,23 @@
 <div class="govuk-grid-column-two-thirds">
   <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
 
+      {% if data['phase'] == 'Primary'%}
       <h2 class="govuk-heading-m">4 schools</h2>
+      {% else %}
+      <h2 class="govuk-heading-m">8 schools</h2>
+      {% endif %}
       <p class="govuk-hint">Results sorted by distance from <strong>NE33 3AG</strong></p>
+
+       <div class="view-map-container">
+      <span class="gias-map-toggle-icon-container">
+            <svg width="20px" height="30px" viewBox="0 0 20 30" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <path d="M10,0 C15.5228475,0 20,4.96379951 20,11.0869565 C20,17.2101135 10,30 9.97821351,30 C9.97242216,30 9.2646317,29.0962442 8.22846607,27.654196 L7.92380612,27.2278506 C6.77632342,25.6131918 5.3074999,23.4459539 3.94691638,21.146335 L3.57885453,20.5161997 C1.63361341,17.1413409 0,13.5672227 0,11.0869565 C0,4.96379951 4.4771525,0 10,0 Z M10,4.58937198 C6.93175139,4.58937198 4.44444444,7.34703838 4.44444444,10.7487923 C4.44444444,14.1505462 6.93175139,16.9082126 10,16.9082126 C13.0682486,16.9082126 15.5555556,14.1505462 15.5555556,10.7487923 C15.5555556,7.34703838 13.0682486,4.58937198 10,4.58937198 Z" id="Combined-Shape" fill="currentColor"></path>
+        </g>
+        </svg>
+      </span>
+      <a href="#" id="view-map-link">View on a map</a>
+      </div>
 
           <hr class="govuk-section-break govuk-section-break--visible">
 
@@ -290,7 +334,7 @@
                         Placement contact
                       </dt>
                       <dd class="app-result-detail__value">
-                        Bill Johnson (bill.johnson@school.co.uk)
+                        Adam Gould (adam.gould@stbedessouthshields.co.uk)
                       </dd>
                     </div>
 
@@ -436,6 +480,115 @@
           </div>
 
 
+      {% if data['phase'] == 'Primary'%}
+      {% else %}
+        <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="#">Mortimer Community College</a></h2>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase (age group)
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Community schools
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Reading Road, South Shields, Tyne and Wear, NE33 4UG
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.39 miles
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Bill Johnson (bill.johnson@school.co.uk)
+                      </dd>
+                    </div>
+
+                  </dl>
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        9 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        6 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        8 minutes
+                      </dd>
+                    </div>
+
+                  </dl>
+          </div>
+        {% endif %}
+
           <div class="searchResult">
               <h2 class="govuk-heading-m"><a href="#">Laygate Community School</a></h2>
 
@@ -471,7 +624,7 @@
                         Distance
                       </dt>
                       <dd class="app-result-detail__value">
-                        0.38 miles
+                        0.44 miles
                       </dd>
                     </div>
                      <div class="app-result-detail__row">
@@ -538,6 +691,116 @@
                     </div>
                   </dl>
           </div>
+
+
+      {% if data['phase'] == 'Primary'%}
+      {% else %}
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="#">St Wilfrid's RC College</a></h2>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase (age group)
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Primary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Academy Converter
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Temple Park Road, South Shields, Tyne and Wear, NE34 0QA
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        0.45 miles
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Tina Smith (tina.smith@school.co.uk)
+                      </dd>
+                    </div>
+
+                  </dl>
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        8 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        6 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        12 minutes
+                      </dd>
+                    </div>
+
+                  </dl>
+          </div>
+        {% endif %}
 
 
           <div class="searchResult">
@@ -642,6 +905,224 @@
                   </dl>
           </div>
 
+
+
+{% if data['phase'] == 'Primary'%}
+      {% else %}
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="#">King's Priory School</a></h2>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase (age group)
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        All through
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Academy Sponsor Led
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Huntington Place, Tynemouth, North Shields, Tyne and Wear, NE30 4RF
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        1.4 miles
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
+
+                  </dl>
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        27 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        32 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        6 hours 21 minutes
+                      </dd>
+                    </div>
+
+                  </dl>
+          </div>
+
+
+<div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="#">Harton Academy</a></h2>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase (age group)
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Academy Converter
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Address
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Lisle Road, South Shields, Tyne and Wear, NE34 6DL
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Distance
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        1.9 miles
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                     <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement contact
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Unknown
+                      </dd>
+                    </div>
+
+                  </dl>
+
+  <h3 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-1">Travel time</h3>
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Public transport
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        19 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Driving
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        14 minutes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Walking
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        37 minutes
+                      </dd>
+                    </div>
+
+                  </dl>
+          </div>
+
+        {% endif %}
 
 
   </div>

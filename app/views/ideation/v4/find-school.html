@@ -20,10 +20,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
     <div class="filters">
+      <form action="find-school-filtered"  method="post">
       <h2 class="govuk-heading-m">Filter</h2>
       {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
+            text: "Apply filters"
           }) }}
 
       <div class="individualFilter">
@@ -36,8 +36,8 @@
             hint: {
               text: "Enter a town, city or postcode"
             },
-            id: "location",
-            name: "location",
+            id: "schoollocation",
+            name: "schoollocation",
             classes: "govuk-!-margin-bottom-1"
           }) }}
 
@@ -207,10 +207,10 @@
       </div>
 
             {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
+            text: "Apply filters"
           }) }}
 
+    </form>
   </div>
 </div>
 
@@ -880,6 +880,32 @@
                     </div>
                   </dl>
           </div>
+
+                    <br>
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
 
 
 

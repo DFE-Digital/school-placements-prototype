@@ -20,10 +20,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
     <div class="filters">
+      <form action="find-school-filtered"  method="post">
       <h2 class="govuk-heading-m">Filter</h2>
       {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
+            text: "Apply filters"
           }) }}
 
       <div class="individualFilter">
@@ -36,8 +36,8 @@
             hint: {
               text: "Enter a town, city or postcode"
             },
-            id: "location",
-            name: "location",
+            id: "schoollocation",
+            name: "schoollocation",
             classes: "govuk-!-margin-bottom-1"
           }) }}
 
@@ -62,9 +62,9 @@
 
         </div>
 
-               <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
+ <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "phase",
         fieldset: {
           legend: {
@@ -74,11 +74,6 @@
           }
         },
         items: [
-          {
-            value: "All",
-            text: "All",
-            checked: true
-          },
           {
             value: "Primary",
             text: "Primary"
@@ -92,37 +87,61 @@
       </div>
 
       <div class="individualFilter">
-      {{ govukRadios({
-        classes: "govuk-radios--small",
-        name: "schoolToShow",
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        name: "placementsInService",
         fieldset: {
           legend: {
-            text: "Placement status",
+            text: "Placements listed",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--s"
           }
         },
         items: [
           {
-            value: "All",
-            text: "All",
-            checked: true
+            value: "Yes",
+            text: "Yes"
           },
           {
-            value: "Offered placements in 2022 - 2023",
-            text: "Offered placements in 2022 - 2023"
-          },
-          {
-            value: "Did not offer placements in 2022 - 2023",
-            text: "Did not offer placements in 2022 - 2023"
+            value: "Not recorded",
+            text: "Not recorded"
           }
         ]
       }) }}
       </div>
 
-        <div class="individualFilter">
+      <div class="individualFilter">
       {{ govukRadios({
         classes: "govuk-radios--small",
+        name: "schoolToShow",
+        fieldset: {
+          legend: {
+            text: "Last offered placements",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "No recent placements",
+            text: "No recent placements",
+            checked: true
+          },
+          {
+            value: "Offered placements in 2023 - 2024",
+            text: "Offered placements in 2023 - 2024"
+          },
+          {
+            value: "Offered placements in 2022 - 2023",
+            text: "Offered placements in 2022 - 2023"
+          }
+        ]
+      }) }}
+      </div>
+
+       <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
         name: "mentors",
         fieldset: {
           legend: {
@@ -133,17 +152,12 @@
         },
         items: [
           {
-            value: "All",
-            text: "All",
-            checked: true
-          },
-          {
             value: "Yes",
             text: "Yes"
           },
           {
-            value: "Unknwon",
-            text: "Unknwon"
+            value: "Unknown",
+            text: "Unknown"
           }
         ]
       }) }}
@@ -193,10 +207,10 @@
       </div>
 
             {{ govukButton({
-            text: "Apply filters",
-            href: "find-school-filtered"
+            text: "Apply filters"
           }) }}
 
+    </form>
   </div>
 </div>
 
@@ -240,6 +254,7 @@
                         Academy converter
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Address
@@ -250,15 +265,23 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
                         Offered placements in 2022 - 2023
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
@@ -310,18 +333,27 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
-                      </dd>
-                    </div>
-                      <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -366,18 +398,27 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
                        Offered placements in 2022 - 2023
                       </dd>
                     </div>
-                   <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -422,15 +463,24 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                       Offered placements in 2023 - 2024
                       </dd>
                     </div>
-                   <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
@@ -475,20 +525,29 @@
                         Apostles Oak, Abberley, Worcestershire, WR6 6AA
                       </dd>
                     </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
-                      </dd>
-                    </div>
-                   <div class="app-result-detail__row">
+                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -532,18 +591,27 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
                         Offered placements in 2022 - 2023
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
-                        Yes
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -588,15 +656,24 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
+                        Trained mentors
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
                         Placement status
                       </dt>
                       <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
+                        No recent placements
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Trained mentors
+                        Placements listed
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
@@ -643,18 +720,27 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2023 - 2024
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -698,21 +784,28 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Offered placements in 2022 - 2023
-                      </dd>
-                    </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Yes
                       </dd>
                     </div>
-                  </dl>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Offered placements in 2022 - 2023
+                      </dd>
+                    </div>
+                  <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
+                      </dd>
+                    </div>
                   <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Placement contact
@@ -721,6 +814,7 @@
                         Unknown
                       </dd>
                     </div>
+                    </dl>
           </div>
 
                    <div class="searchResult">
@@ -753,18 +847,27 @@
                     </div>
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
-                        Placement status
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Did not offer placements in 2022 - 2023
-                      </dd>
-                    </div>
-                     <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
                         Trained mentors
                       </dt>
                       <dd class="app-result-detail__value">
                         Unknown
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placement status
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        No recent placements
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Placements listed
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Not recorded
                       </dd>
                     </div>
                     <div class="app-result-detail__row">
@@ -777,6 +880,32 @@
                     </div>
                   </dl>
           </div>
+
+                    <br>
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
 
 
 

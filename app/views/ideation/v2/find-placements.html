@@ -4,7 +4,7 @@
 
 {% set primaryNavId = "placements" %}
 
-{% set back = true %}
+{% set back = false %}
 
 {% block content %}
 
@@ -15,8 +15,6 @@
       {{ pageName }}
       </h1>
 
-      <h2 class="govuk-heading-m">10 placements</h2>
-
 </div>
 </div>
 
@@ -24,9 +22,29 @@
   <div class="govuk-grid-column-one-third">
     <div class="filters">
       <h2 class="govuk-heading-m">Filter</h2>
+      <form action="placements-filtered"  method="post">
       {{ govukButton({
             text: "Apply filters"
           }) }}
+
+      <div class="individualFilter">
+        {{ govukInput({
+            label: {
+              text: "Search by location",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Enter a town, city or postcode"
+            },
+            id: "location",
+            name: "location",
+            classes: "govuk-!-margin-bottom-1"
+          }) }}
+
+          <p class="govuk-body-s" style="margin-top: -25px; color: #5F6368;">Powered by Google</p>
+
+        </div>
 
       <div class="individualFilter">
       {{ govukRadios({
@@ -261,6 +279,14 @@
             },
             items: [
               {
+                value: "Nursery",
+                text: "Nursery"
+              },
+              {
+                value: "Reception",
+                text: "Reception"
+              },
+              {
                 value: "Year 1",
                 text: "Year 1"
               },
@@ -294,7 +320,7 @@
             classes: "govuk-checkboxes--small",
             fieldset: {
               legend: {
-                text: "Partner schools",
+                text: "Schools I work with",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--s"
               }
@@ -302,7 +328,7 @@
             items: [
               {
                 value: "partners",
-                text: "Only show placements offered by my partner schools"
+                text: "Only show placements from schools I work with"
               }
             ]
           }) }}
@@ -348,37 +374,34 @@
               }
             ]
           }) }}
-      </div>
 
+
+        </div>
+      </form>
   </div>
   </div>
 
   <div class="govuk-grid-column-two-thirds">
 
- <div class="govuk-form-group govuk-!-margin-bottom-3">
-            <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--m" for="locationSearch">
-                Enter a location
-              </label>
-            </h1>
-            <div id="locationSearch-hint" class="govuk-hint">
-              For example, Sunderland or SR2
-            </div>
-            <input class="govuk-input locationSearchInput" id="locationSearch" name="locationSearch" type="text" aria-describedby="locationSearch-hint">
-            {{ govukButton({
-              text: "Search",
-              classes: "locationSearchButton govuk-!-margin-bottom-0"
-            }) }}
-          </div>
+          <div class="govuk-form-group  govuk-!-margin-top-2 govuk-!-margin-bottom-1">
+
+      <h2 class="govuk-heading-m">763 placements</h2>
+      <p class="govuk-hint">Results sorted alphabetically</p>
+
+
+
           <hr class="govuk-section-break govuk-section-break--visible">
 
-<div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Collegiate School<br>Art and Design</a></h2>
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Ancient Greek – Collegiate School</a></h2>
               {{ govukTag({
                 text: "Available",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -396,12 +419,13 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
                       </dt>
                       <dd class="app-result-detail__value">
-                        Summer term
+                        Any time in the academic year
                       </dd>
                     </div>
 
@@ -413,6 +437,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -421,8 +446,6 @@
                         Independent schools
                       </dd>
                     </div>
-
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
@@ -435,12 +458,15 @@
           </div>
 
           <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Buxton school<br>English</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">Ancient Greek – St Wilfrid's Academy</a></h2>
               {{ govukTag({
                 text: "Available",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -449,7 +475,8 @@
                         Secondary
                       </dd>
                     </div>
-                     <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Academic year
                       </dt>
@@ -457,6 +484,7 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
@@ -465,6 +493,7 @@
                         Any time in the academic year
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Age range
@@ -473,6 +502,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -481,67 +511,6 @@
                         Independent schools
                       </dd>
                     </div>
-
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Requires improvement
-                      </dd>
-                    </div>
-                  </dl>
-          </div>
-
-          <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Mortimer Academy<br>Maths</a></h2>
-              {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-                <dl class="app-result-detail">
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Phase
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Secondary
-                      </dd>
-                    </div>
-                                        <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Academic year
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        This year (2024 to 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Expected date
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Spring term, Summer term
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        11 to 18
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Establishment group
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Independent schools
-                      </dd>
-                    </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
@@ -554,12 +523,15 @@
           </div>
 
           <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Royal Grammar School<br>English</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Excelsior Academy</a></h2>
               {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                text: "Unavailable",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -568,7 +540,8 @@
                         Secondary
                       </dd>
                     </div>
-                                        <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Academic year
                       </dt>
@@ -576,6 +549,7 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
@@ -584,6 +558,7 @@
                         Any time in the academic year
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Age range
@@ -592,6 +567,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -600,66 +576,6 @@
                         Independent schools
                       </dd>
                     </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Requires improvement
-                      </dd>
-                    </div>
-                  </dl>
-          </div>
-
-          <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
-              {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-                <dl class="app-result-detail">
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Phase
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Secondary
-                      </dd>
-                    </div>
-                                                            <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Academic year
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        This year (2024 to 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Expected date
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Any time in the academic year
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        11 to 18
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Establishment group
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Independent schools
-                      </dd>
-                    </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
@@ -672,12 +588,15 @@
           </div>
 
           <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Heaton Manor School</a></h2>
               {{ govukTag({
                 text: "Available",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -686,7 +605,8 @@
                         Secondary
                       </dd>
                     </div>
-                                                            <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Academic year
                       </dt>
@@ -694,6 +614,7 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
@@ -702,6 +623,7 @@
                         Any time in the academic year
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Age range
@@ -710,6 +632,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -718,66 +641,6 @@
                         Independent schools
                       </dd>
                     </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Requires improvement
-                      </dd>
-                    </div>
-                  </dl>
-          </div>
-
-          <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
-              {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-                <dl class="app-result-detail">
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Phase
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Secondary
-                      </dd>
-                    </div>
-                                                            <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Academic year
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        This year (2024 to 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Expected date
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Any time in the academic year
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        11 to 18
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Establishment group
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Independent schools
-                      </dd>
-                    </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
@@ -790,12 +653,15 @@
           </div>
 
           <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Jesmond Park Secondary School</a></h2>
               {{ govukTag({
                 text: "Available",
                 classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -804,7 +670,8 @@
                         Secondary
                       </dd>
                     </div>
-                                                            <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Academic year
                       </dt>
@@ -812,6 +679,7 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
@@ -820,6 +688,7 @@
                         Any time in the academic year
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Age range
@@ -828,6 +697,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -836,66 +706,6 @@
                         Independent schools
                       </dd>
                     </div>
-
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Ofsted rating
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Requires improvement
-                      </dd>
-                    </div>
-                  </dl>
-          </div>
-
-          <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Whitburn Church of England school<br>History</a></h2>
-              {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
-                }) }}
-                <dl class="app-result-detail">
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Phase
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Secondary
-                      </dd>
-                    </div>
-                                                            <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Academic year
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        This year (2024 to 2025)
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Expected date
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Any time in the academic year
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Age range
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        11 to 18
-                      </dd>
-                    </div>
-                    <div class="app-result-detail__row">
-                      <dt class="app-result-detail__key">
-                        Establishment group
-                      </dt>
-                      <dd class="app-result-detail__value">
-                        Independent schools
-                      </dd>
-                    </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
@@ -908,12 +718,15 @@
           </div>
 
           <div class="searchResult">
-              <h2 class="govuk-heading-s"><a href="placement-detail">Monkwearmouth school<br>History</a></h2>
+              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Mortimer School</a></h2>
               {{ govukTag({
-                text: "Available",
-                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                text: "Unavailable",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
                 }) }}
-                <dl class="app-result-detail">
+
+
+                  <dl class="app-result-detail">
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Phase
@@ -922,7 +735,8 @@
                         Secondary
                       </dd>
                     </div>
-                                                            <div class="app-result-detail__row">
+
+                    <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Academic year
                       </dt>
@@ -930,6 +744,7 @@
                         This year (2024 to 2025)
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Expected date
@@ -938,6 +753,7 @@
                         Any time in the academic year
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Age range
@@ -946,6 +762,7 @@
                         11 to 18
                       </dd>
                     </div>
+
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Establishment group
@@ -954,17 +771,305 @@
                         Independent schools
                       </dd>
                     </div>
-
                     <div class="app-result-detail__row">
                       <dt class="app-result-detail__key">
                         Ofsted rating
                       </dt>
                       <dd class="app-result-detail__value">
-                        Requires improvement
+                        Good
                       </dd>
                     </div>
                   </dl>
           </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Art and Design – Whitburn Church of England School</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Academic year
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        This year (2024 to 2025)
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Expected date
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Any time in the academic year
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Biology – Collegiate School</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Academic year
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        This year (2024 to 2025)
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Expected date
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Any time in the academic year
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Biology – Harrogate Grammar School</a></h2>
+              {{ govukTag({
+                text: "Unavailable",
+                classes: "govuk-tag--orange govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Academic year
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        This year (2024 to 2025)
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Expected date
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Any time in the academic year
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <div class="searchResult">
+              <h2 class="govuk-heading-m"><a href="placement-detail">Biology – St Anne's Catholic High School</a></h2>
+              {{ govukTag({
+                text: "Available",
+                classes: "govuk-tag--turquoise govuk-!-margin-top-0 govuk-!-margin-bottom-6"
+                }) }}
+
+
+                  <dl class="app-result-detail">
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Phase
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Secondary
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Academic year
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        This year (2024 to 2025)
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Expected date
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Any time in the academic year
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Age range
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        11 to 18
+                      </dd>
+                    </div>
+
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Establishment group
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Independent schools
+                      </dd>
+                    </div>
+                    <div class="app-result-detail__row">
+                      <dt class="app-result-detail__key">
+                        Ofsted rating
+                      </dt>
+                      <dd class="app-result-detail__value">
+                        Good
+                      </dd>
+                    </div>
+                  </dl>
+          </div>
+
+          <br>
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 2,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+
+
+
 
   </div>
 
