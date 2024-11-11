@@ -23,7 +23,8 @@
       <form action="find-school-filtered"  method="post">
       <h2 class="govuk-heading-m">Filter</h2>
       {{ govukButton({
-            text: "Apply filters"
+            text: "Apply filters",
+            href: "find-school-filtered"
           }) }}
 
         <div class="individualFilter">
@@ -65,8 +66,8 @@
             hint: {
               text: "Enter a town, city or postcode"
             },
-            id: "schoollocation",
-            name: "schoollocation",
+            id: "location",
+            name: "location",
             classes: "govuk-!-margin-bottom-1"
           }) }}
 
