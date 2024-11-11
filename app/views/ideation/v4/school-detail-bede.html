@@ -99,6 +99,38 @@
         ]
       }) }}
 
+      <h2 class="govuk-heading-m">Placement information</h2>
+
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Trained mentors"
+                },
+                value: {
+                 text: "Yes"
+                }
+              },
+              {
+                key: {
+                  text: "Placement status"
+                },
+                value: {
+                  html: "No recent placements"
+                }
+                },
+                  {
+                  key: {
+                    text: "Placements listed"
+                  },
+                  value: {
+                    html: "Not recorded"
+                  }
+              }
+            ]
+          }) }}
+
+
       <h2 class="govuk-heading-m">Placement contact</h2>
 
     {{ govukSummaryList({
