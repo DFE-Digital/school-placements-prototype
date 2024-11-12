@@ -127,6 +127,30 @@
           }) }}
       </div>
 
+       <div class="individualFilter">
+      {{ govukCheckboxes({
+        classes: "govuk-checkboxes--small",
+        name: "phase",
+        fieldset: {
+          legend: {
+            text: "Phase",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Primary",
+            text: "Primary"
+          },
+          {
+            value: "Secondary",
+            text: "Secondary"
+          }
+        ]
+      }) }}
+      </div>
+
       <div class="individualFilter">
           <h3 class="govuk-heading-s">Subject</h3>
           <input type="search" class="govuk-input govuk-!-margin-bottom-1" >
