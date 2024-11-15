@@ -13,4 +13,17 @@ router.get("/provider-users/v1-2/school-added", (req, res) => {
 })
 // Routes
 
+router.get("/provider-users/v1-2/placement-phase-filter", (req, res) => {
+    req.flash('success', 'Placement added')
+    if (req.session.data.phase == "primary") {
+        res.redirect(req.originalUrl.replace("placement-phase-filter","placements-primary"))
+    }
+    else if (req.session.data.phase == "secondary") {
+        res.redirect(req.originalUrl.replace("placement-phase-filter","placements-secondary"))
+    }
+    else {
+        res.redirect(req.originalUrl.replace("placement-phase-filter","placements"))
+    }
+})
+
 }
