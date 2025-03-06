@@ -1,0 +1,108 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Tell us why you aren’t able to host this year" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="not-hosting-contact" method="post">
+
+    {% set otherHtml %}
+    {{ govukInput({
+      id: "other-reason",
+      name: "otherReason",
+      label: {
+        text: "Tell us your reason"
+      }
+    }) }}
+    {% endset -%}
+
+    {{ govukCheckboxes({
+        name: "whynothosting",
+        fieldset: {
+          legend: {
+            text: "Tell us why you aren’t able to host this year",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Your answers will help Department for Education better understand how to improve managing ITT."
+        },
+        items: [
+          {
+            value: "traineequality",
+            text: "Concerns about trainee quality"
+          },
+          {
+            value: "nooffers",
+            text: "Don't get offered trainees"
+          },
+          {
+            value: "dontknowhow",
+            text: "Don't know how to get involved"
+          },
+          {
+            value: "notenoughmentors",
+            text: "Not enough trained mentors"
+          },
+          {
+            value: "numberofsend",
+            text: "Number of pupils with SEND needs"
+          },
+          {
+            value: "improvingofsted",
+            text: "Working to improve our OFSTED rating"
+          },{
+            value: "other",
+            text: "Other",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+      <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

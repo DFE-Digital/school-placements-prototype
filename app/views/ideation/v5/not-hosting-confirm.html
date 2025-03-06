@@ -1,0 +1,60 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Are you sure you do not want to be contacted about placements?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="not-hosting-success" method="post">
+
+          <span class="govuk-caption-l">Not interested in hosting this year</span>
+          <h1 class="govuk-heading-l">Are you sure you do not want to be contacted about placements?</h1>
+
+          <p>This will help providers know not to contact your school. You can change this at any time.</p>
+          <p>Your school will show as ‘not looking to host this year’.</p>
+          <p>We will ask you again in 12 months whether you would like to host placements.</p>
+
+
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+
+          <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Will you host placements this academic year (2025 - 2026)?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="hosting-question" method="post">
+
+    {{ govukRadios({
+        name: "hostingroute",
+        fieldset: {
+          legend: {
+            text: "Will you host placements this academic year (2025 - 2026)?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "hosting",
+            text: "Yes - Let providers know what I’m willing to host",
+            hint: {
+              text: "You know the subjects you want to host and may know which providers you want to work with"
+            }
+          },
+          {
+            value: "interested",
+            text: "Yes - Let providers know I am open to placements",
+            hint: {
+              text: "You haven’t yet decided on your placements. You want to hear from providers to discuss potential opportunities"
+            }
+          },
+          {
+            value: "nothosting",
+            text: "No - Let providers know I am not hosting and do not want to be contacted",
+            hint: {
+              text: "You do not want to hear from providers this academic year"
+            }
+          }
+        ]
+      }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}
