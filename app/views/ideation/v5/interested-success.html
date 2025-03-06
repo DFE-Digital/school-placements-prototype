@@ -1,0 +1,76 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Are you sure you do not want to be contacted about placements?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="not-hosting-confirm" method="post">
+
+
+          {% set html %}
+            <h3 class="govuk-notification-banner__heading">
+              Your  status has been updated to ‘interesed in hosting placements’
+            </h3>
+            <p class="govuk-body">This means providers can see that you’re looking to host placements.</p>
+          {% endset %}
+
+          {{ govukNotificationBanner({
+            html: html,
+            type: "success"
+          }) }}
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p>Providers who are looking for new schools to work with may get in touch.</p>
+
+          <p>You can also add <a href="placements">placement information</a> to help providers know what help you need.</p>
+
+          <p>Alternatively you can search for providers using our <a href="#">provider directory</a>.</p>
+
+
+          <h2 class="govuk-heading-m">Further help with ITT</h2>
+
+          <p>Find your local <a href="https://www.gov.uk/guidance/teaching-school-hubs">teaching school hub</a> (opens in new tab) to get advice on offering an ITT placement.</p>
+          <p>They’ll also be able to help you find a local accredited ITT provider to work with.</p>
+
+
+
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}
