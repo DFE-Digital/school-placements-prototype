@@ -1,0 +1,49 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Secondary subjects: Enter the number of placements you would be willing to host" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <form action="placements-providers"  method="post">
+
+        <span class="govuk-caption-l">Placement details</span>
+          <h1 class="govuk-heading-l">{{ pageName }}</h1>
+
+        {% for item in data['placementSubjectsSecondary'] %}
+        {{ govukInput({
+            label: {
+              text: item
+            },
+            classes: "govuk-input--width-2",
+            id: "event-name",
+            name: "eventName"
+          }) }}
+        {% endfor %}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+
+             <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

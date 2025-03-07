@@ -1,0 +1,61 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">Placements</h1>
+
+      <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+      <a href="add-multiple-placements-meta" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add multiple placements
+      </a>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

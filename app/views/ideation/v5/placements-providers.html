@@ -1,0 +1,70 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Select the providers you currently work with" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="placements-contact"  method="post">
+
+
+        {{ govukCheckboxes({
+            name: "providers",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "These are the providers you have worked with recently. Selecting will allow them to see your placement information. You can change this later."
+            },
+            items: [
+              {
+                value: "Select all",
+                text: "Select all"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Another Provider",
+                text: "Another Provider"
+              },
+              {
+                value: "Provider 123",
+                text: "Provider 123"
+              },
+              {
+                value: "Provid-a-placement",
+                text: "Provid-a-placement"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+
+            <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

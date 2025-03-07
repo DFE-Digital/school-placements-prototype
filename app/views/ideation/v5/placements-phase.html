@@ -1,0 +1,59 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="What phase of education will your placements be?" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+      <form action="phase" method="post">
+        {{ govukCheckboxes({
+            name: "placementPhase",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary",
+                text: "Primary",
+                hint: {
+                  text: "3 to 11 years"
+                  }
+              },
+              {
+                value: "Secondary",
+                text: "Secondary",
+                hint: {
+                  text: "11 to 19 years"
+                  }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+
+             <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Check your answers" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="placements" method="post">
+
+          <h1 class="govuk-heading-l">Check your answers</h1>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Education phase",
+                  classes: "govuk-heading-m"
+                }
+              },
+              {
+                key: {
+                  text: "Phase"
+                },
+                value: {
+                 text: data['placementPhase']
+                },
+              actions: {
+                  items: [
+                    {
+                      href: "placements-contact",
+                      text: "Change",
+                      visuallyHiddenText: "education phase"
+                    }
+                  ]
+                }
+            ]
+            }
+          }) }}
+
+          {% if data['phase'] === "primary" or data['phase'] === "both" %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Primary placements</h2>
+            <div class="govuk-!-margin-bottom-5">
+            {{ govukSummaryList({
+                  rows: [
+                    {
+                      key: {
+                        text: "Subject"
+                      },
+                      value: {
+                        text: "Number of placements",
+                        classes: "govuk-heading-s"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "placements-subjects-primary",
+                            text: "Change",
+                            visuallyHiddenText: "primary-placements"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  classes: "govuk-!-margin-bottom-0"
+                }) }}
+            {% for item in data['placementSubjectsPrimary'] %}
+              {{ govukSummaryList({
+                  rows: [
+                    {
+                      key: {
+                        text: item
+                      },
+                      value: {
+                        text: "X"
+                      }
+                    }
+                  ],
+                  classes: "govuk-!-margin-bottom-0"
+                }) }}
+              {% endfor %}
+              </div>
+          {% endif %}
+
+
+          {% if data['phase'] === "secondary" or data['phase'] === "both" %}
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Secondary placements</h2>
+            <div class="govuk-!-margin-bottom-5">
+            {{ govukSummaryList({
+                  rows: [
+                    {
+                      key: {
+                        text: "Subject"
+                      },
+                      value: {
+                        text: "Number of placements",
+                        classes: "govuk-heading-s"
+                      },
+                      actions: {
+                        items: [
+                          {
+                            href: "placements-subjects-secondary",
+                            text: "Change",
+                            visuallyHiddenText: "secondary-placements"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  classes: "govuk-!-margin-bottom-0"
+                }) }}
+            {% for item in data['placementSubjectsSecondary'] %}
+              {{ govukSummaryList({
+                  rows: [
+                    {
+                      key: {
+                        text: item
+                      },
+                      value: {
+                        text: "X"
+                      }
+                    }
+                  ],
+                  classes: "govuk-!-margin-bottom-0"
+                }) }}
+              {% endfor %}
+              </div>
+          {% endif %}
+
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "ITT contact",
+                  classes: "govuk-heading-m"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "placements-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "First name"
+                },
+                value: {
+                 text: data['firstName']
+                }
+              },
+              {
+                key: {
+                  text: "Last name"
+                },
+                value: {
+                 text: data['lastName']
+                }
+              },
+              {
+                key: {
+                  text: "Email"
+                },
+                value: {
+                  text: data['email']
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+
+          <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}
