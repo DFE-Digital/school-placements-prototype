@@ -17,16 +17,17 @@
 
         <span class="govuk-caption-l">Placement details</span>
           <h1 class="govuk-heading-l">{{ pageName }}</h1>
-
+      {% set numbersec = 0 %}
         {% for item in data['placementSubjectsSecondary'] %}
-        {{ govukInput({
-            label: {
-              text: item
-            },
-            classes: "govuk-input--width-2",
-            id: "event-name",
-            name: "eventName"
-          }) }}
+          {{ govukInput({
+              label: {
+                text: item
+              },
+              classes: "govuk-input--width-2",
+              id: "sec" + numbersec,
+              name: "sec" + numbersec
+            }) }}
+          {% set numbersec = numbersec + 1 %}
         {% endfor %}
 
           {{ govukButton({

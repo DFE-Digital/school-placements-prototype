@@ -41,4 +41,9 @@ router.get("/ideation/v5/submitprimary", (req, res) => {
     }
 })
 
+router.get("/ideation/v5/placements-done", (req, res) => {
+    req.flash('success', 'Placement information uploaded')
+    res.redirect(req.originalUrl.replace("placements-done","placements"))
+})
+
 }

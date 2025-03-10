@@ -12,7 +12,7 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="placements" method="post">
+    <form action="placements-done" method="post">
 
           <h1 class="govuk-heading-l">Check your answers</h1>
 
@@ -31,7 +31,7 @@
                 value: {
                  text: data['placementPhase']
                 },
-              actions: {
+                actions: {
                   items: [
                     {
                       href: "placements-contact",
@@ -40,13 +40,14 @@
                     }
                   ]
                 }
-            ]
-            }
+              }
+            ],
+          classes: "govuk-!-margin-bottom-7"
           }) }}
 
           {% if data['phase'] === "primary" or data['phase'] === "both" %}
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Primary placements</h2>
-            <div class="govuk-!-margin-bottom-5">
+            <div class="govuk-!-margin-bottom-7">
             {{ govukSummaryList({
                   rows: [
                     {
@@ -70,7 +71,9 @@
                   ],
                   classes: "govuk-!-margin-bottom-0"
                 }) }}
+            {% set number = 0 %}
             {% for item in data['placementSubjectsPrimary'] %}
+              {% set string = data[number] %}
               {{ govukSummaryList({
                   rows: [
                     {
@@ -78,12 +81,13 @@
                         text: item
                       },
                       value: {
-                        text: "X"
+                        text: string
                       }
                     }
                   ],
                   classes: "govuk-!-margin-bottom-0"
                 }) }}
+                {% set number = number + 1 %}
               {% endfor %}
               </div>
           {% endif %}
@@ -91,7 +95,7 @@
 
           {% if data['phase'] === "secondary" or data['phase'] === "both" %}
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Secondary placements</h2>
-            <div class="govuk-!-margin-bottom-5">
+            <div class="govuk-!-margin-bottom-7">
             {{ govukSummaryList({
                   rows: [
                     {
@@ -115,7 +119,51 @@
                   ],
                   classes: "govuk-!-margin-bottom-0"
                 }) }}
-            {% for item in data['placementSubjectsSecondary'] %}
+              {% set number = 0 %}
+              {% for item in data['placementSubjectsSecondary'] %}
+                {% set string = "sec" + number %}
+                {% set string2 = data[string] %}
+                {{ govukSummaryList({
+                    rows: [
+                      {
+                        key: {
+                          text: item
+                        },
+                        value: {
+                          text: string2
+                        }
+                      }
+                    ],
+                    classes: "govuk-!-margin-bottom-0"
+                  }) }}
+                {% set number = number + 1 %}
+              {% endfor %}
+              </div>
+          {% endif %}
+
+          <div class="govuk-!-margin-bottom-7">
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Providers",
+                  classes: "govuk-heading-m"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "placements-providers",
+                      text: "Change",
+                      visuallyHiddenText: "providers"
+                    }
+                  ]
+                }
+              }
+            ],
+                classes: "govuk-!-margin-bottom-0"
+          }) }}
+
+          {% for item in data['providers'] %}
               {{ govukSummaryList({
                   rows: [
                     {
@@ -123,16 +171,14 @@
                         text: item
                       },
                       value: {
-                        text: "X"
+                        text: string
                       }
                     }
                   ],
                   classes: "govuk-!-margin-bottom-0"
                 }) }}
               {% endfor %}
-              </div>
-          {% endif %}
-
+          </div>
 
           {{ govukSummaryList({
             rows: [

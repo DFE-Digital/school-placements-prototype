@@ -17,19 +17,18 @@
 
         <span class="govuk-caption-l">Placement details</span>
           <h1 class="govuk-heading-l">{{ pageName }}</h1>
-
+        {% set number = 0 %}
         {% for item in data['placementSubjectsPrimary'] %}
-
-
 
           {{ govukInput({
               label: {
                 text: item
               },
               classes: "govuk-input--width-2",
-              id: "event-name",
-              name: "eventName"
+              id: number,
+              name: number
             }) }}
+          {% set number = number + 1 %}
           {% endfor %}
 
 
