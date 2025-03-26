@@ -1,0 +1,148 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Placements" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = false %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  {{ govukNotificationBanner({
+    type: "success",
+    html: '<h2 class="govuk-heading-m">' + flash + '</h2><p>Providers can see your placement preferences and may contact you to discuss them.</p><p>You can add details to your placements such as expected date and provider.</p>'
+  }) if flash.length }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-l">Placements</h1>
+
+          <p>Add and edit placements to let providers know your preferences.</p>
+
+      <a href="add-placement-phase" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        Add placement
+      </a>
+      <a href="add-multiple-placements-meta" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add multiple placements
+      </a>
+  </div>
+
+</div>
+
+<div class="govuk-grid-row">
+
+           {% set number = 0 %}
+           {% set totalprim = 0 %}
+            {% for item in data['placementSubjectsPrimary'] %}
+                {% set string = data[number] %}
+                {% set number = number + 1 %}
+                {% set totalprim = totalprim | float + string | float %}
+            {% endfor %}
+
+            {% set number2 = 0 %}
+            {% set totalsec = 0 %}
+            {% for item in data['placementSubjectsSecondary'] %}
+                {% set string = "sec" + number2 %}
+                {% set string2 = data[string] %}
+                {% set number2 = number2 + 1 %}
+                {% set totalsec = totalsec | float + string2 | float %}
+            {% endfor %}
+
+  <div class="govuk-grid-column-full">
+
+    {% if data['placementSubjectsPrimary'] %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">{{ totalprim }} primary placements</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Subject</th>
+          <th scope="col" class="govuk-table__header">Mentors</th>
+          <th scope="col" class="govuk-table__header">Expected dates</th>
+          <th scope="col" class="govuk-table__header">Providers</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% set number = 0 %}
+        {% for item in data['placementSubjectsPrimary'] %}
+          {% set string = data[number] %}
+                {% for item in data['placementSubjectsPrimary'] %}
+                  {% if loop.index0 < string %}
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="#">{{ data['placementSubjectsPrimary'][number] }}</a></th>
+                        <td class="govuk-table__cell">Mentor not assigned</td>
+                        <td class="govuk-table__cell">Date not added</td>
+                        <td class="govuk-table__cell">Provider not added</td>
+                      </tr>
+                  {% endif %}
+                {% endfor %}
+          {% set number = number + 1 %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if data['placementSubjectsSecondary'] %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">{{ totalsec }} secondary placements</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Subject</th>
+          <th scope="col" class="govuk-table__header">Mentors</th>
+          <th scope="col" class="govuk-table__header">Expected dates</th>
+          <th scope="col" class="govuk-table__header">Providers</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% set number = 0 %}
+        {% for item in data['placementSubjectsSecondary'] %}
+          {% set string = "sec" + number %}
+           {% set string2 = data[string] %}
+                {% for item in data['placementSubjectsSecondary'] %}
+                  {% if loop.index0 < string2 %}
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="#">{{ data['placementSubjectsSecondary'][number] }}</a></th>
+                        <td class="govuk-table__cell">Mentor not assigned</td>
+                        <td class="govuk-table__cell">Date not added</td>
+                        <td class="govuk-table__cell">Provider not assigned</td>
+                      </tr>
+                  {% endif %}
+                {% endfor %}
+          {% set number = number + 1 %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% endif %}
+
+</div>
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

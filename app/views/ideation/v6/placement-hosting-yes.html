@@ -1,0 +1,77 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Do you know which subjects you would like to host? " %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="hosting-question-two" method="post">
+
+    {{ govukRadios({
+        name: "hostingroute",
+        fieldset: {
+          legend: {
+            text: "Do you know which subjects you would like to host? ",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "hosting",
+            text: "Yes",
+            hint: {
+              text: "You know the subjects you want to host and may know which providers you want to work with"
+            }
+          },
+          {
+            value: "interested",
+            text: "No",
+            hint: {
+              text: "You haven’t yet decided. You want to hear from providers to discuss potential opportunities"
+            }
+          }
+        ]
+      }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+
+<link rel="stylesheet" href="/public/sass/accessible-autocomplete.min.css" />
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+
+  const countries = [
+    'Hazlewood Junior School',
+    'Outwood Academy Freeston',
+    'Whitburn Church of England School',
+    'The Whitby High school'
+  ]
+
+  accessibleAutocomplete({
+    element: document.querySelector('#my-autocomplete-container'),
+    id: 'my-autocomplete', // To match it to the existing <label>.
+    source: countries
+  })
+</script>
+
+{% endblock %}

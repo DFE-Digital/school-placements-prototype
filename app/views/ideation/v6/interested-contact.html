@@ -1,6 +1,6 @@
 {% extends "layouts/user-school-v2.html" %}
 
-{% set pageName="Who is the preferred contact for next year?" %}
+{% set pageName="Who should providers contact?" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,12 +12,11 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="not-hosting-confirm" method="post">
+    <form action="interested-confirm" method="post">
 
-          <span class="govuk-caption-l">Expression of interest</span>
-          <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Who is the preferred contact for next year?</h1>
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Who should providers contact?</h1>
 
-          <p class="govuk-hint">We will ask in the next academic year about ITT placements. The preferred contact may be you, or someone else at your school.</p>
+          <p class="govuk-hint">Choose the person best placed to organise ITT placements at your school. This information will be shown on your profile.</p>
 
           {{ govukInput({
             label: {

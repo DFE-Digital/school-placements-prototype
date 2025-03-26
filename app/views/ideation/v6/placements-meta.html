@@ -1,6 +1,6 @@
 {% extends "layouts/user-school-v2.html" %}
 
-{% set pageName="What phase of education will your placements be?" %}
+{% set pageName="Select an academic year" %}
 
 {% set primaryNavId = "placements" %}
 
@@ -12,9 +12,10 @@
 
   <div class="govuk-grid-column-two-thirds">
 
-      <form action="phase" method="post">
-        {{ govukCheckboxes({
-            name: "placementPhase",
+      <form action="add-multiple-placements-phase" method="post">
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukRadios({
+            name: "placementYear",
             fieldset: {
               legend: {
                 text: pageName,
@@ -23,33 +24,30 @@
               }
             },
             hint: {
-              text: "Select all that apply. If you are a SEND school, select the year groups most relevant."
+              text: "Placements will default to being expected at any point in this academic year. This can be edited for each placement if needed."
             },
             items: [
               {
-                value: "Primary",
-                text: "Primary",
-                hint: {
-                  text: "3 to 11 years"
-                  }
+                value: "This academic year (2024 to 2025)",
+                text: "This academic year (2024 to 2025)"
               },
               {
-                value: "Secondary",
-                text: "Secondary",
-                hint: {
-                  text: "11 to 19 years"
-                  }
+                value: "Next academic year (2025 to 2026)",
+                text: "Next academic year (2025 to 2026)"
               }
             ]
           }) }}
 
+
+
           {{ govukButton({
             text: "Continue"
           }) }}
+
       </form>
 
+     <p class="govuk-body"><a href="placements">Cancel</a></p>
 
-             <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
 
   </div>
 

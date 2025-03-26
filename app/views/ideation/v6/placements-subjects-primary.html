@@ -1,0 +1,76 @@
+{% extends "layouts/user-school-v2.html" %}
+
+{% set pageName="Select primary school subjects" %}
+
+{% set primaryNavId = "placements" %}
+
+{% set back = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-two-thirds">
+
+        <form action="placements-subjects-primary-numbers"  method="post">
+
+        <span class="govuk-caption-l">Placement details</span>
+        {{ govukCheckboxes({
+            name: "placementSubjectsPrimary",
+            fieldset: {
+              legend: {
+                text: pageName,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Primary",
+                text: "Primary"
+              },
+              {
+                value: "Primary with English",
+                text: "Primary with English"
+              },
+              {
+                value: "Primary with geography and history",
+                text: "Primary with geography and history"
+              },
+              {
+                value: "Primary with mathematics",
+                text: "Primary with mathematics"
+              },
+              {
+                value: "Primary with modern languages",
+                text: "Primary with modern languages"
+              },
+              {
+                value: "Primary with physical education",
+                text: "Primary with physical education"
+              },
+              {
+                value: "Primary with science",
+                text: "Primary with science"
+              }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+
+
+            <p class="govuk-body"><a href="placement-hosting" class="govuk-link govuk-link--no-visited-state">Cancel</a></p>
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+
+{% endblock %}
