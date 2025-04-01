@@ -22,7 +22,7 @@ router.get("/ideation/v6/hosting-question", (req, res) => {
         res.redirect(req.originalUrl.replace("hosting-question","placement-hosting-yes"))
     }
     else if (req.session.data.hostingroute == "interested") {
-        res.redirect(req.originalUrl.replace("hosting-question","interested-contact"))
+        res.redirect(req.originalUrl.replace("hosting-question","placement-hosting-yes"))
     }
     else {
         res.redirect(req.originalUrl.replace("hosting-question","not-hosting-why"))
@@ -46,7 +46,7 @@ router.get("/ideation/v6/submitprimary", (req, res) => {
         res.redirect(req.originalUrl.replace("submitprimary","placements-subjects-secondary"))
     }
     else {
-        res.redirect(req.originalUrl.replace("submitprimary","placements-providers"))
+        res.redirect(req.originalUrl.replace("submitprimary","placements-contact"))
     }
 })
 
