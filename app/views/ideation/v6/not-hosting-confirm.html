@@ -54,44 +54,47 @@
                 }
               ]
             }
-          },
-          {
-            key: {
-              text: "Contact name"
-            },
-            value: {
-              text: data['firstName']+" "+data['lastName']
-            },
-            actions: {
-              items: [
-                {
-                  href: "not-hosting-contact",
-                  text: "Change",
-                  visuallyHiddenText: "contact name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Contact email"
-            },
-            value: {
-              text: data['email']
-            },
-            actions: {
-              items: [
-                {
-                  href: "not-hosting-contact",
-                  text: "Change",
-                  visuallyHiddenText: "contact email"
-                }
-              ]
-            }
+          }
 
           }
         ]
       }) }}
+
+      {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "ITT contact",
+                  classes: "govuk-heading-m"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "placements-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact first name"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                 text: data['firstName']+" "+data['lastName']
+                }
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: data['email']
+                }
+              }
+            ]
+          }) }}
 
           {{ govukButton({
             text: "Confirm"

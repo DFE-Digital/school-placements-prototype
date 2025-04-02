@@ -21,49 +21,41 @@
             <p>You haven’t added any placement information so providers cannot see any of your preferences.</p>
 
 
-          <h2 class="govuk-heading-s">Contact details</h2>
-
-           {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: data['firstName']+" "+data['lastName']
-            },
-            actions: {
-              items: [
-                {
-                  href: "not-hosting-contact",
-                  text: "Change",
-                  visuallyHiddenText: "contact name"
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "ITT contact",
+                  classes: "govuk-heading-m"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "placements-contact",
+                      text: "Change",
+                      visuallyHiddenText: "ITT contact first name"
+                    }
+                  ]
                 }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Email"
-            },
-            value: {
-              text: data['email']
-            },
-            actions: {
-              items: [
-                {
-                  href: "not-hosting-contact",
-                  text: "Change",
-                  visuallyHiddenText: "contact email"
+              },
+              {
+                key: {
+                  text: "Name"
+                },
+                value: {
+                 text: data['firstName']+" "+data['lastName']
                 }
-              ]
-            }
-
-          }
-        ]
-      }) }}
-
+              },
+              {
+                key: {
+                  text: "Email address"
+                },
+                value: {
+                  text: data['email']
+                }
+              }
+            ]
+          }) }}
           {{ govukButton({
             text: "Confirm"
           }) }}
